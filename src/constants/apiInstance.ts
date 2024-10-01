@@ -1,8 +1,6 @@
 import axios, { InternalAxiosRequestConfig } from "axios";
 import { TOKEN } from "./configToken";
 
-const tokenCybersoft = TOKEN.tokenCybersoft;
-
 export const apiInstance = {
   create: (setting?: Partial<InternalAxiosRequestConfig>) => {
     const axiosInstance = axios.create();
@@ -13,7 +11,7 @@ export const apiInstance = {
         ...setting,
         headers: {
           ...(setting?.headers || {}),
-          tokenCybersoft,
+          TokenCyberSoft: TOKEN.tokenCybersoft,
         },
       } as unknown as InternalAxiosRequestConfig;
     });

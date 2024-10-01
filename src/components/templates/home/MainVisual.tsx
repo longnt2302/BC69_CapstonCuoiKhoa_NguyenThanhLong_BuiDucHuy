@@ -1,18 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { viTriServices } from "../../../services/viTri";
+import { sleep } from "../../../utils";
 
 export const MainVisual = () => {
-  const viTri = async () => {
-    try {
-      const dataViTri = await viTriServices.getViTri();
-      console.log("dataViTri: ", dataViTri?.data?.content);
-      return dataViTri;
-    } catch (error) {
-      console.log("error: ", error);
-    }
-  };
-
-  const data = viTri();
+  const { data } = useQuery({
+    queryKey: ["getViTri"],
+    queryFn: async () => {
+      await sleep(1000);
+      return viTriServices.getViTri();
+    },
+  });
 
   return (
     <section className="hero-section hidden-section">
@@ -44,16 +41,20 @@ export const MainVisual = () => {
               </select>
             </div>
             <div className="main-search-input-item">
-              <select data-placeholder="All Categories" className="chosen-select">
-                <option>All Cities</option>
-                <option>New York</option>
-                <option>London</option>
-                <option>Paris</option>
-                <option>Kiev</option>
-                <option>Moscow</option>
-                <option>Dubai</option>
-                <option>Rome</option>
-                <option>Beijing</option>
+              <select
+                data-placeholder="All Categories"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "transparent",
+                  color: "white",
+                }}
+              >
+                {data?.data?.content?.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.tenViTri}
+                  </option>
+                ))}
               </select>
             </div>
             <button className="main-search-button color-bg" onClick={() => (window.location.href = "listing.html")}>

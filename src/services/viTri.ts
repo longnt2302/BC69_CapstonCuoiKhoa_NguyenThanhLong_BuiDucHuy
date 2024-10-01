@@ -6,5 +6,5 @@ const api = apiInstance.create({
 });
 
 export const viTriServices = {
-  getViTri: async () => api.get<HttpResponse<viTriAPIResponse>>("/vi-tri"),
+  getViTri: async () => api.get<HttpResponse<viTriAPIResponse[]>>("/vi-tri"),
 };

@@ -1,5 +1,5 @@
 type HttpResponse<T> = {
   statusCode: number;
-  message: string;
+  message?: string;
   content: T;
 };
