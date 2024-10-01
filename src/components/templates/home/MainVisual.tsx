@@ -48,6 +48,7 @@ export const MainVisual = () => {
                   height: "100%",
                   backgroundColor: "transparent",
                   color: "white",
+                  padding: "0 15px",
                 }}
               >
                 {data?.data?.content?.map((item) => (

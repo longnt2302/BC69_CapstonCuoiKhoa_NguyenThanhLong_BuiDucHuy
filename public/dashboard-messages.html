@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    
+<!-- Mirrored from homeradar.kwst.net/dark/dashboard-messages.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2024 03:32:57 GMT -->
+<head>
+        <!--=============== basic  ===============-->
+        <meta charset="UTF-8">
+        <title>Homeradar - Real Estate Listing Template</title>
+ 
+        <meta name="robots" content="index, follow"/>
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <!--=============== css  ===============-->	
+        <link type="text/css" rel="stylesheet" href="css/plugins.css">
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/dashboard-style.css">
+		<link type="text/css" rel="stylesheet" href="css/dark-style.css">
+        <link type="text/css" rel="stylesheet" href="css/color.css">
+        <!--=============== favicons ===============-->
+        <link rel="shortcut icon" href="images/favicon.ico">
+    </head>
+    <body>
+        <!--loader-->
+        <div class="loader-wrap">
+            <div class="loader-inner">
+                <svg>
+                    <defs>
+                        <filter id="goo">
+                            <fegaussianblur in="SourceGraphic" stdDeviation="2" result="blur" />
+                            <fecolormatrix in="blur"   values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 5 -2" result="gooey" />
+                            <fecomposite in="SourceGraphic" in2="gooey" operator="atop"/>
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+        <!--loader end-->
+        <!-- main -->
+        <div id="main">
+            <!-- header -->
+            <header class="main-header">
+                <!--  logo  -->
+                <div class="logo-holder"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+                <!-- logo end  -->
+                <!-- nav-button-wrap--> 
+                <div class="nav-button-wrap color-bg nvminit">
+                    <div class="nav-button">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <!-- nav-button-wrap end-->	
+                <!-- header-search button  -->
+                <div class="header-search-button">
+                    <i class="fal fa-search"></i>
+                    <span>Search...</span>
+                </div>
+                <!-- header-search button end  -->
+                <!--  add new  btn -->
+                <div class="add-list_wrap">
+                    <a href="dashboard-add-listing.html" class="add-list color-bg"><i class="fal fa-plus"></i> <span>Add Listing</span></a>
+                </div>
+                <!--  add new  btn end -->
+                <!--  header-opt_btn -->
+                <div class="header-opt_btn tolt" data-microtip-position="bottom"  data-tooltip="Language / Currency">
+                    <span><i class="fal fa-globe"></i></span>
+                </div>
+                <!--  header-opt_btn end -->
+                <!--  cart-btn   -->
+                <div class="cart-btn  tolt show-header-modal" data-microtip-position="bottom"  data-tooltip="Your Wishlist / Compare">
+                    <i class="fal fa-bell"></i>
+                    <span class="cart-btn_counter color-bg">5</span>
+                </div>
+                <!--  cart-btn end -->
+                <!--  login btn -->
+                <div class="show-reg-form dasbdord-submenu-open"><img src="images/avatar/5.jpg" alt=""></div>
+                <!--  login btn  end -->
+                <!--  dashboard-submenu-->
+                <div class="dashboard-submenu">
+                    <div class="dashboard-submenu-title fl-wrap">Welcome , <span>Alica Noory</span></div>
+                    <ul>
+                        <li><a href="dashboard.html"><i class="fal fa-chart-line"></i>Dashboard</a></li>
+                        <li><a href="dashboard-add-listing.html"> <i class="fal fa-file-plus"></i>Add Listing</a></li>
+                        <li><a href="dashboard-myprofile.html"><i class="fal fa-user-edit"></i>Settings</a></li>
+                    </ul>
+                    <a href="index.html" class="color-bg db_log-out"><i class="far fa-power-off"></i> Log Out</a>
+                </div>
+                <!--  dashboard-submenu  end -->
+                <!--  navigation --> 
+                <div class="nav-holder main-menu">
+                    <nav>
+                        <ul class="no-list-style">
+                            <li>
+                                <a href="#">Home <i class="fa fa-caret-down"></i></a>
+                                <!--second level -->   
+                                <ul>
+                                    <li><a href="index.html">Parallax Image</a></li>
+                                    <li><a href="index2.html">Slider</a></li>
+                                    <li><a href="index3.html">Video</a></li>
+                                    <li><a href="index4.html">Slideshow</a></li>
+                                </ul>
+                                <!--second level end-->
+                            </li>
+                            <li>
+                                <a href="#">Listings <i class="fa fa-caret-down"></i></a>
+                                <!--second level -->
+                                <ul>
+                                    <li><a href="listing.html">Column map</a></li>
+                                    <li><a href="listing2.html">Column map 2</a></li>
+                                    <li><a href="listing3.html">Fullwidth Map</a></li>
+                                    <li><a href="listing4.html">Fullwidth Map 2</a></li>
+                                    <li><a href="listing5.html">Without Map</a></li>
+                                    <li><a href="listing6.html">Without Map 2</a></li>
+                                    <li>
+                                        <a href="#">Single <i class="fa fa-caret-down"></i></a>
+                                        <!--third  level  -->
+                                        <ul>
+                                            <li><a href="listing-single.html">Style 1</a></li>
+                                            <li><a href="listing-single2.html">Style 2</a></li>
+                                            <li><a href="listing-single3.html">Style 3</a></li>
+                                        </ul>
+                                        <!--third  level end-->
+                                    </li>
+                                </ul>
+                                <!--second level end-->
+                            </li>
+                            <li>
+                                <a href="#">Agents<i class="fa fa-caret-down"></i></a>
+                                <!--second level -->   
+                                <ul>
+                                    <li><a href="agent-list.html">Agent List</a></li>
+                                    <li><a href="agency-list.html">Agency List</a></li>
+                                    <li><a href="agent-single.html">Agent Single</a></li>
+                                    <li><a href="agency-single.html">Agency Single</a></li>
+                                </ul>
+                                <!--second level end-->
+                            </li>
+                            <li>
+                                <a href="blog.html">News</a>
+                            </li>
+                            <li>
+                                <a href="#" class="act-link">Pages <i class="fa fa-caret-down"></i></a>
+                                <!--second level -->   
+                                <ul>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="contacts.html">Contacts</a></li>
+                                    <li><a href="help.html">Help FAQ</a></li>
+                                    <li><a href="pricing.html">Pricing </a></li>
+                                    <li><a href="dashboard.html">User Dashboard</a></li>
+                                    <li><a href="blog-single.html">Blog Single</a></li>
+                                    <li><a href="compare.html">Compare</a></li>
+                                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                                    <li><a href="404.html">404</a></li>
+                                </ul>
+                                <!--second level end-->                                
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- navigation  end -->
+                <!-- header-search-wrapper -->
+                <div class="header-search-wrapper novis_search">
+                    <div class="header-serach-menu">
+                        <div class="custom-switcher fl-wrap">
+                            <div class="fieldset fl-wrap">
+                                <input type="radio" name="duration-1"  id="buy_sw" class="tariff-toggle" checked>
+                                <label for="buy_sw">Buy</label>
+                                <input type="radio" name="duration-1" class="tariff-toggle"  id="rent_sw">
+                                <label for="rent_sw" class="lss_lb">Rent</label>
+                                <span class="switch color-bg"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="custom-form">
+                        <form method="post"  name="registerform">
+                            <label>Keywords </label>
+                            <input type="text" placeholder="Address , Street , State..." value=""/>
+                            <label >Categories</label>
+                            <select data-placeholder="Categories" class="chosen-select on-radius no-search-select" >
+                                <option>All Categories</option>
+                                <option>House</option>
+                                <option>Apartment</option>
+                                <option>Hotel</option>
+                                <option>Villa</option>
+                                <option>Office</option>
+                            </select>
+                            <label style="margin-top:10px;" >Price Range</label>
+                            <div class="price-rage-item fl-wrap">
+                                <input type="text" class="price-range" data-min="100" data-max="100000"  name="price-range1"  data-step="1" value="1" data-prefix="$">
+                            </div>
+                            <button onclick="location.href='listing.html'" type="button"  class="btn float-btn color-bg"><i class="fal fa-search"></i> Search</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- header-search-wrapper end  -->				
+                <!-- wishlist-wrap--> 
+                <div class="header-modal novis_wishlist tabs-act">
+                    <ul class="tabs-menu fl-wrap no-list-style">
+                        <li class="current"><a href="#tab-wish">  Wishlist <span>- 3</span></a></li>
+                        <li><a href="#tab-compare">  Compare <span>- 2</span></a></li>
+                    </ul>
+                    <!--tabs -->                       
+                    <div class="tabs-container">
+                        <div class="tab">
+                            <!--tab -->
+                            <div id="tab-wish" class="tab-content first-tab">
+                                <!-- header-modal-container--> 
+                                <div class="header-modal-container scrollbar-inner fl-wrap" data-simplebar>
+                                    <!--widget-posts-->
+                                    <div class="widget-posts  fl-wrap">
+                                        <ul class="no-list-style">
+                                            <li>
+                                                <div class="widget-posts-img"><a href="listing-single.html"><img src="images/all/small/1.jpg" alt=""></a>  
+                                                </div>
+                                                <div class="widget-posts-descr">
+                                                    <h4><a href="listing-single.html">Affordable Urban Room</a></h4>
+                                                    <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> 40 Journal Square  , NJ, USA</a></div>
+                                                    <div class="widget-posts-descr-price"><span>Price: </span> $ 1500 / per month</div>
+                                                    <div class="clear-wishlist"><i class="fal fa-trash-alt"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="widget-posts-img"><a href="listing-single.html"><img src="images/all/small/2.jpg" alt=""></a>
+                                                </div>
+                                                <div class="widget-posts-descr">
+                                                    <h4><a href="listing-single.html">Family House</a></h4>
+                                                    <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> 34-42 Montgomery St , NY, USA</a></div>
+                                                    <div class="widget-posts-descr-price"><span>Price: </span> $ 50.000</div>
+                                                    <div class="clear-wishlist"><i class="fal fa-trash-alt"></i></div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="widget-posts-img"><a href="listing-single.html"><img src="images/all/small/3.jpg" alt=""></a>
+                                                </div>
+                                                <div class="widget-posts-descr">
+                                                    <h4><a href="listing-single.html">Apartment to Rent</a></h4>
+                                                    <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i>75 Prince St, NY, USA</a></div>
+                                                    <div class="widget-posts-descr-price"><span>Price: </span> $100 / per night</div>
+                                                    <div class="clear-wishlist"><i class="fal fa-trash-alt"></i></div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- widget-posts end-->
+                                </div>
+                                <!-- header-modal-container end--> 
+                                <div class="header-modal-top fl-wrap">
+                                    <div class="clear_wishlist color-bg"><i class="fal fa-trash-alt"></i> Clear all</div>
+                                </div>
+                            </div>
+                            <!--tab end -->
+                            <!--tab -->
+                            <div class="tab">
+                                <div id="tab-compare" class="tab-content">
+                                    <!-- header-modal-container--> 
+                                    <div class="header-modal-container scrollbar-inner fl-wrap" data-simplebar>
+                                        <!--widget-posts-->
+                                        <div class="widget-posts  fl-wrap">
+                                            <ul class="no-list-style">
+                                                <li>
+                                                    <div class="widget-posts-img"><a href="listing-single.html"><img src="images/all/small/4.jpg" alt=""></a>  
+                                                    </div>
+                                                    <div class="widget-posts-descr">
+                                                        <h4><a href="listing-single.html">Gorgeous house for sale</a></h4>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i>  70 Bright St New York, USA </a></div>
+                                                        <div class="widget-posts-descr-price"><span>Price: </span> $ 52.100</div>
+                                                        <div class="clear-wishlist"><i class="fal fa-trash-alt"></i></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="widget-posts-img"><a href="listing-single.html"><img src="images/all/small/5.jpg" alt=""></a>
+                                                    </div>
+                                                    <div class="widget-posts-descr">
+                                                        <h4><a href="listing-single.html">Family Apartments</a></h4>
+                                                        <div class="geodir-category-location fl-wrap"><a href="#"><i class="fas fa-map-marker-alt"></i> W 85th St, New York, USA </a></div>
+                                                        <div class="widget-posts-descr-price"><span>Price: </span> $ 72.400</div>
+                                                        <div class="clear-wishlist"><i class="fal fa-trash-alt"></i></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- widget-posts end-->
+                                    </div>
+                                    <!-- header-modal-container end--> 										
+                                    <div class="header-modal-top fl-wrap">
+                                        <a class="clear_wishlist color-bg" href="compare.html"><i class="fal fa-random"></i> Compare</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--tab end -->
+                        </div>
+                        <!--tabs end -->							
+                    </div>
+                </div>
+                <!--wishlist-wrap end -->                            
+                <!--header-opt-modal-->  
+                <div class="header-opt-modal novis_header-mod">
+                    <div class="header-opt-modal-container hopmc_init">
+                        <div class="header-opt-modal-item lang-item fl-wrap">
+                            <h4>Language: <span>EN</span></h4>
+                            <div class="header-opt-modal-list fl-wrap">
+                                <ul>
+                                    <li><a href="#" class="current-lan" data-lantext="EN">English</a></li>
+                                    <li><a href="#" data-lantext="FR">Franais</a></li>
+                                    <li><a href="#" data-lantext="ES">Espaol</a></li>
+                                    <li><a href="#" data-lantext="DE">Deutsch</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header-opt-modal-item currency-item fl-wrap">
+                            <h4>Currency: <span>USD</span></h4>
+                            <div class="header-opt-modal-list fl-wrap">
+                                <ul>
+                                    <li><a href="#" class="current-lan" data-lantext="USD">USD</a></li>
+                                    <li><a href="#" data-lantext="EUR">EUR</a></li>
+                                    <li><a href="#" data-lantext="GBP">GBP</a></li>
+                                    <li><a href="#" data-lantext="RUR">RUR</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--header-opt-modal end -->  
+            </header>
+            <!-- header end  -->	
+            <!-- wrapper  -->	
+            <div id="wrapper">
+                <!-- dashbard-menu-wrap -->
+                <div class="dashbard-menu-overlay"></div>
+                <div class="dashbard-menu-wrap">
+                    <div class="dashbard-menu-close"><i class="fal fa-times"></i></div>
+                    <div class="dashbard-menu-container">
+                        <!-- user-profile-menu-->
+                        <div class="user-profile-menu">
+                            <h3>Main</h3>
+                            <ul class="no-list-style">
+                                <li><a href="dashboard.html"><i class="fal fa-chart-line"></i>Dashboard</a></li>
+                                <li><a href="dashboard-myprofile.html"><i class="fal fa-user-edit"></i> Edit profile</a></li>
+                                <li><a href="dashboard-messages.html" class="user-profile-act"><i class="fal fa-envelope"></i> Messages <span>3</span></a></li>
+                                <li><a href="dashboard-agents.html"><i class="fal fa-users"></i> Agents List</a></li>
+                                <li>
+                                    <a href="#" class="submenu-link"><i class="fal fa-plus"></i>Submenu</a>
+                                    <ul  class="no-list-style">
+                                        <li><a href="#"><i class="fal fa-th-list"></i> Submenu 2 </a></li>
+                                        <li><a href="#"> <i class="fal fa-calendar-check"></i> Submenu 2</a></li>
+                                        <li><a href="#"><i class="fal fa-comments-alt"></i>Submenu 2</a></li>
+                                        <li><a href="#"><i class="fal fa-file-plus"></i> Submenu 2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- user-profile-menu end-->
+                        <!-- user-profile-menu-->
+                        <div class="user-profile-menu">
+                            <h3>Listings</h3>
+                            <ul  class="no-list-style">
+                                <li><a href="dashboard-listing-table.html"><i class="fal fa-th-list"></i> My listigs  </a></li>
+                                <li><a href="dashboard-bookings.html"> <i class="fal fa-calendar-check"></i> Bookings <span>2</span></a></li>
+                                <li><a href="dashboard-review.html"><i class="fal fa-comments-alt"></i> Reviews </a></li>
+                                <li><a href="dashboard-add-listing.html"><i class="fal fa-file-plus"></i> Add New</a></li>
+                            </ul>
+                        </div>
+                        <!-- user-profile-menu end--> 			
+                    </div>
+                    <div class="dashbard-menu-footer"> &#169;  Homeradar 2022 .  All rights reserved.</div>
+                </div>
+                <!-- dashbard-menu-wrap end  -->		
+                <!-- content -->	
+                <div class="dashboard-content">
+                    <div class="dashboard-menu-btn color-bg"><span><i class="fas fa-bars"></i></span>Dasboard Menu</div>
+                    <div class="container dasboard-container">
+                        <!-- dashboard-title -->	
+                        <div class="dashboard-title fl-wrap">
+                            <div class="dashboard-title-item"><span>Messages</span></div>
+                            <div class="dashbard-menu-header">
+                                <div class="dashbard-menu-avatar fl-wrap">
+                                    <img src="images/avatar/5.jpg" alt="">
+                                    <h4>Welcome, <span>Alica Noory</span></h4>
+                                </div>
+                                <a href="index.html" class="log-out-btn   tolt" data-microtip-position="bottom"  data-tooltip="Log Out"><i class="far fa-power-off"></i></a>
+                            </div>
+                            <!--Tariff Plan menu-->
+                            <div class="tfp-det-container">
+                                <div   class="tfp-btn"><span>Your Tariff Plan : </span> <strong>Extended</strong></div>
+                                <div class="tfp-det">
+                                    <p>You Are on <a href="#">Extended</a> . Use link bellow to view details or upgrade. </p>
+                                    <a href="#" class="tfp-det-btn color-bg">Details</a>
+                                </div>
+                            </div>
+                            <!--Tariff Plan menu end-->						
+                        </div>
+                        <!-- dashboard-title end -->		
+                        <div class="dasboard-wrapper fl-wrap no-pag">
+                            <!-- dashboard-list-box-->
+                            <div class="dashboard-list-box fl-wrap">
+                                <div class="dasboard-widget-title fl-wrap">
+                                    <h5><i class="fas fa-comment-alt"></i>Last Messages<span> ( +3 New ) </span></h5>
+                                    <a href="#" class="mark-btn  tolt" data-microtip-position="bottom"  data-tooltip="Mark all as read"><i class="far fa-comment-alt-check"></i> </a>
+                                </div>
+                                <div class="chat-wrapper fl-wrap">
+                                    <!-- chat-box-->
+                                    <div class="chat-box fl-wrap">
+                                        <div class="chat-box-scroll fl-wrap full-height" data-simplebar="init">
+                                            <!-- message-->
+                                            <div class="chat-message   fl-wrap">
+                                                <div class="dashboard-message-avatar">
+                                                    <img src="images/avatar/4.jpg" alt="">
+                                                    <span class="chat-message-user-name cmun_sm">Andy</span>
+                                                </div>
+                                                <span class="massage-date">25 may 2018  <span>7.51 PM</span></span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                            <!-- message end-->
+                                            <!-- message-->
+                                            <div class="chat-message chat-message_user fl-wrap">
+                                                <div class="dashboard-message-avatar">
+                                                    <img src="images/avatar/5.jpg" alt="">
+                                                    <span class="chat-message-user-name cmun_sm">Alica</span>
+                                                </div>
+                                                <span class="massage-date">25 may 2018  <span>7.51 PM</span></span>
+                                                <p>Nulla eget erat consequat quam feugiat dapibus eget sed mauris.</p>
+                                            </div>
+                                            <!-- message end-->
+                                            <!-- message-->
+                                            <div class="chat-message   fl-wrap">
+                                                <div class="dashboard-message-avatar">
+                                                    <img src="images/avatar/4.jpg" alt="">
+                                                    <span class="chat-message-user-name cmun_sm">Andy</span>
+                                                </div>
+                                                <span class="massage-date">25 may 2018  <span>7.51 PM</span></span>
+                                                <p>Sed non neque faucibus, condimentum lectus at, accumsan enim. Fusce pretium egestas cursus..</p>
+                                            </div>
+                                            <!-- message end-->
+                                            <!-- message-->
+                                            <div class="chat-message chat-message_user fl-wrap">
+                                                <div class="dashboard-message-avatar">
+                                                    <img src="images/avatar/5.jpg" alt="">
+                                                    <span class="chat-message-user-name cmun_sm">Alica</span>
+                                                </div>
+                                                <span class="massage-date">25 may 2018  <span>7.51 PM</span></span>
+                                                <p>Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat .</p>
+                                            </div>
+                                            <!-- message end-->
+                                        </div>
+                                    </div>
+                                    <div class="chat-widget_input">
+                                        <textarea placeholder="Type Message" ></textarea>
+                                        <button type="submit" class="color-bg"><i class="fal fa-paper-plane"></i></button>
+                                    </div>
+                                    <!-- chat-box end-->
+                                    <!-- chat-contacts-->
+                                    <div class="chat-contacts">
+                                        <!-- chat-contacts-item-->
+                                        <a class="chat-contacts-item" href="#">
+                                            <div class="dashboard-message-avatar">
+                                                <img src="images/avatar/3.jpg" alt="">
+                                                <div class="message-counter">2</div>
+                                            </div>
+                                            <div class="chat-contacts-item-text">
+                                                <h4>Mark Rose</h4>
+                                                <span>27 Dec 2018 </span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                        </a>
+                                        <!-- chat-contacts-item -->
+                                        <!-- chat-contacts-item-->
+                                        <a class="chat-contacts-item chat-contacts-item_active" href="#">
+                                            <div class="dashboard-message-avatar">
+                                                <img src="images/avatar/4.jpg" alt="">
+                                            </div>
+                                            <div class="chat-contacts-item-text">
+                                                <h4>Adam Koncy</h4>
+                                                <span>27 Dec 2018 </span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                        </a>
+                                        <!-- chat-contacts-item -->
+                                        <!-- chat-contacts-item-->
+                                        <a class="chat-contacts-item" href="#">
+                                            <div class="dashboard-message-avatar">
+                                                <img src="images/avatar/1.jpg" alt="">
+                                                <div class="message-counter">3</div>
+                                            </div>
+                                            <div class="chat-contacts-item-text">
+                                                <h4>Andy Smith</h4>
+                                                <span>27 Dec 2018 </span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                        </a>
+                                        <!-- chat-contacts-item -->
+                                        <!-- chat-contacts-item-->
+                                        <a class="chat-contacts-item" href="#">
+                                            <div class="dashboard-message-avatar">
+                                                <img src="images/avatar/5.jpg" alt="">
+                                                <div class="message-counter">4</div>
+                                            </div>
+                                            <div class="chat-contacts-item-text">
+                                                <h4>Joe Frick</h4>
+                                                <span>27 Dec 2018 </span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                        </a>
+                                        <!-- chat-contacts-item -->
+                                        <!-- chat-contacts-item-->
+                                        <a class="chat-contacts-item" href="#">
+                                            <div class="dashboard-message-avatar">
+                                                <img src="images/avatar/2.jpg" alt="">
+                                            </div>
+                                            <div class="chat-contacts-item-text">
+                                                <h4>Alise Goovy</h4>
+                                                <span>27 Dec 2018 </span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                        </a>
+                                        <!-- chat-contacts-item -->
+                                        <!-- chat-contacts-item-->
+                                        <a class="chat-contacts-item" href="#">
+                                            <div class="dashboard-message-avatar">
+                                                <img src="images/avatar/3.jpg" alt="">
+                                            </div>
+                                            <div class="chat-contacts-item-text">
+                                                <h4>Freddy Kovalsky</h4>
+                                                <span>27 Dec 2018 </span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                        </a>
+                                        <!-- chat-contacts-item -->
+                                        <!-- chat-contacts-item-->
+                                        <a class="chat-contacts-item" href="#">
+                                            <div class="dashboard-message-avatar">
+                                                <img src="images/avatar/6.jpg" alt="">
+                                            </div>
+                                            <div class="chat-contacts-item-text">
+                                                <h4>Cristiano Olando</h4>
+                                                <span>27 Dec 2018 </span>
+                                                <p>Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.</p>
+                                            </div>
+                                        </a>
+                                        <!-- chat-contacts-item -->
+                                    </div>
+                                    <!-- chat-contacts end-->
+                                </div>
+                                <!-- dashboard-list-box end-->			
+                            </div>
+                        </div>
+                    </div>
+                    <!-- dashboard-footer -->
+                    <div class="dashboard-footer">
+                        <div class="dashboard-footer-links fl-wrap">
+                            <span>Helpfull Links:</span>
+                            <ul>
+                                <li><a href="about.html">About  </a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="pricing.html">Pricing Plans</a></li>
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="help.html">Help Center</a></li>
+                            </ul>
+                        </div>
+                        <a href="#main" class="dashbord-totop  custom-scroll-link"><i class="fas fa-caret-up"></i></a>
+                    </div>
+                    <!-- dashboard-footer end -->
+                </div>
+                <!-- content end -->	
+                <div class="dashbard-bg gray-bg"></div>
+            </div>
+            <!-- wrapper end -->
+        </div>
+        <!-- Main end -->
+        <!--=============== scripts  ===============-->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/dashboard.js"></script>
+    </body>
+
+<!-- Mirrored from homeradar.kwst.net/dark/dashboard-messages.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Sep 2024 03:32:57 GMT -->
+</html>
