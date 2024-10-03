@@ -31,10 +31,17 @@ export const MainVisual = () => {
         <div className="main-search-input-wrap shadow_msiw msiw-center">
           <div className="main-search-input fl-wrap">
             <div className="main-search-input-item">
-              <input type="text" placeholder="What are you looking for?" className="text-white" />
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                className="text-white"
+              />
             </div>
             <div className="main-search-input-item">
-              <select data-placeholder="All Categories" className="chosen-select no-search-select">
+              <select
+                data-placeholder="All Categories"
+                className="chosen-select no-search-select"
+              >
                 <option>All Statuses</option>
                 <option>For Rent</option>
                 <option>For Sale</option>
@@ -46,7 +53,7 @@ export const MainVisual = () => {
                 style={{
                   width: "100%",
                   height: "100%",
-                  backgroundColor: "transparent",
+                  backgroundColor: "#1B182B",
                   color: "white",
                   padding: "0 15px",
                 }}
@@ -58,7 +65,10 @@ export const MainVisual = () => {
                 ))}
               </select>
             </div>
-            <button className="main-search-button color-bg" onClick={() => (window.location.href = "listing.html")}>
+            <button
+              className="main-search-button color-bg"
+              onClick={() => (window.location.href = "listing.html")}
+            >
               {" "}
               Search <i className="far fa-search"></i>{" "}
             </button>
