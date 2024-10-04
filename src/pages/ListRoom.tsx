@@ -4,7 +4,7 @@ import { Breadcrumb } from "../components/ui";
 import { ListItem } from "../components/templates/parts";
 
 export const ListRoom = () => {
-  const { cityName } = useParams();
+  const { cityName } = useParams<string>();
   return (
     <>
       <MainHead />

@@ -1,15 +1,14 @@
 import { useSearchViTri } from "../../../hooks/api";
-type Props = {
-  tenViTri: string;
+type Props<T> = {
+  tenViTri: T;
 };
-export const ListItem = (props: Props) => {
+export const ListItem = (props: Props<string | undefined>) => {
   const { tenViTri } = props;
   const { data } = useSearchViTri(tenViTri);
-  console.log("data: ", data?.hinhAnh);
   return (
     <div className="basis-1/3 p-3">
       <a href="#">
-        <img src={data?.hinhAnh} alt={tenViTri} />
+        <img src={data?.data[0].hinhAnh} alt={tenViTri} />
         <p>{tenViTri}</p>
         <p>{data?.quocGia}</p>
       </a>

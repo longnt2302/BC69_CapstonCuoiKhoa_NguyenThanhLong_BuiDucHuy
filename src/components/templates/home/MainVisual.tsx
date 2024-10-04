@@ -3,8 +3,6 @@ import { viTriServices } from "../../../services";
 import { sleep } from "../../../utils";
 import { useNavigate } from "react-router-dom";
 import { Select } from "antd";
-import { useRef, useState } from "react";
-import { calc } from "antd/es/theme/internal";
 
 export const MainVisual = () => {
   const { data } = useQuery({
@@ -15,10 +13,6 @@ export const MainVisual = () => {
     },
   });
   const navigate = useNavigate();
-
-  const handleChange = (value: string) => {
-    return value;
-  };
 
   return (
     <section className="hero-section hidden-section">

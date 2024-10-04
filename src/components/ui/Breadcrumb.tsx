@@ -1,8 +1,7 @@
-import React from "react";
-type Props = {
-  currentPage: string;
+type Props<T> = {
+  currentPage: T;
 };
-export const Breadcrumb = (props: Props) => {
+export const Breadcrumb = (props: Props<string | undefined>) => {
   const { currentPage } = props;
   return (
     <div className="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { objectToQueryString } from "../../utils";
 import { viTriServices } from "../../services";
 
-export const useSearchViTri = (keyword: string) => {
+export const useSearchViTri = (keyword?: string) => {
   const query = useQuery({
     queryKey: ["ViTriDetail", keyword],
     queryFn: () => {
@@ -16,6 +16,6 @@ export const useSearchViTri = (keyword: string) => {
   });
   return {
     ...query,
-    data: query?.data?.data?.content?.data[0],
+    data: query?.data?.data?.content,
   };
 };
