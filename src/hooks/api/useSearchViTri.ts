@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { objectToQueryString } from "../../utils";
-import { viTriServices } from "../../services/viTri";
+import { viTriServices } from "../../services";
 
 export const useSearchViTri = (keyword: string) => {
   const query = useQuery({

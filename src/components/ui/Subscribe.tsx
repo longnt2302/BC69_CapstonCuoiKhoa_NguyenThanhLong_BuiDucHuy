@@ -26,11 +26,18 @@ export const Subscribe = () => {
                         spellCheck="false"
                         type="text"
                       />
-                      <button type="submit" id="subscribe-button" className="subscribe-button color-bg">
+                      <button
+                        type="submit"
+                        id="subscribe-button"
+                        className="subscribe-button color-bg"
+                      >
                         {" "}
                         Subscribe
                       </button>
-                      <label htmlFor="subscribe-email" className="subscribe-message"></label>
+                      <label
+                        htmlFor="subscribe-email"
+                        className="subscribe-message"
+                      ></label>
                     </form>
                   </div>
                 </div>

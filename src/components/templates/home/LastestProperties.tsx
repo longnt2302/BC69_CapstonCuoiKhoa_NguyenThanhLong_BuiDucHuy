@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { viTriServices } from "../../../services/viTri";
-import { ListItem } from "./ListItem";
+import { viTriServices } from "../../../services";
+import { ListItem } from "../parts";
 import { sleep } from "../../../utils";
 
 export const LastestProperties = () => {
@@ -24,11 +24,6 @@ export const LastestProperties = () => {
         </div>
         <div className="clearfix"></div>
 
-        {/* <div className="grid-item-holder gallery-items gisp fl-wrap">
-          {data?.data?.content?.map((item) => (
-            <ListItem key={item.id} tenViTri={item.tenViTri} />
-          ))}
-        </div> */}
         <div className="grid md:grid-cols-3 grid-cols-2 gap-3 gallery-list">
           {data?.data?.content?.map((item) => (
             <ListItem key={item.id} tenViTri={item.tenViTri} />

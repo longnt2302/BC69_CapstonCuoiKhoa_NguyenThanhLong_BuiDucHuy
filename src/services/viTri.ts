@@ -7,6 +7,6 @@ const api = apiInstance.create({
 
 export const viTriServices = {
   getViTri: () => api.get<HttpResponse<viTriAPIResponse[]>>("/vi-tri"),
-  searchViTri: async (query = "") =>
+  searchViTri: (query = "") =>
     api.get<{} | undefined>(`/vi-tri/phan-trang-tim-kiem${query}`),
 };

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { viTriServices } from "../../../services/viTri";
+import { viTriServices } from "../../../services";
 import { sleep } from "../../../utils";
 
 export const MainVisual = () => {
