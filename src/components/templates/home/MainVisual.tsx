@@ -1,6 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { viTriServices } from "../../../services";
 import { sleep } from "../../../utils";
+import { useNavigate } from "react-router-dom";
+import { Select } from "antd";
+import { useRef, useState } from "react";
+import { calc } from "antd/es/theme/internal";
 
 export const MainVisual = () => {
   const { data } = useQuery({
@@ -10,6 +14,11 @@ export const MainVisual = () => {
       return viTriServices.getViTri();
     },
   });
+  const navigate = useNavigate();
+
+  const handleChange = (value: string) => {
+    return value;
+  };
 
   return (
     <section className="hero-section hidden-section">
@@ -29,49 +38,30 @@ export const MainVisual = () => {
           </h2>
         </div>
         <div className="main-search-input-wrap shadow_msiw msiw-center">
-          <div className="main-search-input fl-wrap">
+          <div
+            className="main-search-input fl-wrap"
+            style={{
+              padding: 0,
+            }}
+          >
             <div className="main-search-input-item">
-              <input
-                type="text"
-                placeholder="What are you looking for?"
-                className="text-white"
+              <input type="text" placeholder="What are you looking for?" className="text-white" />
+            </div>
+            <div
+              className="main-search-input-item"
+              style={{
+                width: "calc(100% - 33.3%)",
+              }}
+            >
+              <Select
+                defaultValue="Chọn Khu Vực"
+                style={{ width: "100%", height: "100%", backgroundColor: "#1B182B", color: "white" }}
+                onChange={(value) => {
+                  navigate(`/${value}`);
+                }}
+                options={data?.data?.content?.map((item) => ({ value: item.tenViTri, label: item.tenViTri }))}
               />
             </div>
-            <div className="main-search-input-item">
-              <select
-                data-placeholder="All Categories"
-                className="chosen-select no-search-select"
-              >
-                <option>All Statuses</option>
-                <option>For Rent</option>
-                <option>For Sale</option>
-              </select>
-            </div>
-            <div className="main-search-input-item">
-              <select
-                data-placeholder="All Categories"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  backgroundColor: "#1B182B",
-                  color: "white",
-                  padding: "0 15px",
-                }}
-              >
-                {data?.data?.content?.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.tenViTri}
-                  </option>
-                ))}
-              </select>
-            </div>
-            <button
-              className="main-search-button color-bg"
-              onClick={() => (window.location.href = "listing.html")}
-            >
-              {" "}
-              Search <i className="far fa-search"></i>{" "}
-            </button>
           </div>
         </div>
         <div className="hero-notifer hn_center fl-wrap">
