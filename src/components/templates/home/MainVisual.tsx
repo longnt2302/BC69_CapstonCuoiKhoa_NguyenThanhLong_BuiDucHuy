@@ -15,7 +15,7 @@ export const MainVisual = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="hero-section hidden-section">
+    <section className="hero-section hidden-section px-4">
       <div className="media-container bg-parallax-wrap-gradien">
         <div className="video-container">
           <video autoPlay loop muted className="bgvid">
@@ -32,28 +32,30 @@ export const MainVisual = () => {
           </h2>
         </div>
         <div className="main-search-input-wrap shadow_msiw msiw-center">
-          <div
-            className="main-search-input fl-wrap"
-            style={{
-              padding: 0,
-            }}
-          >
-            <div className="main-search-input-item">
-              <input type="text" placeholder="What are you looking for?" className="text-white" />
+          <div className="main-search-input flex flex-wrap md:p-0">
+            <div className="main-search-input-item w-2/3">
+              <input
+                type="text"
+                placeholder="Tìm kiếm"
+                className="text-white"
+              />
             </div>
-            <div
-              className="main-search-input-item"
-              style={{
-                width: "calc(100% - 33.3%)",
-              }}
-            >
+            <div className="main-search-input-item w-1/3">
               <Select
                 defaultValue="Chọn Khu Vực"
-                style={{ width: "100%", height: "100%", backgroundColor: "#1B182B", color: "white" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "#1B182B",
+                  color: "white",
+                }}
                 onChange={(value) => {
                   navigate(`/${value}`);
                 }}
-                options={data?.data?.content?.map((item) => ({ value: item.tenViTri, label: item.tenViTri }))}
+                options={data?.data?.content?.map((item) => ({
+                  value: item.tenViTri,
+                  label: item.tenViTri,
+                }))}
               />
             </div>
           </div>
