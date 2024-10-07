@@ -14,8 +14,8 @@ export const LastestProperties = () => {
   return (
     <section className="gray-bg small-padding">
       <div className="container">
-        <div className="row">
-          <div className="col-md-4">
+        <div className="block">
+          <div className="md:w-1/3 w-full">
             <div className="section-title fl-wrap">
               <h4>Browse Hot Offers</h4>
               <h2>Latest Properties</h2>
@@ -24,7 +24,7 @@ export const LastestProperties = () => {
         </div>
         <div className="clearfix"></div>
 
-        <div className="flex flex-grow flex-wrap">
+        <div className="grid md:grid-cols-3 grid-cols-2 gap-4">
           {data?.data?.content?.map((item) => (
             <ListItem key={item.id} tenViTri={item.tenViTri} />
           ))}

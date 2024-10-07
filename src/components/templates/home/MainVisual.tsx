@@ -16,7 +16,7 @@ export const MainVisual = () => {
 
   console.log("🚀 ~ MainVisual ~ data:", data);
   return (
-    <section className="hero-section hidden-section">
+    <section className="hero-section hidden-section px-4">
       <div className="media-container bg-parallax-wrap-gradien">
         <div className="video-container">
           <video autoPlay loop muted className="bgvid">
@@ -46,12 +46,7 @@ export const MainVisual = () => {
                 className="text-white"
               />
             </div>
-            <div
-              className="main-search-input-item"
-              style={{
-                width: "calc(100% - 33.3%)",
-              }}
-            >
+            <div className="main-search-input-item w-1/3">
               <Select
                 defaultValue="Chọn Khu Vực"
                 style={{

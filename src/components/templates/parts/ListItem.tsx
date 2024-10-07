@@ -10,13 +10,7 @@ export const ListItem = (props: Props) => {
   const navigate = useNavigate();
   return (
     <div className="basis-1/3 p-3">
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          navigate(`/${tenViTri}`);
-        }}
-      >
+      <a href="#">
         <img src={data?.data[0].hinhAnh} alt={tenViTri} />
         <p>{tenViTri}</p>
         <p>{data?.quocGia}</p>
