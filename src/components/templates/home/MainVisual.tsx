@@ -14,6 +14,7 @@ export const MainVisual = () => {
   });
   const navigate = useNavigate();
 
+  console.log("🚀 ~ MainVisual ~ data:", data);
   return (
     <section className="hero-section hidden-section">
       <div className="media-container bg-parallax-wrap-gradien">
@@ -39,7 +40,11 @@ export const MainVisual = () => {
             }}
           >
             <div className="main-search-input-item">
-              <input type="text" placeholder="What are you looking for?" className="text-white" />
+              <input
+                type="text"
+                placeholder="What are you looking for?"
+                className="text-white"
+              />
             </div>
             <div
               className="main-search-input-item"
@@ -49,11 +54,19 @@ export const MainVisual = () => {
             >
               <Select
                 defaultValue="Chọn Khu Vực"
-                style={{ width: "100%", height: "100%", backgroundColor: "#1B182B", color: "white" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  backgroundColor: "#1B182B",
+                  color: "white",
+                }}
                 onChange={(value) => {
                   navigate(`/${value}`);
                 }}
-                options={data?.data?.content?.map((item) => ({ value: item.tenViTri, label: item.tenViTri }))}
+                options={data?.data?.content?.map((item) => ({
+                  value: item.tenViTri,
+                  label: item.tenViTri,
+                }))}
               />
             </div>
           </div>

@@ -1,8 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import { PATH } from "../constants";
-import { Home, Login } from "../pages";
+import { Home, Login, ListRoom } from "../pages";
 import { MainLayout } from "../components/layouts";
-import { ListRoom } from "../pages/ListRoom";
 
 export const routers = () =>
   useRoutes([
