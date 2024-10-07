@@ -21,7 +21,6 @@ export const ListRoom = () => {
     (viTri) => viTri?.tenViTri === cityName
   );
 
-  console.log("🚀 ~ ListRoom ~ filterData:", filterData?.id);
   const { data: dataRoom } = useQuery({
     queryKey: ["getRoomByViTri"],
     queryFn: async () => {
@@ -41,7 +40,7 @@ export const ListRoom = () => {
 
       <div className="container">
         <div className="clearfix"></div>
-        <div className="flex flex-row">
+        <div className="listing-item-container three-columns-grid  box-list_ic fl-wrap">
           {dataRoom?.data?.content?.map((room) => (
             <ItemRoom key={room?.id} roomDetail={room} />
           ))}
