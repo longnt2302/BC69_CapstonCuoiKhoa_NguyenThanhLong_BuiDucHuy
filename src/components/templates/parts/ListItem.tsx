@@ -1,24 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { useSearchViTri } from "../../../hooks/api";
-type Props<T> = {
-  tenViTri: T;
+type Props = {
+  key: number;
+  tenViTri: string | undefined;
 };
-export const ListItem = (props: Props<string | undefined>) => {
+export const ListItem = (props: Props) => {
   const { tenViTri } = props;
   const { data } = useSearchViTri(tenViTri);
+  const navigate = useNavigate();
   return (
-    <div className="mb-3">
+    <div className="basis-1/3 p-3">
       <a href="#">
-        <div className="pt-[56.25%] relative w-full">
-          <img
-            src={data?.data[0].hinhAnh}
-            alt={tenViTri}
-            className="w-full h-full object-cover absolute top-0 left-0"
-          />
-        </div>
-        <p className="md:text-[18px] text-[16px] font-medium text-white md:pt-3 md:pb-2 pt-2 pb-1">
-          {tenViTri}
-        </p>
-        <p>{data?.data[0].quocGia}</p>
+        <img src={data?.data[0].hinhAnh} alt={tenViTri} />
+        <p>{tenViTri}</p>
+        <p>{data?.quocGia}</p>
       </a>
     </div>
   );

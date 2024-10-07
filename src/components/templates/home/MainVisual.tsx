@@ -14,6 +14,7 @@ export const MainVisual = () => {
   });
   const navigate = useNavigate();
 
+  console.log("🚀 ~ MainVisual ~ data:", data);
   return (
     <section className="hero-section hidden-section px-4">
       <div className="media-container bg-parallax-wrap-gradien">
@@ -32,11 +33,16 @@ export const MainVisual = () => {
           </h2>
         </div>
         <div className="main-search-input-wrap shadow_msiw msiw-center">
-          <div className="main-search-input flex flex-wrap md:p-0">
-            <div className="main-search-input-item w-2/3">
+          <div
+            className="main-search-input fl-wrap"
+            style={{
+              padding: 0,
+            }}
+          >
+            <div className="main-search-input-item">
               <input
                 type="text"
-                placeholder="Tìm kiếm"
+                placeholder="What are you looking for?"
                 className="text-white"
               />
             </div>

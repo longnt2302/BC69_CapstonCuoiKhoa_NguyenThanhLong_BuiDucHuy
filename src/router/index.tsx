@@ -1,7 +1,11 @@
 import { useRoutes } from "react-router-dom";
+<<<<<<< HEAD
 import { Home } from "../pages";
+=======
+import { PATH } from "../constants";
+import { Home, Login, ListRoom, SingleRoom } from "../pages";
+>>>>>>> main
 import { MainLayout } from "../components/layouts";
-import { ListRoom } from "../pages/ListRoom";
 
 export const routers = () =>
   useRoutes([
@@ -15,6 +19,10 @@ export const routers = () =>
         {
           path: "/:cityName",
           element: <ListRoom />,
+        },
+        {
+          path: "/:cityName/:roomName",
+          element: <SingleRoom />,
         },
       ],
     },
