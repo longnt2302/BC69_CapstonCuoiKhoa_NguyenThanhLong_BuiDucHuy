@@ -3,7 +3,7 @@ export const Header = () => {
     <header className="main-header">
       <div className="logo-holder">
         <a href="/">
-          <img src="./assets/images/logo.png" alt="..." />
+          <img src="/assets/images/logo.png" alt="..." />
         </a>
       </div>
 
@@ -26,7 +26,11 @@ export const Header = () => {
         </a>
       </div>
 
-      <div className="header-opt_btn tolt" data-microtip-position="bottom" data-tooltip="Language / Currency">
+      <div
+        className="header-opt_btn tolt"
+        data-microtip-position="bottom"
+        data-tooltip="Language / Currency"
+      >
         <span>
           <i className="fal fa-globe"></i>
         </span>
@@ -177,9 +181,19 @@ export const Header = () => {
         <div className="header-serach-menu">
           <div className="custom-switcher fl-wrap">
             <div className="fieldset fl-wrap">
-              <input type="radio" name="duration-1" id="buy_sw" className="tariff-toggle" />
+              <input
+                type="radio"
+                name="duration-1"
+                id="buy_sw"
+                className="tariff-toggle"
+              />
               <label htmlFor="buy_sw">Buy</label>
-              <input type="radio" name="duration-1" className="tariff-toggle" id="rent_sw" />
+              <input
+                type="radio"
+                name="duration-1"
+                className="tariff-toggle"
+                id="rent_sw"
+              />
               <label htmlFor="rent_sw" className="lss_lb">
                 Rent
               </label>
@@ -192,7 +206,10 @@ export const Header = () => {
             <label>Keywords </label>
             <input type="text" placeholder="Address , Street , State..." />
             <label>Categories</label>
-            <select data-placeholder="Categories" className="chosen-select on-radius no-search-select">
+            <select
+              data-placeholder="Categories"
+              className="chosen-select on-radius no-search-select"
+            >
               <option>All Categories</option>
               <option>House</option>
               <option>Apartment</option>
@@ -212,7 +229,11 @@ export const Header = () => {
                 data-prefix="$"
               />
             </div>
-            <button onClick={() => (location.href = "listing.html")} type="button" className="btn float-btn color-bg">
+            <button
+              onClick={() => (location.href = "listing.html")}
+              type="button"
+              className="btn float-btn color-bg"
+            >
               <i className="fal fa-search"></i> Search
             </button>
           </form>
@@ -238,22 +259,28 @@ export const Header = () => {
         <div className="tabs-container">
           <div className="tab">
             <div id="tab-wish" className="tab-content first-tab">
-              <div className="header-modal-container scrollbar-inner fl-wrap" data-simplebar>
+              <div
+                className="header-modal-container scrollbar-inner fl-wrap"
+                data-simplebar
+              >
                 <div className="widget-posts  fl-wrap">
                   <ul className="no-list-style">
                     <li>
                       <div className="widget-posts-img">
                         <a href="listing-single.html">
-                          <img src="./assets/images/all/small/1.jpg" alt="..." />
+                          <img src="/assets/images/all/small/1.jpg" alt="..." />
                         </a>
                       </div>
                       <div className="widget-posts-descr">
                         <h4>
-                          <a href="listing-single.html">Affordable Urban Room</a>
+                          <a href="listing-single.html">
+                            Affordable Urban Room
+                          </a>
                         </h4>
                         <div className="geodir-category-location fl-wrap">
                           <a href="#">
-                            <i className="fas fa-map-marker-alt"></i> 40 Journal Square , NJ, USA
+                            <i className="fas fa-map-marker-alt"></i> 40 Journal
+                            Square , NJ, USA
                           </a>
                         </div>
                         <div className="widget-posts-descr-price">
@@ -267,7 +294,7 @@ export const Header = () => {
                     <li>
                       <div className="widget-posts-img">
                         <a href="listing-single.html">
-                          <img src="./assets/images/all/small/2.jpg" alt="..." />
+                          <img src="/assets/images/all/small/2.jpg" alt="..." />
                         </a>
                       </div>
                       <div className="widget-posts-descr">
@@ -276,7 +303,8 @@ export const Header = () => {
                         </h4>
                         <div className="geodir-category-location fl-wrap">
                           <a href="#">
-                            <i className="fas fa-map-marker-alt"></i> 34-42 Montgomery St , NY, USA
+                            <i className="fas fa-map-marker-alt"></i> 34-42
+                            Montgomery St , NY, USA
                           </a>
                         </div>
                         <div className="widget-posts-descr-price">
@@ -290,7 +318,7 @@ export const Header = () => {
                     <li>
                       <div className="widget-posts-img">
                         <a href="listing-single.html">
-                          <img src="./assets/images/all/small/3.jpg" alt="..." />
+                          <img src="/assets/images/all/small/3.jpg" alt="..." />
                         </a>
                       </div>
                       <div className="widget-posts-descr">
@@ -299,7 +327,8 @@ export const Header = () => {
                         </h4>
                         <div className="geodir-category-location fl-wrap">
                           <a href="#">
-                            <i className="fas fa-map-marker-alt"></i>75 Prince St, NY, USA
+                            <i className="fas fa-map-marker-alt"></i>75 Prince
+                            St, NY, USA
                           </a>
                         </div>
                         <div className="widget-posts-descr-price">
@@ -323,22 +352,31 @@ export const Header = () => {
 
             <div className="tab">
               <div id="tab-compare" className="tab-content">
-                <div className="header-modal-container scrollbar-inner fl-wrap" data-simplebar>
+                <div
+                  className="header-modal-container scrollbar-inner fl-wrap"
+                  data-simplebar
+                >
                   <div className="widget-posts  fl-wrap">
                     <ul className="no-list-style">
                       <li>
                         <div className="widget-posts-img">
                           <a href="listing-single.html">
-                            <img src="./assets/images/all/small/4.jpg" alt="..." />
+                            <img
+                              src="/assets/images/all/small/4.jpg"
+                              alt="..."
+                            />
                           </a>
                         </div>
                         <div className="widget-posts-descr">
                           <h4>
-                            <a href="listing-single.html">Gorgeous house for sale</a>
+                            <a href="listing-single.html">
+                              Gorgeous house for sale
+                            </a>
                           </h4>
                           <div className="geodir-category-location fl-wrap">
                             <a href="#">
-                              <i className="fas fa-map-marker-alt"></i> 70 Bright St New York, USA{" "}
+                              <i className="fas fa-map-marker-alt"></i> 70
+                              Bright St New York, USA{" "}
                             </a>
                           </div>
                           <div className="widget-posts-descr-price">
@@ -352,7 +390,10 @@ export const Header = () => {
                       <li>
                         <div className="widget-posts-img">
                           <a href="listing-single.html">
-                            <img src="./assets/images/all/small/5.jpg" alt="..." />
+                            <img
+                              src="/assets/images/all/small/5.jpg"
+                              alt="..."
+                            />
                           </a>
                         </div>
                         <div className="widget-posts-descr">
@@ -361,7 +402,8 @@ export const Header = () => {
                           </h4>
                           <div className="geodir-category-location fl-wrap">
                             <a href="#">
-                              <i className="fas fa-map-marker-alt"></i> W 85th St, New York, USA{" "}
+                              <i className="fas fa-map-marker-alt"></i> W 85th
+                              St, New York, USA{" "}
                             </a>
                           </div>
                           <div className="widget-posts-descr-price">
