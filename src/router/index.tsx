@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import { PATH } from "../constants";
-import { Home, Login, ListRoom } from "../pages";
+import { Home, Login, ListRoom, SingleRoom } from "../pages";
 import { MainLayout } from "../components/layouts";
 
 export const routers = () =>
@@ -15,6 +15,10 @@ export const routers = () =>
         {
           path: "/:cityName",
           element: <ListRoom />,
+        },
+        {
+          path: "/:cityName/:roomName",
+          element: <SingleRoom />,
         },
       ],
     },
