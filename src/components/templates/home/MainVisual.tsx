@@ -14,7 +14,6 @@ export const MainVisual = () => {
   });
   const navigate = useNavigate();
 
-  console.log("🚀 ~ MainVisual ~ data:", data);
   return (
     <section className="hero-section hidden-section px-4">
       <div className="media-container bg-parallax-wrap-gradien">
@@ -33,12 +32,7 @@ export const MainVisual = () => {
           </h2>
         </div>
         <div className="main-search-input-wrap shadow_msiw msiw-center">
-          <div
-            className="main-search-input fl-wrap"
-            style={{
-              padding: 0,
-            }}
-          >
+          <div className="main-search-input fl-wrap flex flex-wrap justify-between md:p-0">
             <div className="main-search-input-item">
               <input
                 type="text"
