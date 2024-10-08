@@ -20,7 +20,7 @@ export const MainVisual = () => {
       <div className="media-container bg-parallax-wrap-gradien">
         <div className="video-container">
           <video autoPlay loop muted className="bgvid">
-            <source src="./assets/video/1.mp4" type="video/mp4" />
+            <source src="/assets/video/1.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
