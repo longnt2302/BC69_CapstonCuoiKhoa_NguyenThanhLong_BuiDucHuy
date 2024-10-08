@@ -10,4 +10,6 @@ export const roomServices = {
     api.get<HttpResponse<RoomResponse[]>>(
       `/phong-thue/lay-phong-theo-vi-tri${query}`
     ),
+  getRoomById: (id: string | undefined) =>
+    api.get<HttpResponse<RoomResponse>>(`/phong-thue/${id}`),
 };

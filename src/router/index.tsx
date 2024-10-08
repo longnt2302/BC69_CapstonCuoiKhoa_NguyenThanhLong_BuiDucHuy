@@ -17,7 +17,7 @@ export const routers = () =>
           element: <ListRoom />,
         },
         {
-          path: "/:cityName/:roomName",
+          path: "/:cityName/:roomId",
           element: <SingleRoom />,
         },
       ],

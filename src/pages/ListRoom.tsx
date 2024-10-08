@@ -13,25 +13,26 @@ export const ListRoom = () => {
     queryKey: ["getViTri"],
     queryFn: async () => {
       await sleep(1000);
-      return viTriServices.getViTri();
+      const viTri = await viTriServices.getViTri();
+      return viTri?.data?.content?.find(
+        (viTri) => viTri?.tenViTri === cityName
+      );
     },
   });
 
-  const filterData = data?.data?.content?.find(
-    (viTri) => viTri?.tenViTri === cityName
-  );
+  const maViTri = data?.id;
 
   const { data: dataRoom } = useQuery({
     queryKey: ["getRoomByViTri"],
     queryFn: async () => {
       const query = objectToQueryString({
-        maViTri: filterData?.id,
+        maViTri: maViTri,
       });
-      return roomServices.searchRoom(query);
+      const data = await roomServices.searchRoom(query);
+      return data;
     },
   });
 
-  console.log(dataRoom?.data?.content);
   return (
     <>
       <MainHead />
@@ -42,7 +43,7 @@ export const ListRoom = () => {
         <div className="clearfix"></div>
         <div className="listing-item-container three-columns-grid  box-list_ic fl-wrap">
           {dataRoom?.data?.content?.map((room) => (
-            <ItemRoom key={room?.id} roomDetail={room} />
+            <ItemRoom key={room?.id} roomDetail={room} cityName={cityName} />
           ))}
         </div>
       </div>
