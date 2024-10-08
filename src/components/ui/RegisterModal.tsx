@@ -37,24 +37,32 @@ export const RegisterModal = () => {
                 <div id="tab-1" className="tab-content first-tab">
                   <div className="custom-form">
                     <form method="post" name="registerform">
-                      <label>
-                        Username or Email Address *{" "}
-                        <span className="dec-icon">
-                          <i className="fal fa-user"></i>
-                        </span>
-                      </label>
-                      <input name="email" type="text" />
-                      <div className="pass-input-wrap fl-wrap">
-                        <label>
-                          Password *{" "}
-                          <span className="dec-icon">
-                            <i className="fal fa-key"></i>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        <div>
+                          <label>
+                            Username or Email Address *{" "}
+                            <span className="dec-icon">
+                              <i className="fal fa-user"></i>
+                            </span>
+                          </label>
+                          <input name="email" type="text" />
+                        </div>
+                        <div className="pass-input-wrap fl-wrap">
+                          <label>
+                            Password *{" "}
+                            <span className="dec-icon">
+                              <i className="fal fa-key"></i>
+                            </span>
+                          </label>
+                          <input
+                            name="password"
+                            type="password"
+                            autoComplete="off"
+                          />
+                          <span className="eye">
+                            <i className="fal fa-eye"></i>{" "}
                           </span>
-                        </label>
-                        <input name="password" type="password" autoComplete="off" />
-                        <span className="eye">
-                          <i className="fal fa-eye"></i>{" "}
-                        </span>
+                        </div>
                       </div>
                       <div className="lost_password">
                         <a href="#">Lost Your Password?</a>
@@ -75,38 +83,98 @@ export const RegisterModal = () => {
                 <div className="tab">
                   <div id="tab-2" className="tab-content">
                     <div className="custom-form">
-                      <form method="post" name="registerform" className="main-register-form" id="main-register-form2">
-                        <label>
-                          Full Name *{" "}
-                          <span className="dec-icon">
-                            <i className="fal fa-user"></i>
-                          </span>
-                        </label>
-                        <input name="name" type="text" />
-                        <label>
-                          Email Address *{" "}
-                          <span className="dec-icon">
-                            <i className="fal fa-envelope"></i>
-                          </span>
-                        </label>
-                        <input name="email" type="text" />
-                        <div className="pass-input-wrap fl-wrap">
-                          <label>
-                            Password *{" "}
-                            <span className="dec-icon">
-                              <i className="fal fa-key"></i>
+                      <form
+                        method="post"
+                        name="registerform"
+                        className="main-register-form"
+                        id="main-register-form2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                          <div>
+                            <label>
+                              ID *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-id-badge"></i>
+                              </span>
+                            </label>
+                            <input name="name" type="text" />
+                          </div>
+                          <div>
+                            <label>
+                              Name *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-user"></i>
+                              </span>
+                            </label>
+                            <input name="name" type="text" />
+                          </div>
+                          <div>
+                            <label>
+                              Email Address *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-envelope"></i>
+                              </span>
+                            </label>
+                            <input name="email" type="text" />
+                          </div>
+                          <div className="pass-input-wrap fl-wrap">
+                            <label>
+                              Password *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-key"></i>
+                              </span>
+                            </label>
+                            <input
+                              name="password"
+                              type="password"
+                              autoComplete="off"
+                            />
+                            <span className="eye">
+                              <i className="fal fa-eye"></i>{" "}
                             </span>
-                          </label>
-                          <input name="password" type="password" autoComplete="off" />
-                          <span className="eye">
-                            <i className="fal fa-eye"></i>{" "}
-                          </span>
-                        </div>
-                        <div className="filter-tags ft-list">
-                          <input id="check-a2" type="checkbox" name="check" />
-                          <label htmlFor="check-a2">
-                            I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms and Conditions</a>
-                          </label>
+                          </div>
+                          <div>
+                            <label>
+                              Phone Number *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-phone"></i>
+                              </span>
+                            </label>
+                            <input name="phone" type="text" />
+                          </div>
+                          <div>
+                            <label>
+                              BirthDay *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-birthday-cake"></i>
+                              </span>
+                            </label>
+                            <input name="birthday" type="text" />
+                          </div>
+                          <div>
+                            <label>
+                              Gender *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-user"></i>
+                              </span>
+                            </label>
+                            <input name="gender" type="text" />
+                          </div>
+                          <div>
+                            <label>
+                              Role *{" "}
+                              <span className="dec-icon">
+                                <i className="fal fa-user"></i>
+                              </span>
+                            </label>
+                            <input name="role" type="text" />
+                          </div>
+                          <div className="filter-tags ft-list">
+                            <input id="check-a2" type="checkbox" name="check" />
+                            <label htmlFor="check-a2">
+                              I agree to the <a href="#">Privacy Policy</a> and{" "}
+                              <a href="#">Terms and Conditions</a>
+                            </label>
+                          </div>
                         </div>
                         <div className="clearfix"></div>
                         <button type="submit" className="log_btn color-bg">
