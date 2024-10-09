@@ -1,4 +1,58 @@
+import { useForm, Controller } from "react-hook-form";
+import {
+  registerSchema,
+  registerSchemaType,
+} from "../../schema/registerSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Button, Checkbox, DatePicker, Input } from "antd";
+import moment from "moment";
+import { useRegister } from "../../hooks/api";
+import { useState } from "react";
+import { Bounce, toast } from "react-toastify";
+import { LoginModal } from "./LoginModal";
+
 export const RegisterModal = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<registerSchemaType>({
+    mode: "onChange",
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      gender: true, // or false, depending on your default logic
+    },
+  });
+
+  const { mutate } = useRegister();
+
+  const onSubmit = (data: registerSchemaType) => {
+    console.log("data: ", data);
+    // useRegister(data);
+    mutate(data);
+    setTimeout(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+        toast("Register sucessfully !", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        reset();
+      }, 1500);
+      setIsLoading(true);
+    }, 100);
+  };
+
   return (
     <div className="main-register-wrap modal">
       <div className="reg-overlay"></div>
@@ -36,47 +90,7 @@ export const RegisterModal = () => {
               <div className="tab">
                 <div id="tab-1" className="tab-content first-tab">
                   <div className="custom-form">
-                    <form method="post" name="registerform">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <div>
-                          <label>
-                            Username or Email Address *{" "}
-                            <span className="dec-icon">
-                              <i className="fal fa-user"></i>
-                            </span>
-                          </label>
-                          <input name="email" type="text" />
-                        </div>
-                        <div className="pass-input-wrap fl-wrap">
-                          <label>
-                            Password *{" "}
-                            <span className="dec-icon">
-                              <i className="fal fa-key"></i>
-                            </span>
-                          </label>
-                          <input
-                            name="password"
-                            type="password"
-                            autoComplete="off"
-                          />
-                          <span className="eye">
-                            <i className="fal fa-eye"></i>{" "}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="lost_password">
-                        <a href="#">Lost Your Password?</a>
-                      </div>
-                      <div className="filter-tags">
-                        <input id="check-a3" type="checkbox" name="check" />
-                        <label htmlFor="check-a3">Remember me</label>
-                      </div>
-                      <div className="clearfix"></div>
-                      <button type="submit" className="log_btn color-bg">
-                        {" "}
-                        LogIn{" "}
-                      </button>
-                    </form>
+                    <LoginModal />
                   </div>
                 </div>
 
@@ -84,10 +98,10 @@ export const RegisterModal = () => {
                   <div id="tab-2" className="tab-content">
                     <div className="custom-form">
                       <form
-                        method="post"
                         name="registerform"
                         className="main-register-form"
-                        id="main-register-form2">
+                        id="main-register-form2"
+                        onSubmit={handleSubmit(onSubmit)}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           <div>
                             <label>
@@ -96,7 +110,18 @@ export const RegisterModal = () => {
                                 <i className="fal fa-id-badge"></i>
                               </span>
                             </label>
-                            <input name="name" type="text" />
+                            <Controller
+                              control={control}
+                              name="id"
+                              render={({ field }) => (
+                                <Input {...field} type="text" />
+                              )}
+                            />
+                            {errors.id && (
+                              <p className="text-red-500">
+                                {errors.id.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <label>
@@ -105,7 +130,18 @@ export const RegisterModal = () => {
                                 <i className="fal fa-user"></i>
                               </span>
                             </label>
-                            <input name="name" type="text" />
+                            <Controller
+                              control={control}
+                              name="name"
+                              render={({ field }) => (
+                                <Input {...field} type="text" />
+                              )}
+                            />
+                            {errors.name && (
+                              <p className="text-red-500">
+                                {errors.name.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <label>
@@ -114,7 +150,18 @@ export const RegisterModal = () => {
                                 <i className="fal fa-envelope"></i>
                               </span>
                             </label>
-                            <input name="email" type="text" />
+                            <Controller
+                              control={control}
+                              name="email"
+                              render={({ field }) => (
+                                <Input {...field} type="email" />
+                              )}
+                            />
+                            {errors.email && (
+                              <p className="text-red-500">
+                                {errors.email.message}
+                              </p>
+                            )}
                           </div>
                           <div className="pass-input-wrap fl-wrap">
                             <label>
@@ -123,12 +170,19 @@ export const RegisterModal = () => {
                                 <i className="fal fa-key"></i>
                               </span>
                             </label>
-                            <input
+                            <Controller
+                              control={control}
                               name="password"
-                              type="password"
-                              autoComplete="off"
+                              render={({ field }) => (
+                                <Input {...field} type="password" />
+                              )}
                             />
-                            <span className="eye">
+                            {errors.password && (
+                              <p className="text-red-500">
+                                {errors.password.message}
+                              </p>
+                            )}
+                            <span className="eye z-10">
                               <i className="fal fa-eye"></i>{" "}
                             </span>
                           </div>
@@ -139,7 +193,18 @@ export const RegisterModal = () => {
                                 <i className="fal fa-phone"></i>
                               </span>
                             </label>
-                            <input name="phone" type="text" />
+                            <Controller
+                              control={control}
+                              name="phone"
+                              render={({ field }) => (
+                                <Input {...field} type="text" />
+                              )}
+                            />
+                            {errors.phone && (
+                              <p className="text-red-500">
+                                {errors.phone.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <label>
@@ -148,16 +213,32 @@ export const RegisterModal = () => {
                                 <i className="fal fa-birthday-cake"></i>
                               </span>
                             </label>
-                            <input name="birthday" type="text" />
-                          </div>
-                          <div>
-                            <label>
-                              Gender *{" "}
-                              <span className="dec-icon">
-                                <i className="fal fa-user"></i>
-                              </span>
-                            </label>
-                            <input name="gender" type="text" />
+                            <Controller
+                              control={control}
+                              name="birthday"
+                              render={({ field }) => (
+                                <DatePicker
+                                  className="w-full"
+                                  {...field}
+                                  format="DD/MM/YYYY"
+                                  value={
+                                    field.value
+                                      ? moment(field.value, "DD/MM/YYYY")
+                                      : null
+                                  }
+                                  onChange={(date) =>
+                                    field.onChange(
+                                      date ? date.format("DD/MM/YYYY") : null
+                                    )
+                                  }
+                                />
+                              )}
+                            />
+                            {errors.birthday && (
+                              <p className="text-red-500">
+                                {errors.birthday.message}
+                              </p>
+                            )}
                           </div>
                           <div>
                             <label>
@@ -166,28 +247,65 @@ export const RegisterModal = () => {
                                 <i className="fal fa-user"></i>
                               </span>
                             </label>
-                            <input name="role" type="text" />
+                            <Controller
+                              control={control}
+                              name="role"
+                              render={({ field }) => (
+                                <Input {...field} type="text" />
+                              )}
+                            />
+                            {errors.role && (
+                              <p className="text-red-500">
+                                {errors.role.message}
+                              </p>
+                            )}
                           </div>
-                          <div className="filter-tags ft-list">
-                            <input id="check-a2" type="checkbox" name="check" />
-                            <label htmlFor="check-a2">
-                              I agree to the <a href="#">Privacy Policy</a> and{" "}
-                              <a href="#">Terms and Conditions</a>
+                          <div>
+                            <label>
+                              Male *{" "}
+                              {/* <span className="dec-icon">
+                                <i className="fal fa-user"></i>
+                              </span> */}
                             </label>
+                            <Controller
+                              control={control}
+                              name="gender"
+                              render={({ field }) => (
+                                <Checkbox
+                                  {...field}
+                                  checked={
+                                    field.value !== undefined
+                                      ? field.value
+                                      : true
+                                  } // Set default value to true
+                                  onChange={(e) =>
+                                    field.onChange(e.target.checked)
+                                  }
+                                />
+                              )}
+                            />
+                            {errors.gender && (
+                              <p className="text-red-500">
+                                {errors.gender.message}
+                              </p>
+                            )}
                           </div>
                         </div>
                         <div className="clearfix"></div>
-                        <button type="submit" className="log_btn color-bg">
+                        <Button
+                          loading={isLoading}
+                          htmlType="submit"
+                          className="log_btn color-bg">
                           {" "}
                           Register{" "}
-                        </button>
+                        </Button>
                       </form>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="log-separator fl-wrap">
+              {/* <div className="log-separator fl-wrap">
                 <span>or</span>
               </div>
               <div className="soc-log fl-wrap">
@@ -196,7 +314,7 @@ export const RegisterModal = () => {
                   {" "}
                   Facebook
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

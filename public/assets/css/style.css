@@ -1466,6 +1466,7 @@ nav li ul a:after {
 .custom-form input[type=email],
 .custom-form input[type=password],
 .custom-form input[type=button],
+.custom-form .ant-picker input,
 .listsearch-input-item input[type="text"] {
 	float: left;
 	border: 1px solid #e5e7f2;
@@ -1485,6 +1486,8 @@ nav li ul a:after {
 .custom-form textarea::-webkit-input-placeholder,
 .custom-form input[type="text"]::-webkit-input-placeholder,
 .listsearch-input-item input[type="text"]::-webkit-input-placeholder,
+.listsearch-input-item input[type="text"]::-webkit-input-placeholder,
+.listsearch-input-item .ant-picker input::-webkit-input-placeholder,
 .custom-form input[type=password]::-webkit-input-placeholder {
 	color: #7d93b2;
 	font-family: 'Jost', sans-serif;
@@ -1512,6 +1515,39 @@ nav li ul a:after {
 
 .custom-form input {
 	margin-bottom: 20px;
+}
+
+.ant-picker-input input {
+	background: #1B182B !important;
+	border-color: rgba(255, 255, 255, 0.1) !important;
+	color: #fff;
+	float: left;
+	border: 1px solid #e5e7f2;
+	background: #F5F7FB;
+	width: 100%;
+	padding: 15px 20px 15px 70px;
+	border-radius: 4px;
+	color: #7d93b2;
+	font-size: 12px;
+	-webkit-appearance: none;
+	outline: none;
+	overflow: hidden;
+	z-index: 1;
+	font-weight: 400;
+	margin-bottom: 0 !important;
+}
+
+.custom-form .ant-picker {
+	padding: 0 !important;
+}
+
+.custom-form .ant-picker .ant-picker-suffix {
+	display: none;
+}
+
+.custom-form .ant-picker {
+	background: #1B182B;
+	border-color: rgba(255, 255, 255, 0.1);
 }
 
 .filter-tags {
@@ -1615,6 +1651,7 @@ nav li ul a:after {
 }
 
 .custom-form input[type=number]::-webkit-inner-spin-button,
+.custom-form .ant-picker input::-webkit-inner-spin-button,
 .custom-form input[type=number]::-webkit-outer-spin-button {
 	-webkit-appearance: none;
 	margin: 0;
@@ -3270,6 +3307,7 @@ section.single-par2 .scroll-down-wrap {
 .top-search-content .custom-form input,
 .more-search-opt-wrap .listsearch-input-item input[type="text"],
 .list-searh-input-wrap .listsearch-input-item input[type="text"],
+.list-searh-input-wrap .ant-picker input,
 .search-sb .listsearch-input-item input[type="text"] {
 	padding: 16px 20px;
 }
