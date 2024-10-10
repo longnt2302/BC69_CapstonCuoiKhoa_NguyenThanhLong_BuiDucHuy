@@ -5,9 +5,25 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { useLogin } from "../../hooks/api";
 import { Bounce, toast } from "react-toastify";
+import { fadeOut } from "../../utils/fadeOut";
+import { useDispatch } from "react-redux";
+import { quanLyNguoiDungActions } from "../../store/quanLyNguoiDung";
 
 export const LoginModal = () => {
+  const dispatch = useDispatch();
+
   const [isLoading, setIsLoading] = useState(false);
+
+  const handleCloseModal = () => {
+    const modal = document.querySelector(".modal");
+    const regOverlay = document.querySelector(".reg-overlay");
+
+    fadeOut(modal, 200);
+    fadeOut(regOverlay, 200);
+
+    document.querySelector("html, body")?.classList.remove("hid-body");
+    document.querySelector(".modal_main")?.classList.remove("vis_mr");
+  };
 
   const { mutate } = useLogin();
   const {
@@ -38,6 +54,9 @@ export const LoginModal = () => {
           transition: Bounce,
         });
         reset();
+        handleCloseModal();
+
+        dispatch(quanLyNguoiDungActions.setUser(data));
       }, 1500);
       setIsLoading(true);
     }, 100);
@@ -55,11 +74,11 @@ export const LoginModal = () => {
           </label>
           <Controller
             control={control}
-            name="emailLG"
+            name="email"
             render={({ field }) => <Input {...field} type="email" />}
           />
-          {errors.emailLG && (
-            <p className="text-red-500">{errors.emailLG.message}</p>
+          {errors.email && (
+            <p className="text-red-500">{errors.email.message}</p>
           )}
         </div>
         <div className="pass-input-wrap fl-wrap">
@@ -71,11 +90,11 @@ export const LoginModal = () => {
           </label>
           <Controller
             control={control}
-            name="passwordLG"
+            name="password"
             render={({ field }) => <Input {...field} type="password" />}
           />
-          {errors.passwordLG && (
-            <p className="text-red-500">{errors.passwordLG.message}</p>
+          {errors.password && (
+            <p className="text-red-500">{errors.password.message}</p>
           )}
           <span className="eye z-10">
             <i className="fal fa-eye"></i>{" "}
