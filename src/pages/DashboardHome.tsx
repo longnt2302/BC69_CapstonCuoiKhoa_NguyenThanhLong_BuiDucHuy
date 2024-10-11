@@ -148,7 +148,7 @@ export const DashboardHome = () => {
             <div className="chat-contacts fl-wrap">
               <a className="chat-contacts-item" href="#">
                 <div className="dashboard-message-avatar">
-                  <img src="./assets/images/avatar/2.jpg" alt="..." />
+                  <img src="/assets/images/avatar/2.jpg" alt="..." />
                   <div className="message-counter">2</div>
                 </div>
                 <div className="chat-contacts-item-text">
@@ -163,7 +163,7 @@ export const DashboardHome = () => {
 
               <a className="chat-contacts-item" href="#">
                 <div className="dashboard-message-avatar">
-                  <img src="./assets/images/avatar/1.jpg" alt="..." />
+                  <img src="/assets/images/avatar/1.jpg" alt="..." />
                   <div className="message-counter">1</div>
                 </div>
                 <div className="chat-contacts-item-text">
@@ -178,7 +178,7 @@ export const DashboardHome = () => {
 
               <a className="chat-contacts-item chat-contacts-item_active" href="#">
                 <div className="dashboard-message-avatar">
-                  <img src="./assets/images/avatar/3.jpg" alt="..." />
+                  <img src="/assets/images/avatar/3.jpg" alt="..." />
                   <div className="message-counter">3</div>
                 </div>
                 <div className="chat-contacts-item-text">
@@ -193,7 +193,7 @@ export const DashboardHome = () => {
 
               <a className="chat-contacts-item" href="#">
                 <div className="dashboard-message-avatar">
-                  <img src="./assets/images/avatar/5.jpg" alt="..." />
+                  <img src="/assets/images/avatar/5.jpg" alt="..." />
                   <div className="message-counter">4</div>
                 </div>
                 <div className="chat-contacts-item-text">
@@ -208,7 +208,7 @@ export const DashboardHome = () => {
 
               <a className="chat-contacts-item" href="#">
                 <div className="dashboard-message-avatar">
-                  <img src="./assets/images/avatar/4.jpg" alt="..." />
+                  <img src="/assets/images/avatar/4.jpg" alt="..." />
                 </div>
                 <div className="chat-contacts-item-text">
                   <h4>Alise Goovy</h4>
@@ -222,7 +222,7 @@ export const DashboardHome = () => {
 
               <a className="chat-contacts-item" href="#">
                 <div className="dashboard-message-avatar">
-                  <img src="./assets/images/avatar/6.jpg" alt="..." />
+                  <img src="/assets/images/avatar/6.jpg" alt="..." />
                 </div>
                 <div className="chat-contacts-item-text">
                   <h4>Cristiano Olando</h4>
