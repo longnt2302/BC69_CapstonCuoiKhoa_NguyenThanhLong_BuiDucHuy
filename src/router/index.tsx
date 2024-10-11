@@ -1,6 +1,7 @@
 import { useRoutes } from "react-router-dom";
-import { Home, ListRoom, SingleRoom } from "../pages";
-import { MainLayout } from "../components/layouts";
+import { DashboardHome, DashboardListing, Home, ListRoom, SingleRoom } from "../pages";
+import { DashboardLayout, MainLayout } from "../components/layouts";
+import { PATH } from "../constants";
 
 export const routers = () =>
   useRoutes([
@@ -18,6 +19,19 @@ export const routers = () =>
         {
           path: "/:cityName/:roomId",
           element: <SingleRoom />,
+        },
+      ],
+    },
+    {
+      element: <DashboardLayout />,
+      children: [
+        {
+          path: PATH.dashboard,
+          element: <DashboardHome />,
+        },
+        {
+          path: `${PATH.dashboard}/${PATH.listing}`,
+          element: <DashboardListing />,
         },
       ],
     },

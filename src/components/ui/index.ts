@@ -6,3 +6,5 @@ export * from "./RegisterModal";
 export * from "./SecondaryNav";
 export * from "./MapModal";
 export * from "./Breadcrumb";
+export * from "./SidebarDashboard";
+export * from "./FooterDashboard";
