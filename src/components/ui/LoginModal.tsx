@@ -37,7 +37,6 @@ export const LoginModal = () => {
   });
 
   const onSubmit = (data: loginSchemaType) => {
-    console.log("login: ", data);
     mutate(data);
     setTimeout(() => {
       setTimeout(() => {

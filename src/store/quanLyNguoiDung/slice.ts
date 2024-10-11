@@ -14,9 +14,13 @@ const quanLyNguoiDungSlice = createSlice({
   name: "quanLyNguoiDung",
   initialState,
   reducers: {
-    setUser: (state, payload) => {
+    setUser: (state, { payload }) => {
       state.user = payload;
       localStorage.setItem("USER", JSON.stringify(payload));
+    },
+    logOut: (state) => {
+      state.user = null;
+      localStorage.removeItem("USER");
     },
   },
 });

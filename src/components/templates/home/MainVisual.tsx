@@ -42,7 +42,7 @@ export const MainVisual = () => {
             </div>
             <div className="main-search-input-item w-1/3">
               <Select
-                defaultValue="Chọn Khu Vực"
+                defaultValue="Choose Area"
                 style={{
                   width: "100%",
                   height: "100%",
