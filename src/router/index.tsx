@@ -1,7 +1,14 @@
 import { useRoutes } from "react-router-dom";
-import { DashboardHome, DashboardListing, Home, ListRoom, SingleRoom } from "../pages";
+import {
+  DashboardHome,
+  DashboardListing,
+  Home,
+  ListRoom,
+  SingleRoom,
+} from "../pages";
 import { DashboardLayout, MainLayout } from "../components/layouts";
 import { PATH } from "../constants";
+import { DashboardUser } from "../pages/DashboardUser";
 
 export const routers = () =>
   useRoutes([
@@ -32,6 +39,10 @@ export const routers = () =>
         {
           path: `${PATH.dashboard}/${PATH.listing}`,
           element: <DashboardListing />,
+        },
+        {
+          path: `${PATH.dashboard}/${PATH.users}`,
+          element: <DashboardUser />,
         },
       ],
     },

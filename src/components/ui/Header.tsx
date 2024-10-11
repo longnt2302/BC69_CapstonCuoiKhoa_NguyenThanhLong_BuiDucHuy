@@ -33,7 +33,7 @@ export const Header = () => {
       </div>
 
       <div className="add-list_wrap">
-        <a href="dashboard-add-listing.html" className="add-list color-bg">
+        <a href="/dashboard" className="add-list color-bg">
           <i className="fal fa-plus"></i> <span>Admin</span>
         </a>
       </div>

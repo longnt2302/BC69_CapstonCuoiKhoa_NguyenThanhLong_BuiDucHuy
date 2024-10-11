@@ -8,3 +8,4 @@ export * from "./MapModal";
 export * from "./Breadcrumb";
 export * from "./SidebarDashboard";
 export * from "./FooterDashboard";
+export * from "./Paginate";

@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { authServices } from "../../services/auth";
+import { authServices } from "../../services";
 import { DataTypeRegister } from "../../@types";
 
 export const useRegister = () => {

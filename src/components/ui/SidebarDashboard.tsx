@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 export const SidebarDashboard = () => {
   return (
     <div className="dashbard-menu-wrap">
@@ -9,50 +11,50 @@ export const SidebarDashboard = () => {
           <h3>Main</h3>
           <ul className="no-list-style">
             <li>
-              <a href="dashboard.html" className="user-profile-act">
+              <NavLink to="/dashboard" className="user-profile-act">
                 <i className="fal fa-chart-line"></i>Dashboard
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="dashboard-myprofile.html">
-                <i className="fal fa-user-edit"></i> Edit profile
-              </a>
+              <NavLink to="/dashboard/users">
+                <i className="fal fa-user-edit"></i> Users
+              </NavLink>
             </li>
             <li>
-              <a href="dashboard-messages.html">
+              <NavLink to="dashboard-messages.html">
                 <i className="fal fa-envelope"></i> Messages <span>3</span>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="dashboard-agents.html">
+              <NavLink to="dashboard-agents.html">
                 <i className="fal fa-users"></i> Agents List
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="#" className="submenu-link">
+              <NavLink to="#" className="submenu-link">
                 <i className="fal fa-plus"></i>Submenu
-              </a>
+              </NavLink>
               <ul className="no-list-style">
                 <li>
-                  <a href="#">
+                  <NavLink to="#">
                     <i className="fal fa-th-list"></i> Submenu 2{" "}
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="#">
+                  <NavLink to="#">
                     {" "}
                     <i className="fal fa-calendar-check"></i> Submenu 2
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="#">
+                  <NavLink to="#">
                     <i className="fal fa-comments-alt"></i>Submenu 2
-                  </a>
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="#">
+                  <NavLink to="#">
                     <i className="fal fa-file-plus"></i> Submenu 2
-                  </a>
+                  </NavLink>
                 </li>
               </ul>
             </li>
@@ -63,30 +65,34 @@ export const SidebarDashboard = () => {
           <h3>Listings</h3>
           <ul className="no-list-style">
             <li>
-              <a href="dashboard-listing-table.html">
+              <NavLink to="dashboard-listing-table.html">
                 <i className="fal fa-th-list"></i> My listigs{" "}
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="dashboard-bookings.html">
+              <NavLink to="dashboard-bookings.html">
                 {" "}
-                <i className="fal fa-calendar-check"></i> Bookings <span>2</span>
-              </a>
+                <i className="fal fa-calendar-check"></i> Bookings{" "}
+                <span>2</span>
+              </NavLink>
             </li>
             <li>
-              <a href="dashboard-review.html">
+              <NavLink to="dashboard-review.html">
                 <i className="fal fa-comments-alt"></i> Reviews{" "}
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="dashboard-add-listing.html">
+              <NavLink to="dashboard-add-listing.html">
                 <i className="fal fa-file-plus"></i> Add New
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
       </div>
-      <div className="dashbard-menu-footer"> &#169; Homeradar 2022 . All rights reserved.</div>
+      <div className="dashbard-menu-footer">
+        {" "}
+        &#169; Homeradar 2022 . All rights reserved.
+      </div>
     </div>
   );
 };
