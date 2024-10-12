@@ -39,30 +39,36 @@ export const LoginModal = () => {
     resolver: zodResolver(loginSchema),
   });
   const onSubmit = (data: loginSchemaType) => {
-    mutate(data);
-    setTimeout(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-        toast("Login sucessfully !", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        reset();
-        handleCloseModal();
+    mutate(data, {
+      onSuccess(data) {
+        setTimeout(() => {
+          setTimeout(() => {
+            setIsLoading(false);
+            toast("Login sucessfully !", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
+            reset();
+            handleCloseModal();
 
-        dispatch(quanLyNguoiDungActions.setUser(data));
+            dispatch(quanLyNguoiDungActions.setUser(data?.data?.content));
 
-        navigate("/dashboard");
-      }, 1500);
-      setIsLoading(true);
-    }, 100);
+            navigate("/dashboard");
+          }, 1500);
+          setIsLoading(true);
+        }, 100);
+      },
+      onError(error) {
+        console.log("🚀 ~ onError ~ error:", error);
+      },
+    });
   };
 
   return (
