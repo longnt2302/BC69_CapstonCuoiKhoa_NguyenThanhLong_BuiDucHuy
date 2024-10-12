@@ -1,13 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { DataTypeLogin } from "../../@types";
-import { storage } from "../../constants/storage";
+import { UserResponse } from "../../@types";
 
-type initialState = {
-  user: DataTypeLogin | null;
-};
-
-const initialState = {
-  user: storage("USER"),
+const initialState: UserResponse = {
+  user: {},
+  token: "",
 };
 
 const quanLyNguoiDungSlice = createSlice({
@@ -15,7 +11,9 @@ const quanLyNguoiDungSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, { payload }) => {
-      state.user = payload;
+      const { user, token } = payload;
+      state.user = user;
+      state.token = token;
       localStorage.setItem("USER", JSON.stringify(payload));
     },
     logOut: (state) => {

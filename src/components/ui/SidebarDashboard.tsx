@@ -12,43 +12,35 @@ export const SidebarDashboard = () => {
           <h3>DASHBOARD</h3>
           <ul className="no-list-style">
             <li>
-              <a href="#" className="submenu-link">
-                <i className="fal fa-plus"></i>Quản lý
+              <a href="#">
+                <i className="fal fa-th-list"></i> Quản lý người dùng
               </a>
-              <ul className="no-list-style">
-                <li>
-                  <a href="#">
-                    <i className="fal fa-th-list"></i> Quản lý người dùng
-                  </a>
-                </li>
-                <li>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate("/dashboard/listing");
-                    }}
-                  >
-                    <i className="fal fa-calendar-check"></i> Quản lý thông tin
-                    vị trí
-                  </a>
-                </li>
-                <li>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate("/dashboard/rooms");
-                    }}
-                  >
-                    <i className="fal fa-comments-alt"></i>Quản lý thông tin
-                    phòng
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i className="fal fa-file-plus"></i> Quản lý đặt phòng
-                  </a>
-                </li>
-              </ul>
+            </li>
+            <li>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/dashboard/listing");
+                }}
+              >
+                <i className="fal fa-calendar-check"></i> Quản lý thông tin vị
+                trí
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/dashboard/rooms");
+                }}
+              >
+                <i className="fal fa-comments-alt"></i>Quản lý thông tin phòng
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i className="fal fa-file-plus"></i> Quản lý đặt phòng
+              </a>
             </li>
           </ul>
         </div>

@@ -1,10 +1,14 @@
+import { dataUser } from "../../../utils";
+
 export const DashboardHeader = () => {
+  const currentLoging = dataUser();
+  const { user } = currentLoging;
   return (
     <div className="dashbard-menu-header">
       <div className="dashbard-menu-avatar fl-wrap">
-        <img src="/assets/images/avatar/5.jpg" alt="..." />
+        <img src={user.hinhAnh} alt="..." />
         <h4>
-          Welcome, <span>Alica Noory</span>
+          Welcome, <span>{user.name}</span>
         </h4>
       </div>
       <a
