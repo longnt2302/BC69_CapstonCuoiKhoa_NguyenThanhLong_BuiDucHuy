@@ -3,4 +3,5 @@ export const PATH = {
   dashboard: "dashboard",
   listing: "listing",
   users: "users",
+  rooms: "rooms",
 };

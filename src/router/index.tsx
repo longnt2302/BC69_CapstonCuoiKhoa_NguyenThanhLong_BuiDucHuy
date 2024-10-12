@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import {
   DashboardHome,
   DashboardListing,
+  DashboardRooms,
   Home,
   ListRoom,
   SingleRoom,
@@ -43,6 +44,10 @@ export const routers = () =>
         {
           path: `${PATH.dashboard}/${PATH.users}`,
           element: <DashboardUser />,
+        },
+        {
+          path: `${PATH.dashboard}/${PATH.rooms}`,
+          element: <DashboardRooms />,
         },
       ],
     },

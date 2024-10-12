@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom";
-import { FooterDashboard, Header, Loader, SidebarDashboard } from "../ui";
+import { FooterDashboard, Header, SidebarDashboard } from "../ui";
+import { DashboardHeader } from "../templates/Dashboard";
 
 export const DashboardLayout = () => {
   return (
     <>
-      <Loader />
       <div id="main">
         <Header />
         <div id="wrapper">
@@ -22,21 +22,7 @@ export const DashboardLayout = () => {
                 <div className="dashboard-title-item">
                   <span>Dashboard</span>
                 </div>
-                {/* <div className="dashbard-menu-header">
-                  <div className="dashbard-menu-avatar fl-wrap">
-                    <img src="/assets/images/avatar/5.jpg" alt="..." />
-                    <h4>
-                      Welcome, <span>Alica Noory</span>
-                    </h4>
-                  </div>
-                  <a
-                    href="index.html"
-                    className="log-out-btn   tolt"
-                    data-microtip-position="bottom"
-                    data-tooltip="Log Out">
-                    <i className="far fa-power-off"></i>
-                  </a>
-                </div> */}
+                <DashboardHeader />
               </div>
               <div className="dasboard-wrapper fl-wrap no-pag">
                 <div className="dashboard-stats-container fl-wrap">

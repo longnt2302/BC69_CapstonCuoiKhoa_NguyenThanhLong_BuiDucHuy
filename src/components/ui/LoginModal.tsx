@@ -8,8 +8,11 @@ import { Bounce, toast } from "react-toastify";
 import { fadeOut } from "../../utils/fadeOut";
 import { useDispatch } from "react-redux";
 import { quanLyNguoiDungActions } from "../../store/quanLyNguoiDung";
+import { useNavigate } from "react-router-dom";
 
 export const LoginModal = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -35,30 +38,37 @@ export const LoginModal = () => {
     mode: "onChange",
     resolver: zodResolver(loginSchema),
   });
-
   const onSubmit = (data: loginSchemaType) => {
-    mutate(data);
-    setTimeout(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-        toast("Login sucessfully !", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
-        reset();
-        handleCloseModal();
+    mutate(data, {
+      onSuccess(data) {
+        setTimeout(() => {
+          setTimeout(() => {
+            setIsLoading(false);
+            toast("Login sucessfully !", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+              transition: Bounce,
+            });
+            reset();
+            handleCloseModal();
 
-        dispatch(quanLyNguoiDungActions.setUser(data));
-      }, 1500);
-      setIsLoading(true);
-    }, 100);
+            dispatch(quanLyNguoiDungActions.setUser(data?.data?.content));
+
+            navigate("/dashboard");
+          }, 1500);
+          setIsLoading(true);
+        }, 100);
+      },
+      onError(error) {
+        console.log("🚀 ~ onError ~ error:", error);
+      },
+    });
   };
 
   return (
@@ -104,7 +114,8 @@ export const LoginModal = () => {
       <Button
         htmlType="submit"
         className="log_btn color-bg"
-        loading={isLoading}>
+        loading={isLoading}
+      >
         {" "}
         LogIn{" "}
       </Button>

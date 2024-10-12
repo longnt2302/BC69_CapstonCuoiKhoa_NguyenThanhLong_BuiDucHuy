@@ -4,6 +4,7 @@ import moment from "moment";
 import { Paginate } from "../components/ui/Paginate";
 import { useState } from "react";
 import { ModalAdmin } from "../components/ui/ModalAdmin";
+import { userAPIResponse } from "../@types";
 
 export const DashboardUser = () => {
   const { data } = useQuery({
@@ -21,19 +22,21 @@ export const DashboardUser = () => {
   const listUser = data?.data.content.slice(indexFirstPost, lastIndexPost);
 
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
+  const [typeOfModal, setTypeOfModal] = useState<string>("");
+  const [infoUser, setInfoUser] = useState<userAPIResponse>();
 
-  const handleInfo = (event: any) => {
-    console.log("event: ", event.target.name);
+  const handleInfo = (event: any, user: userAPIResponse) => {
+    console.log("user: ", user);
+    setInfoUser(user);
     setIsShowModal(true);
+    setTypeOfModal(event.target.name);
   };
-  const handleEdit = (event: any) => {
-    console.log("event: ", event.target.name);
+  const handleEdit = (event: any, user: userAPIResponse) => {
+    setInfoUser(user);
     setIsShowModal(true);
+    setTypeOfModal(event.target.name);
   };
-  const handleDelete = (event: any) => {
-    console.log("event: ", event.target.name);
-    setIsShowModal(true);
-  };
+  const handleDelete = (event: any, user: userAPIResponse) => {};
 
   return (
     <>
@@ -60,7 +63,7 @@ export const DashboardUser = () => {
           </thead>
           <tbody>
             {listUser?.map((user) => (
-              <tr className="bg-gray-800 border-b text-white">
+              <tr className="bg-gray-800 border-b text-white" key={user.id}>
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium whitespace-nowrap">
@@ -74,19 +77,19 @@ export const DashboardUser = () => {
                 <td className="px-6 py-4">
                   <button
                     className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
-                    onClick={(event: any) => handleInfo(event)}
+                    onClick={(event: any) => handleInfo(event, user)}
                     name="info">
                     View Info
                   </button>
                   <button
                     className="mx-2 border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
-                    onClick={(event: any) => handleEdit(event)}
+                    onClick={(event: any) => handleEdit(event, user)}
                     name="edit">
                     Edit
                   </button>
                   <button
                     className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
-                    onClick={(event: any) => handleDelete(event)}
+                    onClick={(event: any) => handleDelete(event, user)}
                     name="delete">
                     Delete
                   </button>
@@ -96,7 +99,12 @@ export const DashboardUser = () => {
           </tbody>
         </table>
       </div>
-      <ModalAdmin isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
+      <ModalAdmin
+        isShowModal={isShowModal}
+        setIsShowModal={setIsShowModal}
+        typeOfModal={typeOfModal}
+        infoUser={infoUser}
+      />
       <div className="mb-5 mt-9">
         <Paginate
           total={totalPost}
