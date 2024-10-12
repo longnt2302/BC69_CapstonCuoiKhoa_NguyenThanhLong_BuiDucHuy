@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom";
 import { FooterDashboard, Header, SidebarDashboard } from "../ui";
 import { DashboardHeader } from "../templates/Dashboard";
+import { dataUser } from "../../utils";
 
 export const DashboardLayout = () => {
-  const dataUser = localStorage.getItem("USER")
-    ? JSON.parse(localStorage.getItem("USER"))
-    : "";
-  if (!dataUser) location.href = "/";
+  const currentLoging = dataUser();
+  if (!currentLoging) location.href = "/";
   return (
     <>
       <div id="main">
