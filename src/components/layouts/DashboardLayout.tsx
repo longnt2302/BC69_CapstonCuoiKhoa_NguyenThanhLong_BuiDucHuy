@@ -3,6 +3,10 @@ import { FooterDashboard, Header, SidebarDashboard } from "../ui";
 import { DashboardHeader } from "../templates/Dashboard";
 
 export const DashboardLayout = () => {
+  const dataUser = localStorage.getItem("USER")
+    ? JSON.parse(localStorage.getItem("USER"))
+    : "";
+  if (!dataUser) location.href = "/";
   return (
     <>
       <div id="main">
