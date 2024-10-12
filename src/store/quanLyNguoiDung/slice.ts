@@ -14,8 +14,7 @@ const quanLyNguoiDungSlice = createSlice({
   name: "quanLyNguoiDung",
   initialState,
   reducers: {
-    setUser: (state, payload) => {
-      console.log("🚀 ~ payload:", payload);
+    setUser: (state, { payload }) => {
       state.user = payload;
       localStorage.setItem("USER", JSON.stringify(payload));
     },
