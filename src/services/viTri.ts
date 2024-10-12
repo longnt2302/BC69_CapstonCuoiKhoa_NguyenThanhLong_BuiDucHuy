@@ -11,4 +11,5 @@ export const viTriServices = {
     api.get<HttpResponse<viTriAPIResponse>>(
       `/vi-tri/phan-trang-tim-kiem${query}`
     ),
+  deleteViTri: (id: number) => api.delete(`/vi-tri/${id}`),
 };
