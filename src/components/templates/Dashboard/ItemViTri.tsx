@@ -1,4 +1,6 @@
+import axios from "axios";
 import { viTriAPIResponse } from "../../../@types";
+import { TOKEN } from "../../../constants";
 
 type Props = {
   key: number;
@@ -53,6 +55,9 @@ export const ItemViTri = (props: Props) => {
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Delete"
+                  onClick={(e) => {
+                    e.preventDefault();
+                  }}
                 >
                   <i className="far fa-trash-alt"></i>
                 </a>
