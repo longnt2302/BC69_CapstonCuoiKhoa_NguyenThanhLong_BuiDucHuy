@@ -15,6 +15,7 @@ const quanLyNguoiDungSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, payload) => {
+      console.log("🚀 ~ payload:", payload);
       state.user = payload;
       localStorage.setItem("USER", JSON.stringify(payload));
     },
