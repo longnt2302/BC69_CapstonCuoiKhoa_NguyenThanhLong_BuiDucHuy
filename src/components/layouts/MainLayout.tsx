@@ -1,10 +1,18 @@
 import { Outlet } from "react-router-dom";
-import { Footer, Header, Loader, MapModal, RegisterModal, SecondaryNav, Subscribe } from "../ui";
+import {
+  Footer,
+  Header,
+  Loader,
+  MapModal,
+  RegisterModal,
+  SecondaryNav,
+  Subscribe,
+} from "../ui";
 
 export const MainLayout = () => {
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <div id="main">
         <Header />
         <div id="wrapper">

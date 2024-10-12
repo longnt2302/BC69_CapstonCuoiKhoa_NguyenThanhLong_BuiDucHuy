@@ -8,8 +8,11 @@ import { Bounce, toast } from "react-toastify";
 import { fadeOut } from "../../utils/fadeOut";
 import { useDispatch } from "react-redux";
 import { quanLyNguoiDungActions } from "../../store/quanLyNguoiDung";
+import { useNavigate } from "react-router-dom";
 
 export const LoginModal = () => {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -35,7 +38,6 @@ export const LoginModal = () => {
     mode: "onChange",
     resolver: zodResolver(loginSchema),
   });
-
   const onSubmit = (data: loginSchemaType) => {
     mutate(data);
     setTimeout(() => {
@@ -56,6 +58,8 @@ export const LoginModal = () => {
         handleCloseModal();
 
         dispatch(quanLyNguoiDungActions.setUser(data));
+
+        navigate("/dashboard");
       }, 1500);
       setIsLoading(true);
     }, 100);
@@ -104,7 +108,8 @@ export const LoginModal = () => {
       <Button
         htmlType="submit"
         className="log_btn color-bg"
-        loading={isLoading}>
+        loading={isLoading}
+      >
         {" "}
         LogIn{" "}
       </Button>
