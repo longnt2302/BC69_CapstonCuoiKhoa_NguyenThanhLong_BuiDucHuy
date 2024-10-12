@@ -1,10 +1,12 @@
 import { RoomResponse } from "../../../@types";
+import { roomServices } from "../../../services";
 
 type Props = {
   room: RoomResponse;
+  refetch: () => void;
 };
 export const ItemRoom = (props: Props) => {
-  const { room } = props;
+  const { room, refetch } = props;
   return (
     <div className="col-md-6">
       <div className="dashboard-listings-item fl-wrap">
@@ -49,6 +51,16 @@ export const ItemRoom = (props: Props) => {
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Delete"
+                  onClick={async (e) => {
+                    try {
+                      e.preventDefault();
+                      await roomServices.deleteRoom(room?.id);
+                      console.log("delete success");
+                      refetch();
+                    } catch (error) {
+                      console.log("🚀 ~ onClick={ ~ error:", error);
+                    }
+                  }}
                 >
                   <i className="far fa-trash-alt"></i>
                 </a>

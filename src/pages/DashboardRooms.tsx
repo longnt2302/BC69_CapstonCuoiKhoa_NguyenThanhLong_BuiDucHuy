@@ -3,7 +3,7 @@ import { roomServices } from "../services";
 import { ItemRoom } from "../components/templates/Dashboard";
 
 export const DashboardRooms = () => {
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: ["getViTri"],
     queryFn: async () => {
       const dataRooms = await roomServices.getRooms();
@@ -15,7 +15,7 @@ export const DashboardRooms = () => {
       <div className="dashboard-listings-wrap fl-wrap">
         <div className="row">
           {data?.map((room) => (
-            <ItemRoom key={room?.id} room={room} />
+            <ItemRoom key={room?.id} room={room} refetch={refetch} />
           ))}
         </div>
       </div>
