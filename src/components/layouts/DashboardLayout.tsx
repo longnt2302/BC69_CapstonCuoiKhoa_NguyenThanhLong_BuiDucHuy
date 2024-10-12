@@ -22,7 +22,7 @@ export const DashboardLayout = () => {
                 <div className="dashboard-title-item">
                   <span>Dashboard</span>
                 </div>
-                <div className="dashbard-menu-header">
+                {/* <div className="dashbard-menu-header">
                   <div className="dashbard-menu-avatar fl-wrap">
                     <img src="/assets/images/avatar/5.jpg" alt="..." />
                     <h4>
@@ -33,11 +33,10 @@ export const DashboardLayout = () => {
                     href="index.html"
                     className="log-out-btn   tolt"
                     data-microtip-position="bottom"
-                    data-tooltip="Log Out"
-                  >
+                    data-tooltip="Log Out">
                     <i className="far fa-power-off"></i>
                   </a>
-                </div>
+                </div> */}
               </div>
               <div className="dasboard-wrapper fl-wrap no-pag">
                 <div className="dashboard-stats-container fl-wrap">

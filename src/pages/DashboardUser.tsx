@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { usersServices } from "../services";
-import { Button } from "antd";
 import moment from "moment";
 import { Paginate } from "../components/ui/Paginate";
 import { useState } from "react";
+import { ModalAdmin } from "../components/ui/ModalAdmin";
 
 export const DashboardUser = () => {
   const { data } = useQuery({
@@ -14,11 +14,26 @@ export const DashboardUser = () => {
   // paginate
   const totalPost = data?.data.content.length;
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(10);
+  const [postPerPage] = useState(20);
   const indexFirstPost = currentPage * postPerPage - postPerPage;
   const lastIndexPost = indexFirstPost + postPerPage;
 
   const listUser = data?.data.content.slice(indexFirstPost, lastIndexPost);
+
+  const [isShowModal, setIsShowModal] = useState<boolean>(false);
+
+  const handleInfo = (event: any) => {
+    console.log("event: ", event.target.name);
+    setIsShowModal(true);
+  };
+  const handleEdit = (event: any) => {
+    console.log("event: ", event.target.name);
+    setIsShowModal(true);
+  };
+  const handleDelete = (event: any) => {
+    console.log("event: ", event.target.name);
+    setIsShowModal(true);
+  };
 
   return (
     <>
@@ -57,15 +72,31 @@ export const DashboardUser = () => {
                 </td>
                 <td className="px-6 py-4">{user.role}</td>
                 <td className="px-6 py-4">
-                  <Button>View Info</Button>
-                  <Button className="mx-2">Edit</Button>
-                  <Button>Delete</Button>
+                  <button
+                    className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
+                    onClick={(event: any) => handleInfo(event)}
+                    name="info">
+                    View Info
+                  </button>
+                  <button
+                    className="mx-2 border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
+                    onClick={(event: any) => handleEdit(event)}
+                    name="edit">
+                    Edit
+                  </button>
+                  <button
+                    className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
+                    onClick={(event: any) => handleDelete(event)}
+                    name="delete">
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      <ModalAdmin isShowModal={isShowModal} setIsShowModal={setIsShowModal} />
       <div className="mb-5 mt-9">
         <Paginate
           total={totalPost}
