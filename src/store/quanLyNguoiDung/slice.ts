@@ -16,10 +16,6 @@ const quanLyNguoiDungSlice = createSlice({
       state.token = token;
       localStorage.setItem("USER", JSON.stringify(payload));
     },
-    logOut: (state) => {
-      state.user = null;
-      localStorage.removeItem("USER");
-    },
   },
 });
 

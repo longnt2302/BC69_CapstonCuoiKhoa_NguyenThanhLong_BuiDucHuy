@@ -1,15 +1,10 @@
 import { Avatar, Popover } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { useDispatch } from "react-redux";
-import {
-  quanLyNguoiDungActions,
-  quanLyNguoiDungSelector,
-} from "../../store/quanLyNguoiDung";
+import { quanLyNguoiDungSelector } from "../../store/quanLyNguoiDung";
 import { NavLink } from "react-router-dom";
 
 export const Header = () => {
   const { user } = quanLyNguoiDungSelector();
-  const dispatch = useDispatch();
 
   return (
     <header className="main-header">
@@ -47,7 +42,10 @@ export const Header = () => {
                 <a
                   href="#"
                   className="flex text-[13px] cursor-pointer"
-                  onClick={() => dispatch(quanLyNguoiDungActions.logOut())}>
+                  onClick={() => {
+                    localStorage.removeItem("USER");
+                    location.href = "/";
+                  }}>
                   <span className="inline-block me-3">LogOut</span>
                   <LogoutOutlined className="text-red-400" />
                 </a>
