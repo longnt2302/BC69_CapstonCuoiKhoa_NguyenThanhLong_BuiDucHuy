@@ -33,7 +33,12 @@ export const SidebarDashboard = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate("/dashboard/rooms");
+                    }}
+                  >
                     <i className="fal fa-comments-alt"></i>Quản lý thông tin
                     phòng
                   </a>
