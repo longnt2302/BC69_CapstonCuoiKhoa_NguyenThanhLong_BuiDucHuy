@@ -1,15 +1,14 @@
-import { quanLyNguoiDungSelector } from "../../../store/quanLyNguoiDung";
+import { dataUser } from "../../../utils";
 
 export const DashboardHeader = () => {
-  const { user } = quanLyNguoiDungSelector();
-  console.log("user: ", user);
-
+  const currentLoging = dataUser();
+  const { user } = currentLoging;
   return (
     <div className="dashbard-menu-header">
       <div className="dashbard-menu-avatar fl-wrap">
-        <img src="/assets/images/avatar/5.jpg" alt="..." />
+        <img src={user.hinhAnh} alt="..." />
         <h4>
-          Welcome, <span>{user.user.name}</span>
+          Welcome, <span>{user.name}</span>
         </h4>
       </div>
       <a

@@ -13,41 +13,33 @@ export const SidebarDashboard = () => {
           <h3>DASHBOARD</h3>
           <ul className="no-list-style">
             <li>
-              <NavLink to="#" className="submenu-link">
-                <i className="fal fa-plus"></i>Quản lý
+              <NavLink to="#">
+                <i className="fal fa-th-list"></i> Quản lý người dùng
               </NavLink>
-              <ul className="no-list-style">
-                <li>
-                  <NavLink to="/dashboard/users">
-                    <i className="fal fa-th-list"></i> Quản lý người dùng
-                  </NavLink>
-                </li>
-                <li>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate("/dashboard/listing");
-                    }}>
-                    <i className="fal fa-calendar-check"></i> Quản lý thông tin
-                    vị trí
-                  </a>
-                </li>
-                <li>
-                  <a
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigate("/dashboard/rooms");
-                    }}>
-                    <i className="fal fa-comments-alt"></i>Quản lý thông tin
-                    phòng
-                  </a>
-                </li>
-                <li>
-                  <NavLink to="#">
-                    <i className="fal fa-file-plus"></i> Quản lý đặt phòng
-                  </NavLink>
-                </li>
-              </ul>
+            </li>
+            <li>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/dashboard/listing");
+                }}>
+                <i className="fal fa-calendar-check"></i> Quản lý thông tin vị
+                trí
+              </a>
+            </li>
+            <li>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/dashboard/rooms");
+                }}>
+                <i className="fal fa-comments-alt"></i>Quản lý thông tin phòng
+              </a>
+            </li>
+            <li>
+              <NavLink to="#">
+                <i className="fal fa-file-plus"></i> Quản lý đặt phòng
+              </NavLink>
             </li>
           </ul>
         </div>

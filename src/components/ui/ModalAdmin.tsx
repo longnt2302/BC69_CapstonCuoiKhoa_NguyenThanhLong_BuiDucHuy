@@ -1,14 +1,14 @@
 import { DatePicker, Form, Input, Modal } from "antd";
 import type { InputRef } from "antd";
 import { Dispatch, SetStateAction, useRef } from "react";
-import { userAPIResponse } from "../../@types";
+import { UserResponse } from "../../@types";
 import moment from "moment";
 
 type Props = {
   isShowModal: boolean;
   setIsShowModal: Dispatch<SetStateAction<boolean>>;
   typeOfModal: string;
-  infoUser: userAPIResponse | undefined;
+  infoUser: UserResponse | undefined;
 };
 
 export const ModalAdmin = (props: Props) => {
@@ -40,13 +40,13 @@ export const ModalAdmin = (props: Props) => {
                 <label htmlFor="" className="font-medium">
                   User Name
                 </label>
-                <Input value={infoUser?.name} />
+                <Input value={infoUser?.user.name} />
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
                   Email
                 </label>
-                <Input value={infoUser?.email} />
+                <Input value={infoUser?.user.email} />
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
@@ -54,7 +54,7 @@ export const ModalAdmin = (props: Props) => {
                 </label>
                 <DatePicker
                   className="w-full noBG"
-                  value={moment(infoUser?.birthday, "DD/MM/YYYY")}
+                  value={moment(infoUser?.user.birthday, "DD/MM/YYYY")}
                   format={"DD/MM/YYYY"}
                 />
               </div>
@@ -62,13 +62,13 @@ export const ModalAdmin = (props: Props) => {
                 <label htmlFor="" className="font-medium">
                   Phone Number
                 </label>
-                <Input value={infoUser?.phone} />
+                <Input value={infoUser?.user.phone} />
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
                   Role
                 </label>
-                <Input value={infoUser?.role} />
+                <Input value={infoUser?.user.role} />
               </div>
             </div>
           </Form>
@@ -94,13 +94,13 @@ export const ModalAdmin = (props: Props) => {
                 <label htmlFor="" className="font-medium">
                   User Name
                 </label>
-                <Input ref={nameRef} value={infoUser?.name} />
+                <Input ref={nameRef} value={infoUser?.user.name} />
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
                   Email
                 </label>
-                <Input value={infoUser?.email} />
+                <Input value={infoUser?.user.email} />
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
@@ -108,7 +108,7 @@ export const ModalAdmin = (props: Props) => {
                 </label>
                 <DatePicker
                   className="w-full noBG"
-                  value={moment(infoUser?.birthday, "DD/MM/YYYY")}
+                  value={moment(infoUser?.user.birthday, "DD/MM/YYYY")}
                   format={"DD/MM/YYYY"}
                 />
               </div>
@@ -116,13 +116,13 @@ export const ModalAdmin = (props: Props) => {
                 <label htmlFor="" className="font-medium">
                   Phone Number
                 </label>
-                <Input value={infoUser?.phone} />
+                <Input value={infoUser?.user.phone} />
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
                   Role
                 </label>
-                <Input value={infoUser?.role} />
+                <Input value={infoUser?.user.role} />
               </div>
             </div>
           </Form>
