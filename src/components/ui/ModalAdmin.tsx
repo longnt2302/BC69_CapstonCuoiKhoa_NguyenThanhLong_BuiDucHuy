@@ -78,6 +78,13 @@ export const ModalAdmin = (props: Props) => {
       }, 1500);
       setIsLoading(true);
     }, 100);
+    setIsShowModal(false);
+    reset();
+  };
+
+  const handleCanelAdd = () => {
+    setIsShowModal(false);
+    reset();
   };
 
   return (
@@ -203,26 +210,19 @@ export const ModalAdmin = (props: Props) => {
           open={isShowModal}
           onCancel={() => setIsShowModal(false)}
           onOk={() => setIsShowModal(false)}
-          okText="Add"
-          cancelText="Cancel"
+          footer={[]}
           width={800}>
           <h2 className="text-center text-[30px] font-semibold mb-5">
             Add New User
           </h2>
-          <Form
+          <form
             name="registerform"
             className="main-register-form"
             id="main-register-form2"
-            // onSubmit={handleSubmit(onSubmit)}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              <div>
-                <label>
-                  ID *{" "}
-                  <span className="dec-icon">
-                    <i className="fal fa-id-badge"></i>
-                  </span>
-                </label>
+            onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-5">
+              <div className="text-left">
+                <label>ID * </label>
                 <Controller
                   control={control}
                   name="id"
@@ -232,13 +232,8 @@ export const ModalAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.id.message}</p>
                 )}
               </div>
-              <div>
-                <label>
-                  Name *{" "}
-                  <span className="dec-icon">
-                    <i className="fal fa-user"></i>
-                  </span>
-                </label>
+              <div className="text-left">
+                <label>Name * </label>
                 <Controller
                   control={control}
                   name="name"
@@ -248,13 +243,8 @@ export const ModalAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.name.message}</p>
                 )}
               </div>
-              <div>
-                <label>
-                  Email Address *{" "}
-                  <span className="dec-icon">
-                    <i className="fal fa-envelope"></i>
-                  </span>
-                </label>
+              <div className="text-left">
+                <label>Email Address * </label>
                 <Controller
                   control={control}
                   name="email"
@@ -264,32 +254,24 @@ export const ModalAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.email.message}</p>
                 )}
               </div>
-              <div className="pass-input-wrap fl-wrap">
-                <label>
-                  Password *{" "}
-                  <span className="dec-icon">
-                    <i className="fal fa-key"></i>
-                  </span>
-                </label>
-                <Controller
-                  control={control}
-                  name="password"
-                  render={({ field }) => <Input {...field} type="password" />}
-                />
-                {errors.password && (
-                  <p className="text-red-500">{errors.password.message}</p>
-                )}
-                <span className="eye z-10">
-                  <i className="fal fa-eye"></i>{" "}
-                </span>
+              <div className="pass-input-wrap fl-wrap text-left">
+                <label>Password * </label>
+                <div className="relative">
+                  <Controller
+                    control={control}
+                    name="password"
+                    render={({ field }) => <Input {...field} type="text" />}
+                  />
+                  {errors.password && (
+                    <p className="text-red-500">{errors.password.message}</p>
+                  )}
+                  {/* <span className="eye z-10 bottom-0 top-1/2 right-2 -translate-y-1/2">
+                    <i className="fal fa-eye"></i>{" "}
+                  </span> */}
+                </div>
               </div>
-              <div>
-                <label>
-                  Phone Number *{" "}
-                  <span className="dec-icon">
-                    <i className="fal fa-phone"></i>
-                  </span>
-                </label>
+              <div className="text-left">
+                <label>Phone Number * </label>
                 <Controller
                   control={control}
                   name="phone"
@@ -299,19 +281,14 @@ export const ModalAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.phone.message}</p>
                 )}
               </div>
-              <div>
-                <label>
-                  BirthDay *{" "}
-                  <span className="dec-icon">
-                    <i className="fal fa-birthday-cake"></i>
-                  </span>
-                </label>
+              <div className="text-left">
+                <label>BirthDay * </label>
                 <Controller
                   control={control}
                   name="birthday"
                   render={({ field }) => (
                     <DatePicker
-                      className="w-full"
+                      className="w-full noBG"
                       {...field}
                       format="DD/MM/YYYY"
                       value={
@@ -327,13 +304,8 @@ export const ModalAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.birthday.message}</p>
                 )}
               </div>
-              <div>
-                <label>
-                  Role *{" "}
-                  <span className="dec-icon">
-                    <i className="fal fa-user"></i>
-                  </span>
-                </label>
+              <div className="text-left">
+                <label>Role * </label>
                 <Controller
                   control={control}
                   name="role"
@@ -343,13 +315,8 @@ export const ModalAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.role.message}</p>
                 )}
               </div>
-              <div>
-                <label>
-                  Male *{" "}
-                  {/* <span className="dec-icon">
-                                <i className="fal fa-user"></i>
-                              </span> */}
-                </label>
+              <div className="text-left">
+                <label>Male * </label>
                 <Controller
                   control={control}
                   name="gender"
@@ -366,15 +333,19 @@ export const ModalAdmin = (props: Props) => {
                 )}
               </div>
             </div>
-            <div className="clearfix"></div>
-            <Button
-              loading={isLoading}
-              htmlType="submit"
-              className="log_btn color-bg">
-              {" "}
-              Đăng ký{" "}
-            </Button>
-          </Form>
+            <div className="text-right">
+              <Button className="me-2" onClick={() => handleCanelAdd()}>
+                Huỷ
+              </Button>
+              <Button
+                loading={isLoading}
+                htmlType="submit"
+                className="log_btn color-bg text-white">
+                {" "}
+                Đăng ký{" "}
+              </Button>
+            </div>
+          </form>
         </Modal>
       )}
     </>

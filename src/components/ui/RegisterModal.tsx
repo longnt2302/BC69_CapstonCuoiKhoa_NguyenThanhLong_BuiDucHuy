@@ -50,6 +50,7 @@ export const RegisterModal = () => {
         reset();
       }, 1500);
       setIsLoading(true);
+      reset();
     }, 100);
   };
 

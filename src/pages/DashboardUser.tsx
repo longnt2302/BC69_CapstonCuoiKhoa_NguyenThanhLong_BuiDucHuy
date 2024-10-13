@@ -6,7 +6,6 @@ import { ChangeEvent, useRef, useState } from "react";
 import { ModalAdmin } from "../components/ui/ModalAdmin";
 import { User } from "../@types";
 import { Bounce, toast } from "react-toastify";
-import { Button } from "antd";
 
 export const DashboardUser = () => {
   const { data, refetch } = useQuery({
