@@ -1,10 +1,13 @@
 import { Avatar, Popover } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { quanLyNguoiDungSelector } from "../../store/quanLyNguoiDung";
+// import { quanLyNguoiDungSelector } from "../../store/quanLyNguoiDung";
 import { NavLink } from "react-router-dom";
+import { dataUser } from "../../utils";
 
 export const Header = () => {
-  const { user } = quanLyNguoiDungSelector();
+  // const { user } = quanLyNguoiDungSelector();
+
+  const currentLoging = dataUser();
 
   return (
     <header className="main-header">
@@ -28,19 +31,19 @@ export const Header = () => {
       </div>
 
       <div className="add-list_wrap">
-        <a href="/dashboard" className="add-list color-bg">
+        <NavLink to="/dashboard" className="add-list color-bg">
           <i className="fal fa-plus"></i> <span>Admin</span>
-        </a>
+        </NavLink>
       </div>
 
-      {user ? (
+      {currentLoging ? (
         <div className="h-full inline-flex items-center float-right md:px-5 px-2 md:border-l border-solid border-opacity-[0.1] border-white">
           <Popover
             placement="bottom"
             content={
               <div className="px-3">
-                <a
-                  href="#"
+                <NavLink
+                  to="#"
                   className="flex text-[13px] cursor-pointer"
                   onClick={() => {
                     localStorage.removeItem("USER");
@@ -48,7 +51,7 @@ export const Header = () => {
                   }}>
                   <span className="inline-block me-3">LogOut</span>
                   <LogoutOutlined className="text-red-400" />
-                </a>
+                </NavLink>
               </div>
             }>
             <Avatar size={40} icon={<UserOutlined />} />
@@ -72,40 +75,40 @@ export const Header = () => {
               </a>
             </li>
             <li>
-              <a href="#">
+              <NavLink to="#">
                 Listings <i className="fa fa-caret-down"></i>
-              </a>
+              </NavLink>
 
               <ul>
                 <li>
-                  <a href="listing6.html">Without Map 2</a>
+                  <NavLink to="listing6.html">Without Map 2</NavLink>
                 </li>
                 <li>
-                  <a href="#">
+                  <NavLink to="#">
                     Single <i className="fa fa-caret-down"></i>
-                  </a>
+                  </NavLink>
 
                   <ul>
                     <li>
-                      <a href="listing-single.html">Style 1</a>
+                      <NavLink to="listing-single.html">Style 1</NavLink>
                     </li>
                   </ul>
                 </li>
               </ul>
             </li>
             <li>
-              <a href="blog.html">News</a>
+              <NavLink to="blog.html">News</NavLink>
             </li>
             <li>
-              <a href="#">
+              <NavLink to="#">
                 Pages <i className="fa fa-caret-down"></i>
-              </a>
+              </NavLink>
               <ul>
                 <li>
-                  <a href="contacts.html">Contacts</a>
+                  <NavLink to="contacts.html">Contacts</NavLink>
                 </li>
                 <li>
-                  <a href="blog-single.html">Blog Single</a>
+                  <NavLink to="blog-single.html">Blog Single</NavLink>
                 </li>
               </ul>
             </li>

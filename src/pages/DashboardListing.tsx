@@ -3,7 +3,7 @@ import { viTriServices } from "../services";
 import { ItemViTri } from "../components/templates/Dashboard";
 
 export const DashboardListing = () => {
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: ["getViTri"],
     queryFn: async () => {
       const dataViTri = await viTriServices.getViTri();
@@ -16,7 +16,7 @@ export const DashboardListing = () => {
         <div className="dashboard-listings-wrap fl-wrap">
           <div className="row">
             {data?.map((viTri) => (
-              <ItemViTri key={viTri?.id} viTri={viTri} />
+              <ItemViTri key={viTri.id} viTri={viTri} refetch={refetch} />
             ))}
           </div>
         </div>

@@ -1,11 +1,12 @@
 import { viTriAPIResponse } from "../../../@types";
+import { viTriServices } from "../../../services";
 
 type Props = {
-  key: number;
   viTri: viTriAPIResponse;
+  refetch: () => void;
 };
 export const ItemViTri = (props: Props) => {
-  const { viTri } = props;
+  const { viTri, refetch } = props;
   return (
     <div className="col-md-6">
       <div className="dashboard-listings-item fl-wrap">
@@ -53,6 +54,16 @@ export const ItemViTri = (props: Props) => {
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Delete"
+                  onClick={async (e) => {
+                    e.preventDefault();
+                    try {
+                      await viTriServices.deleteViTri(viTri.id);
+                      console.log("delete vi tri success");
+                      refetch();
+                    } catch (error) {
+                      console.log("🚀 ~ onClick={ ~ error:", error);
+                    }
+                  }}
                 >
                   <i className="far fa-trash-alt"></i>
                 </a>

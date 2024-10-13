@@ -29,9 +29,7 @@ export const DashboardLayout = () => {
               </div>
               <div className="dasboard-wrapper fl-wrap no-pag">
                 <div className="dashboard-stats-container fl-wrap">
-                  <div className="row">
-                    <Outlet />
-                  </div>
+                  <Outlet />
                 </div>
               </div>
             </div>

@@ -11,7 +11,8 @@ export const apiInstance = {
         ...setting,
         headers: {
           ...(setting?.headers || {}),
-          TokenCyberSoft: TOKEN.tokenCybersoft,
+          tokenCyberSoft: TOKEN.tokenCybersoft,
+          token: TOKEN.token,
         },
       } as unknown as InternalAxiosRequestConfig;
     });

@@ -13,7 +13,7 @@ export const SidebarDashboard = () => {
           <h3>DASHBOARD</h3>
           <ul className="no-list-style">
             <li>
-              <NavLink to="#">
+              <NavLink to="/dashboard/users">
                 <i className="fal fa-th-list"></i> Quản lý người dùng
               </NavLink>
             </li>
