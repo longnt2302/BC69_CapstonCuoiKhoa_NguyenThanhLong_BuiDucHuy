@@ -12,4 +12,11 @@ export const viTriServices = {
       `/vi-tri/phan-trang-tim-kiem${query}`
     ),
   deleteViTri: (id: number) => api.delete(`/vi-tri/${id}`),
+  addViTri: (dataForm = {}) =>
+    api.post<HttpResponse<viTriAPIResponse>>("/vi-tri/", dataForm),
+  uploadImageViTri: (maViTri: number, dataForm: any = "") =>
+    api.post<HttpResponse<viTriAPIResponse>>(
+      `/vi-tri/upload-hinh-vitri?maViTri=${maViTri}`,
+      dataForm
+    ),
 };

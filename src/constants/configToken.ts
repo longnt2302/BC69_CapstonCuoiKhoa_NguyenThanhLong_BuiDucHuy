@@ -5,6 +5,6 @@ const dataUser = localStorage.getItem("USER")
   : "";
 const { token } = dataUser;
 export const TOKEN = {
-  tokenCybersoft,
   token,
+  tokenCybersoft,
 };

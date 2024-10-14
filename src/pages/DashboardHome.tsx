@@ -67,7 +67,12 @@ export const DashboardHome = () => {
                 <div className="listsearch-input-item">
                   <select
                     data-placeholder="Week"
+<<<<<<< HEAD
                     className="chosen-select no-search-select">
+=======
+                    className="chosen-select no-search-select"
+                  >
+>>>>>>> devlong
                     <option>Week</option>
                     <option>Month</option>
                     <option>Year</option>
@@ -184,7 +189,12 @@ export const DashboardHome = () => {
 
               <a
                 className="chat-contacts-item chat-contacts-item_active"
+<<<<<<< HEAD
                 href="#">
+=======
+                href="#"
+              >
+>>>>>>> devlong
                 <div className="dashboard-message-avatar">
                   <img src="/assets/images/avatar/3.jpg" alt="..." />
                   <div className="message-counter">3</div>
