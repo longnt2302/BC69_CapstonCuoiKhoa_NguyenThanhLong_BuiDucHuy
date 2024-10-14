@@ -3,6 +3,15 @@ import { Breadcrumb } from "../components/ui";
 import { useQuery } from "@tanstack/react-query";
 import { roomServices } from "../services";
 import { Comments } from "../components/templates/singleRoom";
+import { Controller, useForm } from "react-hook-form";
+import { bookingSchema, bookingSchemaType } from "../schema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useBooking } from "../hooks/api/useBooking";
+import { Bounce, toast } from "react-toastify";
+import { useEffect, useState } from "react";
+import { Button, DatePicker, Input } from "antd";
+import moment from "moment";
+import { dataUser } from "../utils";
 export const SingleRoom = () => {
   const { cityName, roomId } = useParams();
   const { data } = useQuery({
@@ -15,6 +24,56 @@ export const SingleRoom = () => {
     enabled: !!roomId,
   });
   console.log("🚀 ~ SingleRoom ~ data:", data);
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue,
+  } = useForm<bookingSchemaType>({
+    mode: "onChange",
+    resolver: zodResolver(bookingSchema),
+  });
+
+  const currentUser = dataUser();
+
+  useEffect(() => {
+    if (data) {
+      setValue("maPhong", data?.data?.content?.id);
+    }
+    if (currentUser) {
+      setValue("maNguoiDung", currentUser.user.id);
+    }
+  }, [data, currentUser, setValue]);
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const { mutate } = useBooking();
+
+  const onSubmit = (data: bookingSchemaType) => {
+    mutate(data);
+    setTimeout(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+        toast("Đặt phòng thành công !", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        reset();
+      }, 1500);
+      setIsLoading(true);
+      reset();
+    }, 100);
+  };
+
   return (
     <>
       <Breadcrumb currentPage={`${cityName} / ${roomId}`} />
@@ -22,7 +81,7 @@ export const SingleRoom = () => {
       <div className="gray-bg small-padding fl-wrap">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-9">
               <div className="list-single-main-wrapper fl-wrap">
                 <div className="scroll-nav-wrap">
                   <nav className="scroll-nav scroll-init fixed-column_menu-init">
@@ -67,8 +126,7 @@ export const SingleRoom = () => {
                     <div className="progress-indicator">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        viewBox="-1 -1 34 34"
-                      >
+                        viewBox="-1 -1 34 34">
                         <circle
                           cx="16"
                           cy="16"
@@ -89,14 +147,13 @@ export const SingleRoom = () => {
 
                 <div className="list-single-header-item  fl-wrap" id="sec1">
                   <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-12">
                       <h1>
                         {data?.data?.content?.tenPhong}
                         <span
                           className="verified-badge tolt"
                           data-microtip-position="bottom"
-                          data-tooltip="Verified"
-                        >
+                          data-tooltip="Verified">
                           <i className="fas fa-check"></i>
                         </span>
                       </h1>
@@ -106,8 +163,7 @@ export const SingleRoom = () => {
                         </a>
                         <div
                           className="listing-rating card-popup-rainingvis"
-                          data-starrating2="4"
-                        >
+                          data-starrating2="4">
                           <span className="re_stars-title">Good</span>
                         </div>
                       </div>
@@ -116,8 +172,7 @@ export const SingleRoom = () => {
                   <div className="list-single-header-footer fl-wrap">
                     <div
                       className="list-single-header-price"
-                      data-propertyprise="50500"
-                    >
+                      data-propertyprise="50500">
                       <strong>Price:</strong>
                       <span>$</span>
                       {data?.data?.content?.giaTien}
@@ -143,8 +198,7 @@ export const SingleRoom = () => {
                     <div className="box-item">
                       <a
                         href={data?.data?.content?.hinhAnh}
-                        className="gal-link popup-image"
-                      >
+                        className="gal-link popup-image">
                         <i className="fal fa-search"></i>
                       </a>
                       <img src={data?.data?.content?.hinhAnh} alt="..." />
@@ -268,6 +322,150 @@ export const SingleRoom = () => {
 
                   <Comments maPhong={data?.data?.content?.id} />
                 </div>
+              </div>
+            </div>
+            <div className="col-md-3 bg-[#1B182B]">
+              <div className="px-6 py-9">
+                <h3 className="text-white md:text-[22px] text-[20px] font-bold text-left mb-5">
+                  Đặt phòng
+                </h3>
+                <form
+                  name="bookingform"
+                  className="main-register-form"
+                  onSubmit={handleSubmit(onSubmit)}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <div className="text-white text-left mb-2">
+                      <label className="font-semibold">
+                        Mã phòng{" "}
+                        <span className="dec-icon">
+                          <i className="fal fa-user"></i>
+                        </span>
+                      </label>
+                      <Controller
+                        control={control}
+                        name="maPhong"
+                        render={({ field }) => (
+                          <Input
+                            {...field}
+                            type="number"
+                            // value={data?.data.content.id}
+                          />
+                        )}
+                      />
+                      {errors.maPhong && (
+                        <p className="text-red-500">{errors.maPhong.message}</p>
+                      )}
+                    </div>
+                    <div className="text-white text-left mb-2">
+                      <label className="font-semibold">Ngày đến * </label>
+                      <Controller
+                        control={control}
+                        name="ngayDen"
+                        render={({ field }) => (
+                          <DatePicker
+                            className="w-full noBG"
+                            {...field}
+                            format="DD/MM/YYYY"
+                            value={
+                              field.value
+                                ? moment(field.value, "DD/MM/YYYY")
+                                : null
+                            }
+                            onChange={(date) =>
+                              field.onChange(
+                                date ? date.format("DD/MM/YYYY") : null
+                              )
+                            }
+                          />
+                        )}
+                      />
+                      {errors.ngayDen && (
+                        <p className="text-red-500">{errors.ngayDen.message}</p>
+                      )}
+                    </div>
+                    <div className="text-white text-left mb-2">
+                      <label className="font-semibold">Ngày đi * </label>
+                      <Controller
+                        control={control}
+                        name="ngayDi"
+                        render={({ field }) => (
+                          <DatePicker
+                            className="w-full noBG"
+                            {...field}
+                            format="DD/MM/YYYY"
+                            value={
+                              field.value
+                                ? moment(field.value, "DD/MM/YYYY")
+                                : null
+                            }
+                            onChange={(date) =>
+                              field.onChange(
+                                date ? date.format("DD/MM/YYYY") : null
+                              )
+                            }
+                          />
+                        )}
+                      />
+                      {errors.ngayDi && (
+                        <p className="text-red-500">{errors.ngayDi.message}</p>
+                      )}
+                    </div>
+                    <div className="text-white text-left mb-2">
+                      <label className="font-semibold">
+                        Số khách{" "}
+                        <span className="dec-icon">
+                          <i className="fal fa-user"></i>
+                        </span>
+                      </label>
+                      <Controller
+                        control={control}
+                        name="soLuongKhach"
+                        render={({ field }) => (
+                          <Input {...field} type="number" />
+                        )}
+                      />
+                      {errors.soLuongKhach && (
+                        <p className="text-red-500">
+                          {errors.soLuongKhach.message}
+                        </p>
+                      )}
+                    </div>
+                    <div className="text-white text-left mb-2">
+                      <label className="font-semibold">
+                        Mã người dùng{" "}
+                        <span className="dec-icon">
+                          <i className="fal fa-user"></i>
+                        </span>
+                      </label>
+                      <Controller
+                        control={control}
+                        name="maNguoiDung"
+                        render={({ field }) => (
+                          <Input
+                            {...field}
+                            type="number"
+                            // value={currentUser.user.id}
+                          />
+                        )}
+                      />
+                      {errors.maNguoiDung && (
+                        <p className="text-red-500">
+                          {errors.maNguoiDung.message}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="clearfix"></div>
+                  <div className="text-left mt-5">
+                    <Button
+                      loading={isLoading}
+                      htmlType="submit"
+                      className="log_btn bg-blue-500 text-white">
+                      {" "}
+                      Đặt phòng{" "}
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

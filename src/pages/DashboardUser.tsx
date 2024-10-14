@@ -73,7 +73,6 @@ export const DashboardUser = () => {
   };
 
   const [textSearch, setTextSearch] = useState<User[] | undefined>([]);
-  console.log("textSearch: ", !!textSearch);
 
   const inputSearchRef = useRef<HTMLInputElement | null>(null);
 

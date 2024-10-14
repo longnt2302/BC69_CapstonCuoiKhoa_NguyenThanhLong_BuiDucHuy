@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 type Props<T> = {
   currentPage: T;
 };
@@ -8,14 +10,14 @@ export const Breadcrumb = (props: Props<string | undefined>) => {
       <div className="container">
         <div className="flex justify-between items-center">
           <div className="breadcrumbs-list">
-            <a href="/">Home</a>
+            <NavLink to="/">Home</NavLink>
             {currentPage && <span>{currentPage}</span>}
           </div>
           <div className="share-holder hid-share min-w-[90px]">
-            <a href="#" className="share-btn showshare sfcs inline-block">
+            <NavLink to="#" className="share-btn showshare sfcs inline-block">
               {" "}
               <i className="fas fa-share-alt"></i> Share{" "}
-            </a>
+            </NavLink>
             <div className="share-container  isShare"></div>
           </div>
         </div>
