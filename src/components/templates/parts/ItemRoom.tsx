@@ -9,7 +9,7 @@ export const ItemRoom = (props: Props) => {
   const { roomDetail, cityName } = props;
   const navigate = useNavigate();
   return (
-    <div className="listing-item">
+    <div className="listing-item !w-full">
       <article className="geodir-category-listing fl-wrap">
         <div className="geodir-category-img fl-wrap">
           <NavLink
@@ -18,8 +18,12 @@ export const ItemRoom = (props: Props) => {
               e.preventDefault();
               navigate(`/${cityName}/${roomDetail.id}`);
             }}
-            className="geodir-category-img_item">
-            <img src={roomDetail?.hinhAnh} alt="..." />
+            className="geodir-category-img_item relative pt-[56.25%]">
+            <img
+              src={roomDetail?.hinhAnh}
+              alt="..."
+              className="absolute w-full !h-full object-cover top-0 left-0"
+            />
             <div className="overlay"></div>
           </NavLink>
           <NavLink

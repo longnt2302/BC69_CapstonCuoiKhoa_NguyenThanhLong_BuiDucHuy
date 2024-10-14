@@ -21,6 +21,10 @@ export const routers = () =>
           element: <Home />,
         },
         {
+          path: PATH.listing,
+          element: <ListRoom />,
+        },
+        {
           path: "/:cityName",
           element: <ListRoom />,
         },

@@ -14,8 +14,7 @@ export const ListItem = (props: Props) => {
         onClick={(e) => {
           e.preventDefault();
           navigate(`/${tenViTri}`);
-        }}
-      >
+        }}>
         <div className="relative pt-[56.25%]">
           <img
             src={data?.data[0].hinhAnh}

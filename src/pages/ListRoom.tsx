@@ -41,7 +41,7 @@ export const ListRoom = () => {
 
       <div className="container">
         <div className="clearfix"></div>
-        <div className="listing-item-container three-columns-grid  box-list_ic fl-wrap">
+        <div className="listing-item-container grid md:grid-cols-3 gap-[16px] box-list_ic fl-wrap">
           {dataRoom?.data?.content?.map((room) => (
             <ItemRoom key={room?.id} roomDetail={room} cityName={cityName} />
           ))}
