@@ -42,7 +42,7 @@ export const DashboardUser = () => {
       await usersServices.deleteUser(user.id);
 
       // Hiển thị thông báo thành công
-      toast(`Delete user id: ${user.id} success!`, {
+      toast(`Xoá người dùng id: ${user.id} thành công!`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -58,7 +58,7 @@ export const DashboardUser = () => {
       refetch();
     } catch (error) {
       // Xử lý lỗi nếu có
-      toast(`Error deleting user id: ${user.id}`, {
+      toast(`lỗi xoá người dùng id: ${user.id}`, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,

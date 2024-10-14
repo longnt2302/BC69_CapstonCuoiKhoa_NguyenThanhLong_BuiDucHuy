@@ -8,13 +8,14 @@ import {
   Button,
 } from "antd";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { User } from "../../@types";
+import { User, userEditType } from "../../@types";
 import moment from "moment";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema, registerSchemaType } from "../../schema";
 import { useRegister } from "../../hooks/api";
 import { Bounce, toast } from "react-toastify";
+import { userEdit } from "../../hooks/api/userEdit";
 
 type Props = {
   isShowModal: boolean;
@@ -30,6 +31,7 @@ export const ModalAdmin = (props: Props) => {
 
   useEffect(() => {
     formRef.current?.setFieldsValue({
+      id: infoUser?.id,
       name: infoUser?.name || "",
       email: infoUser?.email || "",
       birthday: infoUser?.birthday
@@ -55,15 +57,13 @@ export const ModalAdmin = (props: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { mutate } = useRegister();
+  const { mutate: Editmutate } = useRegister();
   const onSubmit = (data: registerSchemaType) => {
-    console.log("data: ", data);
-    // useRegister(data);
-    mutate(data);
+    Editmutate(data);
     setTimeout(() => {
       setTimeout(() => {
         setIsLoading(false);
-        toast("Register sucessfully !", {
+        toast("Đăng ký thành công !", {
           position: "top-right",
           autoClose: 2000,
           hideProgressBar: false,
@@ -87,12 +87,42 @@ export const ModalAdmin = (props: Props) => {
     reset();
   };
 
+  const handleCanel = () => {
+    setIsShowModal(false);
+    reset();
+  };
+
+  const { mutate: mutateEdit } = userEdit();
+  const onFinish = (data: userEditType) => {
+    mutateEdit({ id: data.id, payload: data });
+    setTimeout(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+        toast("Cập nhật thành công !", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+        reset();
+      }, 1500);
+      setIsLoading(true);
+    }, 100);
+    setIsShowModal(false);
+    reset();
+  };
+
   return (
     <>
       {typeOfModal === "info" ? (
         <Modal
           open={isShowModal}
-          onCancel={() => setIsShowModal(false)}
+          onCancel={() => handleCanel()}
           onOk={() => setIsShowModal(false)}
           cancelText="Close"
           okButtonProps={{ style: { display: "none" } }}
@@ -102,6 +132,14 @@ export const ModalAdmin = (props: Props) => {
           </h2>
           <Form ref={formRef}>
             <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
+              <div className="mb-2 text-left">
+                <label htmlFor="" className="font-medium">
+                  ID
+                </label>
+                <Form.Item name="id">
+                  <Input disabled />
+                </Form.Item>
+              </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
                   User Name
@@ -152,16 +190,23 @@ export const ModalAdmin = (props: Props) => {
       ) : typeOfModal === "edit" ? (
         <Modal
           open={isShowModal}
-          onCancel={() => setIsShowModal(false)}
+          onCancel={() => handleCanel()}
           onOk={() => setIsShowModal(false)}
-          okText="Save Change"
-          cancelText="Cancel"
+          footer={[]}
           width={800}>
           <h2 className="text-center text-[30px] font-semibold mb-5">
             Edit User
           </h2>
-          <Form ref={formRef}>
+          <Form ref={formRef} onFinish={onFinish}>
             <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
+              <div className="mb-2 text-left">
+                <label htmlFor="" className="font-medium">
+                  ID
+                </label>
+                <Form.Item name="id">
+                  <Input />
+                </Form.Item>
+              </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
                   User Name
@@ -182,8 +227,11 @@ export const ModalAdmin = (props: Props) => {
                 <label htmlFor="" className="font-medium">
                   Birthday
                 </label>
-                <Form.Item name="birthday">
+                {/* <Form.Item name="birthday">
                   <DatePicker className="w-full noBG" format={"DD/MM/YYYY"} />
+                </Form.Item> */}
+                <Form.Item name="birthday">
+                  <DatePicker className="w-full noBG" format="DD/MM/YYYY" />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
@@ -203,12 +251,24 @@ export const ModalAdmin = (props: Props) => {
                 </Form.Item>
               </div>
             </div>
+            <div>
+              <Button className="me-2" onClick={() => handleCanel()}>
+                Huỷ
+              </Button>
+              <Button
+                loading={isLoading}
+                htmlType="submit"
+                className="log_btn color-bg text-white">
+                {" "}
+                Cập nhật
+              </Button>
+            </div>
           </Form>
         </Modal>
       ) : (
         <Modal
           open={isShowModal}
-          onCancel={() => setIsShowModal(false)}
+          onCancel={() => handleCanel()}
           onOk={() => setIsShowModal(false)}
           footer={[]}
           width={800}>
