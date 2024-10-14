@@ -1,5 +1,3 @@
-import React from "react";
-
 export const DashboardHome = () => {
   return (
     <>
@@ -55,7 +53,8 @@ export const DashboardHome = () => {
         <div className="col-md-8">
           <div className="notification success-notif  fl-wrap">
             <p>
-              Your listing <a href="#">Family house in Brooklyn</a> has been approved!
+              Your listing <a href="#">Family house in Brooklyn</a> has been
+              approved!
             </p>
             <a className="notification-close" href="#">
               <i className="fal fa-times"></i>
@@ -66,7 +65,10 @@ export const DashboardHome = () => {
             <div className="chart-wrap   fl-wrap">
               <div className="chart-header fl-wrap">
                 <div className="listsearch-input-item">
-                  <select data-placeholder="Week" className="chosen-select no-search-select">
+                  <select
+                    data-placeholder="Week"
+                    className="chosen-select no-search-select"
+                  >
                     <option>Week</option>
                     <option>Month</option>
                     <option>Year</option>
@@ -89,7 +91,8 @@ export const DashboardHome = () => {
                 </div>
                 <div className="main-dashboard-message-text">
                   <p>
-                    Your listing <a href="#">Urban Appartmes</a> has been approved!{" "}
+                    Your listing <a href="#">Urban Appartmes</a> has been
+                    approved!{" "}
                   </p>
                 </div>
                 <div className="main-dashboard-message-time">
@@ -109,7 +112,8 @@ export const DashboardHome = () => {
                 <div className="main-dashboard-message-text">
                   <p>
                     {" "}
-                    Someone left a review on <a href="#">Park Central</a> listing!
+                    Someone left a review on <a href="#">Park Central</a>{" "}
+                    listing!
                   </p>
                 </div>
                 <div className="main-dashboard-message-time">
@@ -128,7 +132,8 @@ export const DashboardHome = () => {
                 </div>
                 <div className="main-dashboard-message-text">
                   <p>
-                    <a href="#">Fider Mamby</a> bookmarked your <a href="#">Holiday Home</a> listing!
+                    <a href="#">Fider Mamby</a> bookmarked your{" "}
+                    <a href="#">Holiday Home</a> listing!
                   </p>
                 </div>
                 <div className="main-dashboard-message-time">
@@ -155,8 +160,9 @@ export const DashboardHome = () => {
                   <h4>Mark Rose</h4>
                   <span>27 Dec 2018 </span>
                   <p>
-                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc.
-                    Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.
+                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat,
+                    rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl,
+                    bibendum id ultrices sed, accumsan sed dolor.
                   </p>
                 </div>
               </a>
@@ -170,13 +176,17 @@ export const DashboardHome = () => {
                   <h4>Adam Koncy</h4>
                   <span>27 Dec 2018 </span>
                   <p>
-                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc.
-                    Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.
+                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat,
+                    rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl,
+                    bibendum id ultrices sed, accumsan sed dolor.
                   </p>
                 </div>
               </a>
 
-              <a className="chat-contacts-item chat-contacts-item_active" href="#">
+              <a
+                className="chat-contacts-item chat-contacts-item_active"
+                href="#"
+              >
                 <div className="dashboard-message-avatar">
                   <img src="/assets/images/avatar/3.jpg" alt="..." />
                   <div className="message-counter">3</div>
@@ -185,8 +195,9 @@ export const DashboardHome = () => {
                   <h4>Andy Smith</h4>
                   <span>27 Dec 2018 </span>
                   <p>
-                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc.
-                    Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.
+                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat,
+                    rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl,
+                    bibendum id ultrices sed, accumsan sed dolor.
                   </p>
                 </div>
               </a>
@@ -200,8 +211,9 @@ export const DashboardHome = () => {
                   <h4>Joe Frick</h4>
                   <span>27 Dec 2018 </span>
                   <p>
-                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc.
-                    Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.
+                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat,
+                    rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl,
+                    bibendum id ultrices sed, accumsan sed dolor.
                   </p>
                 </div>
               </a>
@@ -214,8 +226,9 @@ export const DashboardHome = () => {
                   <h4>Alise Goovy</h4>
                   <span>27 Dec 2018 </span>
                   <p>
-                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc.
-                    Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.
+                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat,
+                    rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl,
+                    bibendum id ultrices sed, accumsan sed dolor.
                   </p>
                 </div>
               </a>
@@ -228,8 +241,9 @@ export const DashboardHome = () => {
                   <h4>Cristiano Olando</h4>
                   <span>27 Dec 2018 </span>
                   <p>
-                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat, rutrum ut feugiat sed, ornare vitae nunc.
-                    Donec massa nisl, bibendum id ultrices sed, accumsan sed dolor.
+                    Vivamus lobortis vel nibh nec maximus. Donec dolor erat,
+                    rutrum ut feugiat sed, ornare vitae nunc. Donec massa nisl,
+                    bibendum id ultrices sed, accumsan sed dolor.
                   </p>
                 </div>
               </a>
@@ -242,7 +256,10 @@ export const DashboardHome = () => {
                 <div className="bg  " data-bg="images/all/blog/1.jpg"></div>
               </div>
               <div className="banner-widget_content">
-                <h5>Participate in our loyalty program. Refer a friend and get a discount.</h5>
+                <h5>
+                  Participate in our loyalty program. Refer a friend and get a
+                  discount.
+                </h5>
                 <a href="#" className="btn float-btn color-bg small-btn">
                   Read More
                 </a>
