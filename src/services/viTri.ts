@@ -10,6 +10,6 @@ export const viTriServices = {
   searchViTri: (query = "") => api.get<HttpResponse<viTriAPIResponse>>(`/vi-tri/phan-trang-tim-kiem${query}`),
   deleteViTri: (id: number) => api.delete(`/vi-tri/${id}`),
   addViTri: (dataForm = {}) => api.post<HttpResponse<viTriAPIResponse>>("/vi-tri/", dataForm),
-  uploadImageViTri: (maViTri: number, dataForm: any) =>
+  uploadImageViTri: (maViTri: number, dataForm: FormData) =>
     api.post<HttpResponse<viTriAPIResponse>>(`/vi-tri/upload-hinh-vitri?maViTri=${maViTri}`, dataForm),
 };
