@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { bookingServices } from "../services";
-import { ChangeEvent, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { BookingResponse } from "../@types";
 import { Paginate } from "../components/ui";
 import moment from "moment";
 import { ModalBookingAdmin } from "../components/ui/ModalBookingAdmin";
 
 export const DashboardBooking = () => {
-  const { data, refetch } = useQuery({
+  const { data } = useQuery({
     queryKey: ["listBooking"],
     queryFn: async () => await bookingServices.getListBooking(),
   });
@@ -36,57 +36,55 @@ export const DashboardBooking = () => {
     setIsShowModal(true);
     setTypeOfModal(event.target.name);
   };
-  const handleDelete = async (booking: BookingResponse) => {
-    // try {
-    //   // Gọi API để xóa người dùng
-    //   await usersServices.deleteUser(user.id);
-    //   // Hiển thị thông báo thành công
-    //   toast(`Xoá người dùng id: ${user.id} thành công!`, {
-    //     position: "top-right",
-    //     autoClose: 2000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //     transition: Bounce,
-    //   });
-    //   // Làm mới dữ liệu
-    //   refetch();
-    // } catch (error) {
-    //   // Xử lý lỗi nếu có
-    //   toast(`lỗi xoá người dùng id: ${user.id}`, {
-    //     position: "top-right",
-    //     autoClose: 2000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //     transition: Bounce,
-    //   });
-    // }
-  };
+  // const handleDelete = async (booking: BookingResponse) => {
+  // try {
+  //   // Gọi API để xóa người dùng
+  //   await usersServices.deleteUser(user.id);
+  //   // Hiển thị thông báo thành công
+  //   toast(`Xoá người dùng id: ${user.id} thành công!`, {
+  //     position: "top-right",
+  //     autoClose: 2000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //     transition: Bounce,
+  //   });
+  //   // Làm mới dữ liệu
+  //   refetch();
+  // } catch (error) {
+  //   // Xử lý lỗi nếu có
+  //   toast(`lỗi xoá người dùng id: ${user.id}`, {
+  //     position: "top-right",
+  //     autoClose: 2000,
+  //     hideProgressBar: false,
+  //     closeOnClick: true,
+  //     pauseOnHover: true,
+  //     draggable: true,
+  //     progress: undefined,
+  //     theme: "light",
+  //     transition: Bounce,
+  //   });
+  // }
+  // };
 
-  const [textSearch, setTextSearch] = useState<BookingResponse[] | undefined>(
-    []
-  );
+  const [textSearch] = useState<BookingResponse[] | undefined>([]);
 
   const inputSearchRef = useRef<HTMLInputElement | null>(null);
 
-  const handleSearchAdmin = (e: ChangeEvent<HTMLInputElement>) => {
-    // const { value } = e.target;
-    // if (value.length === 0) {
-    //   setTextSearch([]);
-    //   return;
-    // }
-    // const listSearch = data?.data.content.filter((item) =>
-    //   item.name.toLowerCase().trim().includes(value.toLowerCase().trim())
-    // );
-    // setTextSearch(listSearch);
-  };
+  // const handleSearchAdmin = (e: ChangeEvent<HTMLInputElement>) => {
+  // const { value } = e.target;
+  // if (value.length === 0) {
+  //   setTextSearch([]);
+  //   return;
+  // }
+  // const listSearch = data?.data.content.filter((item) =>
+  //   item.name.toLowerCase().trim().includes(value.toLowerCase().trim())
+  // );
+  // setTextSearch(listSearch);
+  // };
 
   const handleAddUser = (event: any) => {
     setIsShowModal(true);
@@ -109,7 +107,7 @@ export const DashboardBooking = () => {
             type="text"
             placeholder="Tìm kiếm đặt phòng..."
             className="w-full adminInputSearch p-2"
-            onChange={(e) => handleSearchAdmin(e)}
+            // onChange={(e) => handleSearchAdmin(e)}
           />
         </div>
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -173,7 +171,7 @@ export const DashboardBooking = () => {
                       </button>
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
-                        onClick={() => handleDelete(booking)}
+                        // onClick={() => handleDelete(booking)}
                         name="delete">
                         Xoá
                       </button>
@@ -223,7 +221,7 @@ export const DashboardBooking = () => {
                       </button>
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
-                        onClick={() => handleDelete(booking)}
+                        // onClick={() => handleDelete(booking)}
                         name="delete">
                         Xoá
                       </button>
