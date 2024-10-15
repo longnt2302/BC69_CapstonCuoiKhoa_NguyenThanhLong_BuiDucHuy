@@ -22,9 +22,9 @@ export const SidebarDashboard = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   navigate("/dashboard/listing");
-                }}>
-                <i className="fal fa-calendar-check"></i> Quản lý thông tin vị
-                trí
+                }}
+              >
+                <i className="fal fa-calendar-check"></i> Quản lý thông tin vị trí
               </a>
             </li>
             <li>
@@ -32,7 +32,8 @@ export const SidebarDashboard = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   navigate("/dashboard/rooms");
-                }}>
+                }}
+              >
                 <i className="fal fa-comments-alt"></i>Quản lý thông tin phòng
               </a>
             </li>
@@ -44,9 +45,7 @@ export const SidebarDashboard = () => {
           </ul>
         </div>
       </div>
-      <div className="dashbard-menu-footer">
-        &#169; Homeradar 2022 . All rights reserved.
-      </div>
+      <div className="dashbard-menu-footer">&#169; Homeradar 2022 . All rights reserved.</div>
     </div>
   );
 };

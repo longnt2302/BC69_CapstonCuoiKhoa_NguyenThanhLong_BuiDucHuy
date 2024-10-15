@@ -130,33 +130,30 @@ export const FormViTri = () => {
               {errors?.quocGia && <p className="text-red-500">{errors?.quocGia?.message}</p>}
             </div>
             <div className="col-sm-6">
-              <label className="uppercase">
-                Hình ảnh
-                <span className="dec-icon">
-                  <i className="far fa-long-arrow-alt-right"></i>
-                </span>
-              </label>
-              <Controller
-                control={control}
-                name="hinhAnh"
-                render={({ field: { onChange } }) => (
-                  <Upload
-                    listType="picture"
-                    maxCount={1}
-                    fileList={fileList}
-                    defaultFileList={fileList}
-                    onChange={(info) => {
-                      handleOnChangeUpload(info); // Cập nhật fileList trong state
-                      onChange(info.fileList); // Cập nhật giá trị trong React Hook Form
-                    }}
-                    beforeUpload={() => false}
-                  >
-                    <Button type="primary" icon={<UploadOutlined />}>
-                      Upload
-                    </Button>
-                  </Upload>
-                )}
-              />
+              <label className="uppercase">Hình ảnh</label>
+              <div className="text-start">
+                <Controller
+                  control={control}
+                  name="hinhAnh"
+                  render={({ field: { onChange } }) => (
+                    <Upload
+                      listType="picture"
+                      maxCount={1}
+                      fileList={fileList}
+                      defaultFileList={fileList}
+                      onChange={(info) => {
+                        handleOnChangeUpload(info); // Cập nhật fileList trong state
+                        onChange(info.fileList); // Cập nhật giá trị trong React Hook Form
+                      }}
+                      beforeUpload={() => false}
+                    >
+                      <Button type="primary" icon={<UploadOutlined />}>
+                        Upload
+                      </Button>
+                    </Upload>
+                  )}
+                />
+              </div>
             </div>
             <div className="col-sm-12">
               <Button htmlType="submit" type="primary" className="btn color-bg float-btn">
