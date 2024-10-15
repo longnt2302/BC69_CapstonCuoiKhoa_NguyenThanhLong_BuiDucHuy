@@ -1,5 +1,5 @@
 export const PATH = {
-  // login: "login",
+  bookings: "bookings",
   dashboard: "dashboard",
   listing: "listing",
   users: "users",

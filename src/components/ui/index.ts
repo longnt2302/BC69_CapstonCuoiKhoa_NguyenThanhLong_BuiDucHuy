@@ -9,3 +9,4 @@ export * from "./Breadcrumb";
 export * from "./SidebarDashboard";
 export * from "./FooterDashboard";
 export * from "./Paginate";
+export * from "./ModalUserAdmin";

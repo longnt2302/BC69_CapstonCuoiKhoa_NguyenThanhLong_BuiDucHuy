@@ -1,64 +1,54 @@
-import {
-  DatePicker,
-  Form,
-  Input,
-  Modal,
-  FormInstance,
-  Checkbox,
-  Button,
-} from "antd";
+import { DatePicker, Form, Input, Modal, FormInstance, Button } from "antd";
 import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { User, userEditType } from "../../@types";
+import { BookingResponse } from "../../@types";
 import moment from "moment";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { registerSchema, registerSchemaType } from "../../schema";
-import { useRegister } from "../../hooks/api";
+import { bookingSchema, bookingSchemaType } from "../../schema";
+import { useBooking } from "../../hooks/api";
 import { Bounce, toast } from "react-toastify";
-import { userEdit } from "../../hooks/api/userEdit";
+import { bookingEdit } from "../../hooks/api/useBookingEdit";
 
 type Props = {
   isShowModal: boolean;
   setIsShowModal: Dispatch<SetStateAction<boolean>>;
   typeOfModal: string;
-  infoUser: User | undefined;
+  infoBooking: BookingResponse | undefined;
 };
 
-export const ModalAdmin = (props: Props) => {
-  const { isShowModal, setIsShowModal, typeOfModal, infoUser } = props;
+export const ModalBookingAdmin = (props: Props) => {
+  const { isShowModal, setIsShowModal, typeOfModal, infoBooking } = props;
 
   const formRef = useRef<FormInstance>(null);
 
   useEffect(() => {
     formRef.current?.setFieldsValue({
-      id: infoUser?.id,
-      name: infoUser?.name || "",
-      email: infoUser?.email || "",
-      birthday: infoUser?.birthday
-        ? moment(infoUser.birthday, "DD/MM/YYYY")
+      maPhong: infoBooking?.maPhong,
+      ngayDi: infoBooking?.ngayDi
+        ? moment(infoBooking.ngayDi, "DD/MM/YYYY")
         : null,
-      phone: infoUser?.phone || "",
-      role: infoUser?.role || "",
+      ngayDen: infoBooking?.ngayDen
+        ? moment(infoBooking?.ngayDen, "DD/MM/YYYY")
+        : null,
+      soLuongKhach: infoBooking?.soLuongKhach || "",
+      maNguoiDung: infoBooking?.maNguoiDung || "",
     });
-  }, [infoUser]);
+  }, [infoBooking]);
 
   const {
     control,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<registerSchemaType>({
+  } = useForm<bookingSchemaType>({
     mode: "onChange",
-    resolver: zodResolver(registerSchema),
-    defaultValues: {
-      gender: true, // or false, depending on your default logic
-    },
+    resolver: zodResolver(bookingSchema),
   });
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { mutate: Editmutate } = useRegister();
-  const onSubmit = (data: registerSchemaType) => {
+  const { mutate: Editmutate } = useBooking();
+  const onSubmit = (data: bookingSchemaType) => {
     Editmutate(data);
     setTimeout(() => {
       setTimeout(() => {
@@ -92,8 +82,8 @@ export const ModalAdmin = (props: Props) => {
     reset();
   };
 
-  const { mutate: mutateEdit } = userEdit();
-  const onFinish = (data: userEditType) => {
+  const { mutate: mutateEdit } = bookingEdit();
+  const onFinish = (data: BookingResponse) => {
     mutateEdit({ id: data.id, payload: data });
     setTimeout(() => {
       setTimeout(() => {
@@ -124,17 +114,17 @@ export const ModalAdmin = (props: Props) => {
           open={isShowModal}
           onCancel={() => handleCanel()}
           onOk={() => setIsShowModal(false)}
-          cancelText="Close"
+          cancelText="Đóng"
           okButtonProps={{ style: { display: "none" } }}
           width={800}>
           <h2 className="text-center text-[30px] font-semibold mb-5">
-            Info User
+            Thông tin vé
           </h2>
           <Form ref={formRef}>
             <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  ID
+                  Mã
                 </label>
                 <Form.Item name="id">
                   <Input disabled />
@@ -142,25 +132,17 @@ export const ModalAdmin = (props: Props) => {
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  User Name
+                  Mã phòng
                 </label>
-                <Form.Item name="name">
+                <Form.Item name="naPhong">
                   <Input disabled />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  Email
+                  Ngày đi
                 </label>
-                <Form.Item name="email">
-                  <Input disabled />
-                </Form.Item>
-              </div>
-              <div className="mb-2 text-left">
-                <label htmlFor="" className="font-medium">
-                  Birthday
-                </label>
-                <Form.Item name="birthday">
+                <Form.Item name="ngayDi">
                   <DatePicker
                     className="w-full noBG"
                     format={"DD/MM/YYYY"}
@@ -170,17 +152,29 @@ export const ModalAdmin = (props: Props) => {
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  Phone Number
+                  Ngày đến
                 </label>
-                <Form.Item name="phone">
+                <Form.Item name="ngayDen">
+                  <DatePicker
+                    className="w-full noBG"
+                    format={"DD/MM/YYYY"}
+                    disabled
+                  />
+                </Form.Item>
+              </div>
+              <div className="mb-2 text-left">
+                <label htmlFor="" className="font-medium">
+                  Số lượng khách
+                </label>
+                <Form.Item name="soLuongKhach">
                   <Input disabled />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  Role
+                  Mã người dùng
                 </label>
-                <Form.Item name="role">
+                <Form.Item name="maNguoiDung">
                   <Input disabled />
                 </Form.Item>
               </div>
@@ -195,58 +189,47 @@ export const ModalAdmin = (props: Props) => {
           footer={[]}
           width={800}>
           <h2 className="text-center text-[30px] font-semibold mb-5">
-            Edit User
+            Sửa thông tin đặt vé
           </h2>
           <Form ref={formRef} onFinish={onFinish}>
             <div className="grid md:grid-cols-2 grid-cols-1 gap-3">
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  ID
+                  Mã phòng
                 </label>
-                <Form.Item name="id">
+                <Form.Item name="maPhong">
                   <Input />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  User Name
+                  Ngày đi
                 </label>
-                <Form.Item name="name">
-                  <Input />
-                </Form.Item>
-              </div>
-              <div className="mb-2 text-left">
-                <label htmlFor="" className="font-medium">
-                  Email
-                </label>
-                <Form.Item name="email">
-                  <Input />
-                </Form.Item>
-              </div>
-              <div className="mb-2 text-left">
-                <label htmlFor="" className="font-medium">
-                  Birthday
-                </label>
-                {/* <Form.Item name="birthday">
+                <Form.Item name="ngayDi">
                   <DatePicker className="w-full noBG" format={"DD/MM/YYYY"} />
-                </Form.Item> */}
-                <Form.Item name="birthday">
-                  <DatePicker className="w-full noBG" format="DD/MM/YYYY" />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  Phone Number
+                  Ngày đến
                 </label>
-                <Form.Item name="phone">
+                <Form.Item name="ngayDen">
+                  <DatePicker className="w-full noBG" format={"DD/MM/YYYY"} />
+                </Form.Item>
+              </div>
+              <div className="mb-2 text-left">
+                <label htmlFor="" className="font-medium">
+                  Số lượng khách
+                </label>
+                <Form.Item name="soLuongKhach">
                   <Input />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
                 <label htmlFor="" className="font-medium">
-                  Role
+                  Mã người dùng
                 </label>
-                <Form.Item name="role">
+                <Form.Item name="maNguoiDung">
                   <Input />
                 </Form.Item>
               </div>
@@ -273,79 +256,53 @@ export const ModalAdmin = (props: Props) => {
           footer={[]}
           width={800}>
           <h2 className="text-center text-[30px] font-semibold mb-5">
-            Add New User
+            Đặt phòng
           </h2>
           <form
             name="registerform"
             className="main-register-form"
             id="main-register-form2"
             onSubmit={handleSubmit(onSubmit)}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-5">
-              <div className="text-left">
-                <label>ID * </label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <div className="text-white text-left mb-2">
+                <label className="font-semibold">Mã phòng </label>
                 <Controller
                   control={control}
-                  name="id"
-                  render={({ field }) => <Input {...field} type="text" />}
-                />
-                {errors.id && (
-                  <p className="text-red-500">{errors.id.message}</p>
-                )}
-              </div>
-              <div className="text-left">
-                <label>Name * </label>
-                <Controller
-                  control={control}
-                  name="name"
-                  render={({ field }) => <Input {...field} type="text" />}
-                />
-                {errors.name && (
-                  <p className="text-red-500">{errors.name.message}</p>
-                )}
-              </div>
-              <div className="text-left">
-                <label>Email Address * </label>
-                <Controller
-                  control={control}
-                  name="email"
-                  render={({ field }) => <Input {...field} type="email" />}
-                />
-                {errors.email && (
-                  <p className="text-red-500">{errors.email.message}</p>
-                )}
-              </div>
-              <div className="pass-input-wrap fl-wrap text-left">
-                <label>Password * </label>
-                <div className="relative">
-                  <Controller
-                    control={control}
-                    name="password"
-                    render={({ field }) => <Input {...field} type="text" />}
-                  />
-                  {errors.password && (
-                    <p className="text-red-500">{errors.password.message}</p>
+                  name="maPhong"
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      type="number"
+                      // value={data?.data.content.id}
+                    />
                   )}
-                  {/* <span className="eye z-10 bottom-0 top-1/2 right-2 -translate-y-1/2">
-                    <i className="fal fa-eye"></i>{" "}
-                  </span> */}
-                </div>
-              </div>
-              <div className="text-left">
-                <label>Phone Number * </label>
-                <Controller
-                  control={control}
-                  name="phone"
-                  render={({ field }) => <Input {...field} type="text" />}
                 />
-                {errors.phone && (
-                  <p className="text-red-500">{errors.phone.message}</p>
+                {errors.maPhong && (
+                  <p className="text-red-500">{errors.maPhong.message}</p>
                 )}
               </div>
-              <div className="text-left">
-                <label>BirthDay * </label>
+              <div className="text-white text-left mb-2">
+                <label className="font-semibold">Mã phòng </label>
                 <Controller
                   control={control}
-                  name="birthday"
+                  name="maPhong"
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      type="number"
+                      // value={data?.data.content.id}
+                    />
+                  )}
+                />
+                {errors.maPhong && (
+                  <p className="text-red-500">{errors.maPhong.message}</p>
+                )}
+              </div>
+              <div className="text-white text-left mb-2">
+                <label className="font-semibold">Ngày đến * </label>
+                <Controller
+                  control={control}
+                  name="ngayDen"
                   render={({ field }) => (
                     <DatePicker
                       className="w-full noBG"
@@ -360,39 +317,63 @@ export const ModalAdmin = (props: Props) => {
                     />
                   )}
                 />
-                {errors.birthday && (
-                  <p className="text-red-500">{errors.birthday.message}</p>
+                {errors.ngayDen && (
+                  <p className="text-red-500">{errors.ngayDen.message}</p>
                 )}
               </div>
-              <div className="text-left">
-                <label>Role * </label>
+              <div className="text-white text-left mb-2">
+                <label className="font-semibold">Ngày đi * </label>
                 <Controller
                   control={control}
-                  name="role"
-                  render={({ field }) => <Input {...field} type="text" />}
-                />
-                {errors.role && (
-                  <p className="text-red-500">{errors.role.message}</p>
-                )}
-              </div>
-              <div className="text-left">
-                <label>Male * </label>
-                <Controller
-                  control={control}
-                  name="gender"
+                  name="ngayDi"
                   render={({ field }) => (
-                    <Checkbox
+                    <DatePicker
+                      className="w-full noBG"
                       {...field}
-                      checked={field.value !== undefined ? field.value : true} // Set default value to true
-                      onChange={(e) => field.onChange(e.target.checked)}
+                      format="DD/MM/YYYY"
+                      value={
+                        field.value ? moment(field.value, "DD/MM/YYYY") : null
+                      }
+                      onChange={(date) =>
+                        field.onChange(date ? date.format("DD/MM/YYYY") : null)
+                      }
                     />
                   )}
                 />
-                {errors.gender && (
-                  <p className="text-red-500">{errors.gender.message}</p>
+                {errors.ngayDi && (
+                  <p className="text-red-500">{errors.ngayDi.message}</p>
+                )}
+              </div>
+              <div className="text-white text-left mb-2">
+                <label className="font-semibold">Số khách </label>
+                <Controller
+                  control={control}
+                  name="soLuongKhach"
+                  render={({ field }) => <Input {...field} type="number" />}
+                />
+                {errors.soLuongKhach && (
+                  <p className="text-red-500">{errors.soLuongKhach.message}</p>
+                )}
+              </div>
+              <div className="text-white text-left mb-2">
+                <label className="font-semibold">Mã người dùng </label>
+                <Controller
+                  control={control}
+                  name="maNguoiDung"
+                  render={({ field }) => (
+                    <Input
+                      {...field}
+                      type="number"
+                      // value={currentUser.user.id}
+                    />
+                  )}
+                />
+                {errors.maNguoiDung && (
+                  <p className="text-red-500">{errors.maNguoiDung.message}</p>
                 )}
               </div>
             </div>
+            <div className="clearfix"></div>
             <div className="text-right">
               <Button className="me-2" onClick={() => handleCanelAdd()}>
                 Huỷ
