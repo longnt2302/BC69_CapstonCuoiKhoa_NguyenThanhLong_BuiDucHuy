@@ -5,5 +5,5 @@ export const PATH = {
   users: "users",
   rooms: "rooms",
   addvitri: "addvitri",
-  addimagevitri: "addimagevitri",
+  addrooms: "addrooms",
 };

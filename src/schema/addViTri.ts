@@ -1,5 +1,4 @@
 import z from "zod";
-// const imageUrlRegex = /(https?:\/\/.*\.(?:jpg|jpeg|png|gif|bmp|webp|svg))/i;
 
 export const viTriSchema = z.object({
   id: z.number(),

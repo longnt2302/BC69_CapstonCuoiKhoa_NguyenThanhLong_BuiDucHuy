@@ -2,7 +2,7 @@ import { useRoutes } from "react-router-dom";
 import { DashboardHome, DashboardListing, DashboardRooms, Home, ListRoom, SingleRoom } from "../pages";
 import { DashboardLayout, MainLayout } from "../components/layouts";
 import { PATH } from "../constants";
-import { FormViTri } from "../components/templates/Dashboard";
+import { FormRooms, FormViTri } from "../components/templates/Dashboard";
 import { DashboardUser } from "../pages/DashboardUser";
 
 export const routers = () =>
@@ -46,6 +46,10 @@ export const routers = () =>
         {
           path: `${PATH.dashboard}/${PATH.addvitri}`,
           element: <FormViTri />,
+        },
+        {
+          path: `${PATH.dashboard}/${PATH.addrooms}`,
+          element: <FormRooms />,
         },
       ],
     },
