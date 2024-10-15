@@ -100,7 +100,8 @@ export const DashboardUser = () => {
           <button
             onClick={(event) => handleAddUser(event)}
             name="add"
-            className="border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all text-white">
+            className="border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all text-white"
+          >
             Add User
           </button>
         </div>
@@ -137,33 +138,32 @@ export const DashboardUser = () => {
             {textSearch?.length !== 0 && textSearch
               ? textSearch.map((user) => (
                   <tr className="bg-gray-800 border-b text-white" key={user.id}>
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium whitespace-nowrap">
+                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
                       {user.name}
                     </th>
                     <td className="px-6 py-4">{user.email}</td>
-                    <td className="px-6 py-4">
-                      {moment(user.birthday, "DD/MM/YYYY").format("DD/MM/YYYY")}
-                    </td>
+                    <td className="px-6 py-4">{moment(user.birthday, "DD/MM/YYYY").format("DD/MM/YYYY")}</td>
                     <td className="px-6 py-4">{user.role}</td>
                     <td className="px-6 py-4">
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
                         onClick={(event: any) => handleInfo(event, user)}
-                        name="info">
+                        name="info"
+                      >
                         Xem thông tin
                       </button>
                       <button
                         className="mx-2 border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
                         onClick={(event: any) => handleEdit(event, user)}
-                        name="edit">
+                        name="edit"
+                      >
                         Sửa
                       </button>
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
                         onClick={() => handleDelete(user)}
-                        name="delete">
+                        name="delete"
+                      >
                         Xoá
                       </button>
                     </td>
@@ -172,33 +172,32 @@ export const DashboardUser = () => {
               : listUser &&
                 listUser?.map((user) => (
                   <tr className="bg-gray-800 border-b text-white" key={user.id}>
-                    <th
-                      scope="row"
-                      className="px-6 py-4 font-medium whitespace-nowrap">
+                    <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
                       {user.name}
                     </th>
                     <td className="px-6 py-4">{user.email}</td>
-                    <td className="px-6 py-4">
-                      {moment(user.birthday, "DD/MM/YYYY").format("DD/MM/YYYY")}
-                    </td>
+                    <td className="px-6 py-4">{moment(user.birthday, "DD/MM/YYYY").format("DD/MM/YYYY")}</td>
                     <td className="px-6 py-4">{user.role}</td>
                     <td className="px-6 py-4">
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
                         onClick={(event: any) => handleInfo(event, user)}
-                        name="info">
+                        name="info"
+                      >
                         Xem thông tin
                       </button>
                       <button
                         className="mx-2 border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
                         onClick={(event: any) => handleEdit(event, user)}
-                        name="edit">
+                        name="edit"
+                      >
                         Sửa
                       </button>
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
                         onClick={() => handleDelete(user)}
-                        name="delete">
+                        name="delete"
+                      >
                         Xoá
                       </button>
                     </td>
@@ -214,12 +213,7 @@ export const DashboardUser = () => {
         infoUser={infoUser}
       />
       <div className="mb-5 mt-9">
-        <Paginate
-          total={totalPost}
-          current={currentPage}
-          setCurrent={setCurrentPage}
-          numberPost={postPerPage}
-        />
+        <Paginate total={totalPost} current={currentPage} setCurrent={setCurrentPage} numberPost={postPerPage} />
       </div>
     </>
   );

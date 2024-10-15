@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { viTriAPIResponse } from "../../../@types";
 import { viTriServices } from "../../../services";
 
@@ -6,6 +7,7 @@ type Props = {
   refetch: () => void;
 };
 export const ItemViTri = (props: Props) => {
+  const navigate = useNavigate();
   const { viTri, refetch } = props;
   return (
     <div className="col-md-6">
@@ -17,12 +19,19 @@ export const ItemViTri = (props: Props) => {
         </div>
         <div className="dashboard-listings-item_content">
           <h4>
-            <a href="#">{viTri?.tenViTri}</a>
+            <a
+              href={`/${viTri?.tenViTri}`}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(`/${viTri?.tenViTri}`);
+              }}
+            >
+              {viTri?.tenViTri}
+            </a>
           </h4>
           <div className="geodir-category-location">
             <a href="#">
-              <i className="fas fa-map-marker-alt"></i>{" "}
-              <span>{viTri?.tinhThanh}</span>
+              <i className="fas fa-map-marker-alt"></i> <span>{viTri?.tinhThanh}</span>
             </a>
           </div>
           <div className="clearfix"></div>
@@ -38,12 +47,7 @@ export const ItemViTri = (props: Props) => {
             </span>
             <ul>
               <li>
-                <a
-                  href="#"
-                  className="tolt"
-                  data-microtip-position="top-left"
-                  data-tooltip="Edit"
-                >
+                <a href="#" className="tolt" data-microtip-position="top-left" data-tooltip="Edit">
                   <i className="far fa-edit"></i>
                 </a>
               </li>

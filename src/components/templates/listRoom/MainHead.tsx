@@ -1,17 +1,13 @@
-import React from "react";
-
 export const MainHead = () => {
   return (
     <section
       className="hidden-section single-par2  "
-      data-scrollax-parent="true"
-    >
+      data-scrollax-parent="true">
       <div className="bg-wrap bg-parallax-wrap-gradien">
         <div
           className="bg par-elem "
           data-bg="./assets/images/bg/3.jpg"
-          data-scrollax="properties: { translateY: '30%' }"
-        ></div>
+          data-scrollax="properties: { translateY: '30%' }"></div>
       </div>
       <div className="container">
         <div className="section-title center-align big-title">

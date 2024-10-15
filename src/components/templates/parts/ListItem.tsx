@@ -22,9 +22,7 @@ export const ListItem = (props: Props) => {
             className="absolute w-full h-full object-cover top-0 left-0"
           />
         </div>
-        <p className="text-white text-[16px] md:text-[18px] font-medium pt-2">
-          {tenViTri}
-        </p>
+        <p className="text-white text-[16px] md:text-[18px] font-medium pt-2">{tenViTri}</p>
         <p>{data?.data[0].quocGia}</p>
       </a>
     </div>

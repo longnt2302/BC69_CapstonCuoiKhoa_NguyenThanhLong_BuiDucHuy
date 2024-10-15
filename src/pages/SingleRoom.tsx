@@ -80,7 +80,7 @@ export const SingleRoom = () => {
 
       <div className="gray-bg small-padding fl-wrap">
         <div className="container">
-          <div className="row">
+          <div className="row flex flex-wrap justify-between md:items-stretch">
             <div className="col-md-9">
               <div className="list-single-main-wrapper fl-wrap">
                 <div className="scroll-nav-wrap">
@@ -324,133 +324,141 @@ export const SingleRoom = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-3 bg-[#1B182B] min-h-full">
-              <div className="px-6 py-9">
-                <h3 className="text-white md:text-[22px] text-[20px] font-bold text-left mb-5">
-                  Đặt phòng
-                </h3>
-                <form
-                  name="bookingform"
-                  className="main-register-form"
-                  onSubmit={handleSubmit(onSubmit)}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                    <div className="text-white text-left mb-2">
-                      <label className="font-semibold">Mã phòng </label>
-                      <Controller
-                        control={control}
-                        name="maPhong"
-                        render={({ field }) => (
-                          <Input
-                            {...field}
-                            type="number"
-                            // value={data?.data.content.id}
-                          />
+            <div className="col-md-3">
+              <div className="bg-[#1B182B] min-h-full">
+                <div className="px-6 py-9 md:sticky top-0">
+                  <h3 className="text-white md:text-[22px] text-[20px] font-bold text-left mb-5">
+                    Đặt phòng
+                  </h3>
+                  <form
+                    name="bookingform"
+                    className="main-register-form"
+                    onSubmit={handleSubmit(onSubmit)}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      <div className="text-white text-left mb-2">
+                        <label className="font-semibold">Mã phòng </label>
+                        <Controller
+                          control={control}
+                          name="maPhong"
+                          render={({ field }) => (
+                            <Input
+                              {...field}
+                              type="number"
+                              // value={data?.data.content.id}
+                            />
+                          )}
+                        />
+                        {errors.maPhong && (
+                          <p className="text-red-500">
+                            {errors.maPhong.message}
+                          </p>
                         )}
-                      />
-                      {errors.maPhong && (
-                        <p className="text-red-500">{errors.maPhong.message}</p>
-                      )}
-                    </div>
-                    <div className="text-white text-left mb-2">
-                      <label className="font-semibold">Ngày đến * </label>
-                      <Controller
-                        control={control}
-                        name="ngayDen"
-                        render={({ field }) => (
-                          <DatePicker
-                            className="w-full noBG"
-                            {...field}
-                            format="DD/MM/YYYY"
-                            value={
-                              field.value
-                                ? moment(field.value, "DD/MM/YYYY")
-                                : null
-                            }
-                            onChange={(date) =>
-                              field.onChange(
-                                date ? date.format("DD/MM/YYYY") : null
-                              )
-                            }
-                          />
+                      </div>
+                      <div className="text-white text-left mb-2">
+                        <label className="font-semibold">Ngày đến * </label>
+                        <Controller
+                          control={control}
+                          name="ngayDen"
+                          render={({ field }) => (
+                            <DatePicker
+                              className="w-full noBG"
+                              {...field}
+                              format="DD/MM/YYYY"
+                              value={
+                                field.value
+                                  ? moment(field.value, "DD/MM/YYYY")
+                                  : null
+                              }
+                              onChange={(date) =>
+                                field.onChange(
+                                  date ? date.format("DD/MM/YYYY") : null
+                                )
+                              }
+                            />
+                          )}
+                        />
+                        {errors.ngayDen && (
+                          <p className="text-red-500">
+                            {errors.ngayDen.message}
+                          </p>
                         )}
-                      />
-                      {errors.ngayDen && (
-                        <p className="text-red-500">{errors.ngayDen.message}</p>
-                      )}
-                    </div>
-                    <div className="text-white text-left mb-2">
-                      <label className="font-semibold">Ngày đi * </label>
-                      <Controller
-                        control={control}
-                        name="ngayDi"
-                        render={({ field }) => (
-                          <DatePicker
-                            className="w-full noBG"
-                            {...field}
-                            format="DD/MM/YYYY"
-                            value={
-                              field.value
-                                ? moment(field.value, "DD/MM/YYYY")
-                                : null
-                            }
-                            onChange={(date) =>
-                              field.onChange(
-                                date ? date.format("DD/MM/YYYY") : null
-                              )
-                            }
-                          />
+                      </div>
+                      <div className="text-white text-left mb-2">
+                        <label className="font-semibold">Ngày đi * </label>
+                        <Controller
+                          control={control}
+                          name="ngayDi"
+                          render={({ field }) => (
+                            <DatePicker
+                              className="w-full noBG"
+                              {...field}
+                              format="DD/MM/YYYY"
+                              value={
+                                field.value
+                                  ? moment(field.value, "DD/MM/YYYY")
+                                  : null
+                              }
+                              onChange={(date) =>
+                                field.onChange(
+                                  date ? date.format("DD/MM/YYYY") : null
+                                )
+                              }
+                            />
+                          )}
+                        />
+                        {errors.ngayDi && (
+                          <p className="text-red-500">
+                            {errors.ngayDi.message}
+                          </p>
                         )}
-                      />
-                      {errors.ngayDi && (
-                        <p className="text-red-500">{errors.ngayDi.message}</p>
-                      )}
-                    </div>
-                    <div className="text-white text-left mb-2">
-                      <label className="font-semibold">Số khách </label>
-                      <Controller
-                        control={control}
-                        name="soLuongKhach"
-                        render={({ field }) => (
-                          <Input {...field} type="number" />
+                      </div>
+                      <div className="text-white text-left mb-2">
+                        <label className="font-semibold">Số khách </label>
+                        <Controller
+                          control={control}
+                          name="soLuongKhach"
+                          render={({ field }) => (
+                            <Input {...field} type="number" />
+                          )}
+                        />
+                        {errors.soLuongKhach && (
+                          <p className="text-red-500">
+                            {errors.soLuongKhach.message}
+                          </p>
                         )}
-                      />
-                      {errors.soLuongKhach && (
-                        <p className="text-red-500">
-                          {errors.soLuongKhach.message}
-                        </p>
-                      )}
-                    </div>
-                    <div className="text-white text-left mb-2">
-                      <label className="font-semibold">Mã người dùng </label>
-                      <Controller
-                        control={control}
-                        name="maNguoiDung"
-                        render={({ field }) => (
-                          <Input
-                            {...field}
-                            type="number"
-                            // value={currentUser.user.id}
-                          />
+                      </div>
+                      <div className="text-white text-left mb-2">
+                        <label className="font-semibold">Mã người dùng </label>
+                        <Controller
+                          control={control}
+                          name="maNguoiDung"
+                          render={({ field }) => (
+                            <Input
+                              {...field}
+                              type="number"
+                              // value={currentUser.user.id}
+                            />
+                          )}
+                        />
+                        {errors.maNguoiDung && (
+                          <p className="text-red-500">
+                            {errors.maNguoiDung.message}
+                          </p>
                         )}
-                      />
-                      {errors.maNguoiDung && (
-                        <p className="text-red-500">
-                          {errors.maNguoiDung.message}
-                        </p>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                  <div className="clearfix"></div>
-                  <div className="text-left mt-5">
-                    <Button
-                      loading={isLoading}
-                      htmlType="submit"
-                      className="log_btn bg-blue-500 text-white">
-                      {" "}
-                      Đặt phòng{" "}
-                    </Button>
-                  </div>
-                </form>
+                    <div className="clearfix"></div>
+                    <div className="text-left mt-5">
+                      <Button
+                        loading={isLoading}
+                        htmlType="submit"
+                        className="log_btn bg-blue-500 text-white">
+                        {" "}
+                        Đặt phòng{" "}
+                      </Button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

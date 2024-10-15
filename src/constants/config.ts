@@ -4,4 +4,6 @@ export const PATH = {
   listing: "listing",
   users: "users",
   rooms: "rooms",
+  addvitri: "addvitri",
+  addrooms: "addrooms",
 };

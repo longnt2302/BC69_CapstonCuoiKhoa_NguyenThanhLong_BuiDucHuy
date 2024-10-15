@@ -4,3 +4,4 @@ export * from "./SingleRoom";
 export * from "./DashboardHome";
 export * from "./DashboardListing";
 export * from "./DashboardRooms";
+export * from "./Page404";
