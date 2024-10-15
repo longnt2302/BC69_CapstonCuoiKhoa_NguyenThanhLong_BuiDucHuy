@@ -1,5 +1,8 @@
+type User = string | null;
 export const dataUser = () => {
-  if (localStorage.getItem("USER") === null) return;
+  const user: User = localStorage.getItem("USER");
 
-  return JSON.parse(localStorage.getItem("USER"));
+  if (!user) return;
+
+  return JSON.parse(user);
 };

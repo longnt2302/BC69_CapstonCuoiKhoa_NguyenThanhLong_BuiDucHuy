@@ -9,6 +9,7 @@ type Props = {
 export const ItemViTri = (props: Props) => {
   const navigate = useNavigate();
   const { viTri, refetch } = props;
+
   return (
     <div className="col-md-6">
       <div className="dashboard-listings-item fl-wrap">
@@ -47,7 +48,16 @@ export const ItemViTri = (props: Props) => {
             </span>
             <ul>
               <li>
-                <a href="#" className="tolt" data-microtip-position="top-left" data-tooltip="Edit">
+                <a
+                  href={`/dashboard/editvitri/${viTri?.id}`}
+                  className="tolt"
+                  data-microtip-position="top-left"
+                  data-tooltip="Edit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/dashboard/editvitri/${viTri?.id}`);
+                  }}
+                >
                   <i className="far fa-edit"></i>
                 </a>
               </li>

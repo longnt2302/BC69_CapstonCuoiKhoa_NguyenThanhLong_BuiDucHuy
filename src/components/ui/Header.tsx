@@ -1,18 +1,25 @@
 import { Avatar, Popover } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-// import { quanLyNguoiDungSelector } from "../../store/quanLyNguoiDung";
 import { NavLink } from "react-router-dom";
 import { dataUser } from "../../utils";
+import { useQuery } from "@tanstack/react-query";
+import { viTriServices } from "../../services";
 
 export const Header = () => {
-  // const { user } = quanLyNguoiDungSelector();
+  const { data: dataViTri } = useQuery({
+    queryKey: ["getViTri"],
+    queryFn: async () => {
+      const resViTri = await viTriServices.getViTri();
+      return resViTri;
+    },
+  });
 
   const currentLoging = dataUser();
 
   return (
     <header className="main-header">
       <div className="logo-holder">
-        <NavLink to={"/"}>
+        <NavLink to="/">
           <img src="/assets/images/logo.png" alt="..." />
         </NavLink>
       </div>
@@ -25,14 +32,9 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="header-search-button">
-        <i className="fal fa-search"></i>
-        <span>Search...</span>
-      </div>
-
       <div className="add-list_wrap">
         <NavLink to="/dashboard" className="add-list color-bg">
-          <i className="fal fa-plus"></i> <span>Admin</span>
+          <i className="fal fa-plus"></i> <span>Quản trị</span>
         </NavLink>
       </div>
 
@@ -48,12 +50,14 @@ export const Header = () => {
                   onClick={() => {
                     localStorage.removeItem("USER");
                     location.href = "/";
-                  }}>
+                  }}
+                >
                   <span className="inline-block me-3">LogOut</span>
                   <LogoutOutlined className="text-red-400" />
                 </NavLink>
               </div>
-            }>
+            }
+          >
             <Avatar size={40} icon={<UserOutlined />} />
           </Popover>
         </div>
@@ -70,46 +74,21 @@ export const Header = () => {
         <nav>
           <ul className="no-list-style">
             <li>
-              <a href="#" className="act-link">
-                Home
-              </a>
+              <NavLink to="/" className="act-link">
+                Trang chủ
+              </NavLink>
             </li>
             <li>
               <NavLink to="#">
-                Listings <i className="fa fa-caret-down"></i>
+                Khu vực <i className="fa fa-caret-down"></i>
               </NavLink>
 
               <ul>
-                <li>
-                  <NavLink to="listing6.html">Without Map 2</NavLink>
-                </li>
-                <li>
-                  <NavLink to="#">
-                    Single <i className="fa fa-caret-down"></i>
-                  </NavLink>
-
-                  <ul>
-                    <li>
-                      <NavLink to="listing-single.html">Style 1</NavLink>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <NavLink to="blog.html">News</NavLink>
-            </li>
-            <li>
-              <NavLink to="#">
-                Pages <i className="fa fa-caret-down"></i>
-              </NavLink>
-              <ul>
-                <li>
-                  <NavLink to="contacts.html">Contacts</NavLink>
-                </li>
-                <li>
-                  <NavLink to="blog-single.html">Blog Single</NavLink>
-                </li>
+                {dataViTri?.data?.content?.map((viTri) => (
+                  <li key={viTri?.id}>
+                    <NavLink to={`/${viTri?.tenViTri}`}>{viTri?.tenViTri}</NavLink>
+                  </li>
+                ))}
               </ul>
             </li>
           </ul>
