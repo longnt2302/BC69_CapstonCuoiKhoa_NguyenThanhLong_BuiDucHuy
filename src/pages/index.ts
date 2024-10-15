@@ -5,3 +5,5 @@ export * from "./DashboardHome";
 export * from "./DashboardListing";
 export * from "./DashboardRooms";
 export * from "./Page404";
+export * from "./DashboardUser";
+export * from "./DashboardBooking";

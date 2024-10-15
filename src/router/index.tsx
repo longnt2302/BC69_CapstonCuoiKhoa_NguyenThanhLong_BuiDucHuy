@@ -1,9 +1,17 @@
 import { useRoutes } from "react-router-dom";
-import { DashboardHome, DashboardListing, DashboardRooms, Home, ListRoom, SingleRoom } from "../pages";
+import {
+  DashboardBooking,
+  DashboardHome,
+  DashboardListing,
+  DashboardRooms,
+  DashboardUser,
+  Home,
+  ListRoom,
+  SingleRoom,
+} from "../pages";
 import { DashboardLayout, MainLayout } from "../components/layouts";
 import { PATH } from "../constants";
 import { FormRooms, FormViTri } from "../components/templates/Dashboard";
-import { DashboardUser } from "../pages/DashboardUser";
 
 export const routers = () =>
   useRoutes([
@@ -42,6 +50,10 @@ export const routers = () =>
         {
           path: `${PATH.dashboard}/${PATH.users}`,
           element: <DashboardUser />,
+        },
+        {
+          path: `${PATH.dashboard}/${PATH.bookings}`,
+          element: <DashboardBooking />,
         },
         {
           path: `${PATH.dashboard}/${PATH.rooms}`,

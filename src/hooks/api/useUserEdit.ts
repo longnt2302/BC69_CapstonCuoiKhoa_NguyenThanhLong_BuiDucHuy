@@ -6,7 +6,7 @@ type EditUserArgs = {
   id: number;
   payload: userEditType;
 };
-export const userEdit = () => {
+export const useUserEdit = () => {
   const mutation = useMutation({
     mutationKey: ["userEdit"],
     mutationFn: async ({ id, payload }: EditUserArgs) =>
