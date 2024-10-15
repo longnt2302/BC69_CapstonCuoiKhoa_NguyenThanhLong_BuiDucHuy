@@ -1,4 +1,5 @@
 import { viTriAPIResponse } from "../@types";
+import { viTriSearchAPIResponse } from "../@types/viTriSearchResponse";
 import { apiInstance } from "../constants";
 
 const api = apiInstance.create({
@@ -7,7 +8,7 @@ const api = apiInstance.create({
 
 export const viTriServices = {
   getViTri: () => api.get<HttpResponse<viTriAPIResponse[]>>("/vi-tri"),
-  searchViTri: (query = "") => api.get<HttpResponse<viTriAPIResponse>>(`/vi-tri/phan-trang-tim-kiem${query}`),
+  searchViTri: (query = "") => api.get<HttpResponse<viTriSearchAPIResponse>>(`/vi-tri/phan-trang-tim-kiem${query}`),
   deleteViTri: (id: number) => api.delete(`/vi-tri/${id}`),
   addViTri: (dataForm = {}) => api.post<HttpResponse<viTriAPIResponse>>("/vi-tri/", dataForm),
   uploadImageViTri: (maViTri: number, dataForm: FormData) =>

@@ -199,60 +199,33 @@ export const FormRooms = () => {
               {errors?.giaTien && <p className="text-red-500">{errors?.giaTien?.message}</p>}
             </div>
             <div className="col-sm-6">
-              <label className="uppercase">Máy giặt</label>
+              <label className="uppercase">Hình ảnh</label>
               <div className="text-start">
-                <Controller control={control} name="mayGiat" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="hinhAnh"
+                  render={({ field: { onChange } }) => (
+                    <Upload
+                      listType="picture"
+                      maxCount={1}
+                      fileList={fileList}
+                      defaultFileList={fileList}
+                      onChange={(info) => {
+                        handleOnChangeUpload(info); // Cập nhật fileList trong state
+                        onChange(info.fileList); // Cập nhật giá trị trong React Hook Form
+                      }}
+                      beforeUpload={() => false}
+                    >
+                      <Button type="primary" icon={<UploadOutlined />}>
+                        Upload
+                      </Button>
+                    </Upload>
+                  )}
+                />
               </div>
             </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Bàn là</label>
-              <div className="text-start">
-                <Controller control={control} name="banLa" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Tivi</label>
-              <div className="text-start">
-                <Controller control={control} name="tivi" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Điều hoà</label>
-              <div className="text-start">
-                <Controller control={control} name="dieuHoa" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Wifi</label>
-              <div className="text-start">
-                <Controller control={control} name="wifi" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Bếp</label>
-              <div className="text-start">
-                <Controller control={control} name="bep" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Đỗ xe</label>
-              <div className="text-start">
-                <Controller control={control} name="doXe" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Hồ bơi</label>
-              <div className="text-start">
-                <Controller control={control} name="hoBoi" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <label className="uppercase">Bản ủi</label>
-              <div className="text-start">
-                <Controller control={control} name="banUi" render={({ field }) => <Switch {...field} />} />
-              </div>
-            </div>
-
+          </div>
+          <div className="row mt-5">
             <div className="col-sm-6">
               <label className="uppercase">Vị trí</label>
               <div className="text-start">
@@ -279,33 +252,66 @@ export const FormRooms = () => {
                 {errors?.maViTri && <p className="text-red-500">{errors?.maViTri?.message}</p>}
               </div>
             </div>
-
-            <div className="col-sm-6">
-              <label className="uppercase">Hình ảnh</label>
+          </div>
+          <div className="row mt-10">
+            <div className="col-sm-2">
+              <label className="uppercase">Máy giặt</label>
               <div className="text-start">
-                <Controller
-                  control={control}
-                  name="hinhAnh"
-                  render={({ field: { onChange } }) => (
-                    <Upload
-                      listType="picture"
-                      maxCount={1}
-                      fileList={fileList}
-                      defaultFileList={fileList}
-                      onChange={(info) => {
-                        handleOnChangeUpload(info); // Cập nhật fileList trong state
-                        onChange(info.fileList); // Cập nhật giá trị trong React Hook Form
-                      }}
-                      beforeUpload={() => false}
-                    >
-                      <Button type="primary" icon={<UploadOutlined />}>
-                        Upload
-                      </Button>
-                    </Upload>
-                  )}
-                />
+                <Controller control={control} name="mayGiat" render={({ field }) => <Switch {...field} />} />
               </div>
             </div>
+            <div className="col-sm-2">
+              <label className="uppercase">Bàn là</label>
+              <div className="text-start">
+                <Controller control={control} name="banLa" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+            <div className="col-sm-2">
+              <label className="uppercase">Tivi</label>
+              <div className="text-start">
+                <Controller control={control} name="tivi" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+            <div className="col-sm-2">
+              <label className="uppercase">Điều hoà</label>
+              <div className="text-start">
+                <Controller control={control} name="dieuHoa" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+            <div className="col-sm-2">
+              <label className="uppercase">Wifi</label>
+              <div className="text-start">
+                <Controller control={control} name="wifi" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+            <div className="col-sm-2">
+              <label className="uppercase">Bếp</label>
+              <div className="text-start">
+                <Controller control={control} name="bep" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+          </div>
+          <div className="row mt-5">
+            <div className="col-sm-2">
+              <label className="uppercase">Đỗ xe</label>
+              <div className="text-start">
+                <Controller control={control} name="doXe" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+            <div className="col-sm-2">
+              <label className="uppercase">Hồ bơi</label>
+              <div className="text-start">
+                <Controller control={control} name="hoBoi" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+            <div className="col-sm-2">
+              <label className="uppercase">Bản ủi</label>
+              <div className="text-start">
+                <Controller control={control} name="banUi" render={({ field }) => <Switch {...field} />} />
+              </div>
+            </div>
+          </div>
+          <div className="row mt-10">
             <div className="col-sm-12">
               <Button htmlType="submit" type="primary" className="btn color-bg float-btn">
                 SUBMIT
