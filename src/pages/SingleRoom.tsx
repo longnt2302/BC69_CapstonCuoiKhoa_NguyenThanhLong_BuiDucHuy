@@ -324,7 +324,7 @@ export const SingleRoom = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-3 bg-[#1B182B]">
+            <div className="col-md-3 bg-[#1B182B] min-h-full">
               <div className="px-6 py-9">
                 <h3 className="text-white md:text-[22px] text-[20px] font-bold text-left mb-5">
                   Đặt phòng
@@ -335,12 +335,7 @@ export const SingleRoom = () => {
                   onSubmit={handleSubmit(onSubmit)}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     <div className="text-white text-left mb-2">
-                      <label className="font-semibold">
-                        Mã phòng{" "}
-                        <span className="dec-icon">
-                          <i className="fal fa-user"></i>
-                        </span>
-                      </label>
+                      <label className="font-semibold">Mã phòng </label>
                       <Controller
                         control={control}
                         name="maPhong"
@@ -411,12 +406,7 @@ export const SingleRoom = () => {
                       )}
                     </div>
                     <div className="text-white text-left mb-2">
-                      <label className="font-semibold">
-                        Số khách{" "}
-                        <span className="dec-icon">
-                          <i className="fal fa-user"></i>
-                        </span>
-                      </label>
+                      <label className="font-semibold">Số khách </label>
                       <Controller
                         control={control}
                         name="soLuongKhach"
@@ -431,12 +421,7 @@ export const SingleRoom = () => {
                       )}
                     </div>
                     <div className="text-white text-left mb-2">
-                      <label className="font-semibold">
-                        Mã người dùng{" "}
-                        <span className="dec-icon">
-                          <i className="fal fa-user"></i>
-                        </span>
-                      </label>
+                      <label className="font-semibold">Mã người dùng </label>
                       <Controller
                         control={control}
                         name="maNguoiDung"
