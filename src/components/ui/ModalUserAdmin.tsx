@@ -13,9 +13,8 @@ import moment from "moment";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerSchema, registerSchemaType } from "../../schema";
-import { useRegister } from "../../hooks/api";
+import { useRegister, useUserEdit } from "../../hooks/api";
 import { Bounce, toast } from "react-toastify";
-import { useUserEdit } from "../../hooks/api";
 
 type Props = {
   isShowModal: boolean;

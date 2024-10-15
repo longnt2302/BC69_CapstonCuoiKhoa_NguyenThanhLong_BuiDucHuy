@@ -5,9 +5,8 @@ import moment from "moment";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { bookingSchema, bookingSchemaType } from "../../schema";
-import { useBooking } from "../../hooks/api";
+import { useBooking, bookingEdit } from "../../hooks/api";
 import { Bounce, toast } from "react-toastify";
-import { bookingEdit } from "../../hooks/api/useBookingEdit";
 
 type Props = {
   isShowModal: boolean;
