@@ -48,6 +48,10 @@ export const routers = () =>
           element: <FormViTri />,
         },
         {
+          path: `${PATH.dashboard}/editvitri/:maViTri`,
+          element: <FormViTri />,
+        },
+        {
           path: `${PATH.dashboard}/${PATH.addrooms}`,
           element: <FormRooms />,
         },

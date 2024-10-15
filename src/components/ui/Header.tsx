@@ -85,7 +85,7 @@ export const Header = () => {
 
               <ul>
                 {dataViTri?.data?.content?.map((viTri) => (
-                  <li>
+                  <li key={viTri?.id}>
                     <NavLink to={`/${viTri?.tenViTri}`}>{viTri?.tenViTri}</NavLink>
                   </li>
                 ))}
