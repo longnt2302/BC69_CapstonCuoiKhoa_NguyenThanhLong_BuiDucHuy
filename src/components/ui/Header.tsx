@@ -3,7 +3,7 @@ import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 import { dataUser } from "../../utils";
 import { useQuery } from "@tanstack/react-query";
-import { roomServices, viTriServices } from "../../services";
+import { viTriServices } from "../../services";
 
 export const Header = () => {
   const { data: dataViTri } = useQuery({
@@ -11,14 +11,6 @@ export const Header = () => {
     queryFn: async () => {
       const resViTri = await viTriServices.getViTri();
       return resViTri;
-    },
-  });
-
-  const { data: dataRooms } = useQuery({
-    queryKey: ["getRooms"],
-    queryFn: async () => {
-      const resRooms = await roomServices.getRooms();
-      return resRooms;
     },
   });
 
