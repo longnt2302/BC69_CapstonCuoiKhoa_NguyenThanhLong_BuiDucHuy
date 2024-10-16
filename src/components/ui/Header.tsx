@@ -6,13 +6,14 @@ import { useQuery } from "@tanstack/react-query";
 import { viTriServices } from "../../services";
 
 export const Header = () => {
-  const { data: dataViTri } = useQuery({
+  const { data: dataViTri, refetch } = useQuery({
     queryKey: ["getViTri"],
     queryFn: async () => {
       const resViTri = await viTriServices.getViTri();
       return resViTri;
     },
   });
+  refetch();
 
   const currentLoging = dataUser();
 
