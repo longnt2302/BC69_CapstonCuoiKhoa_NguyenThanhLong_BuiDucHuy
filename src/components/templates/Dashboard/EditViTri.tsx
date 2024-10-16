@@ -6,12 +6,25 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { viTriSchema, viTriSchemaType } from "../../../schema/addViTri";
 import { viTriServices } from "../../../services";
 import { sleep } from "../../../utils";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
+import { useParams } from "react-router-dom";
 
-export const FormViTri = () => {
+const convertUrlToUploadFile = (url: string | undefined): UploadFile => {
+  return {
+    uid: "-1",
+    name: url?.split("/").pop() || "image",
+    status: "done",
+    url,
+  };
+};
+
+export const EditViTri = () => {
+  const { id } = useParams();
+
   const [fileList, setFileList] = useState<UploadFile[]>([]);
+  console.log("fileList: ", fileList);
 
   const handleOnChangeUpload = (info: UploadChangeParam) => {
     let newFileList = [...info.fileList];
@@ -31,14 +44,35 @@ export const FormViTri = () => {
     mode: "onChange",
     resolver: zodResolver(viTriSchema),
   });
+  useEffect(() => {
+    viTriServices
+      .getViTriById(id)
+      .then((res) => {
+        const dataViTri = res.data.content;
+        const fileUploadOld = convertUrlToUploadFile(dataViTri.hinhAnh);
+        console.log("fileUploadOld: ", fileUploadOld);
+        setFileList([fileUploadOld]);
+        reset({
+          id: dataViTri.id,
+          tenViTri: dataViTri.tenViTri,
+          tinhThanh: dataViTri.tinhThanh,
+          quocGia: dataViTri.quocGia,
+        });
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
+  }, [id, reset]);
 
   const onSubmit: SubmitHandler<viTriSchemaType> = async (data) => {
+    console.log("data: ", data);
+    const { id } = data;
     const unDataImage = {
       ...data,
       hinhAnh: undefined,
     };
     try {
-      const responseData = await viTriServices.addViTri(unDataImage);
+      const responseData = await viTriServices.updateViTri(id, unDataImage);
       sleep(3000);
       const { id: maViTri } = responseData.data.content;
 
@@ -58,20 +92,18 @@ export const FormViTri = () => {
           console.log(err);
         });
 
-      toast("Success !!!", {
+      toast.success("Success !!!", {
         position: "top-right",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
       });
       setFileList([]);
       reset();
     } catch (error) {
       console.log("error: ", error);
+      toast.error("Update Failed !!!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
     }
   };
 
@@ -83,8 +115,7 @@ export const FormViTri = () => {
             <Controller
               control={control}
               name="id"
-              defaultValue={0}
-              render={({ field }) => <Input {...field} type="hidden" />}
+              render={({ field }) => <Input {...field} type="hidden" value={id} />}
             />
 
             <div className="col-sm-6">
