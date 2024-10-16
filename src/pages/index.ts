@@ -1,4 +1,5 @@
 export * from "./Home";
+export * from "./About";
 export * from "./ListRoom";
 export * from "./SingleRoom";
 export * from "./DashboardHome";

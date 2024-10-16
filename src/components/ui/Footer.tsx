@@ -5,14 +5,14 @@ export const Footer = () => {
         <div className="footer-inner fl-wrap">
           <div className="container">
             <div className="row">
-              <div className="col-md-3">
+              <div className="col-md-4">
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-logo fl-wrap">
                     <img src="/assets/images/logo.png" alt="..." />
                   </div>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
+                    lobortis pulvinar.
                   </p>
                   <div className="fw_hours fl-wrap">
                     <span>
@@ -25,6 +25,7 @@ export const Footer = () => {
                 </div>
               </div>
 
+<<<<<<< HEAD
               <div className="col-md-3">
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-title fl-wrap">
@@ -51,6 +52,9 @@ export const Footer = () => {
               </div>
 
               <div className="col-md-3">
+=======
+              <div className="col-md-4">
+>>>>>>> devlong
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-title fl-wrap">
                     <h4>Thông tin liên hệ</h4>
@@ -107,15 +111,19 @@ export const Footer = () => {
                 </div>
               </div>
 
-              <div className="col-md-3">
+              <div className="col-md-4">
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-title fl-wrap">
                     <h4>Tải API của chúng tôi</h4>
                   </div>
+<<<<<<< HEAD
                   <p>
                     Bắt đầu làm việc với Homeradar có thể cung cấp mọi thứ bạn
                     cần{" "}
                   </p>
+=======
+                  <p>Start working with Homeradar that can provide everything you need </p>
+>>>>>>> devlong
                   <div className="api-links fl-wrap">
                     <a href="#" className="api-btn color-bg">
                       <i className="fab fa-apple"></i> App Store
@@ -132,10 +140,14 @@ export const Footer = () => {
 
         <div className="sub-footer gray-bg fl-wrap">
           <div className="container">
+<<<<<<< HEAD
             <div className="copyright">
               {" "}
               &#169; Homeradar 2022. Bảo lưu mọi quyền.
             </div>
+=======
+            <div className="copyright"> &#169; Homeradar 2022 . All rights reserved.</div>
+>>>>>>> devlong
             <div className="subfooter-nav">
               <ul className="no-list-style">
                 <li>
