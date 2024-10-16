@@ -9,8 +9,12 @@ import { sleep } from "../../../utils";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
+import { useParams } from "react-router-dom";
 
-export const FormViTri = () => {
+export const EditViTri = () => {
+  const { id } = useParams();
+  console.log("id: ", id);
+
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
   const handleOnChangeUpload = (info: UploadChangeParam) => {
@@ -97,6 +101,7 @@ export const FormViTri = () => {
               <Controller
                 control={control}
                 name="tenViTri"
+                defaultValue="aa"
                 render={({ field }) => <Input {...field} placeholder="Nhập tên vị trí" />}
               />
               {errors?.tenViTri && <p className="text-red-500">{errors?.tenViTri?.message}</p>}
