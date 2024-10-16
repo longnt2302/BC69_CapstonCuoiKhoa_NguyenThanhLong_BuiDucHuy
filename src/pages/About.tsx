@@ -3,33 +3,35 @@ import { Breadcrumb } from "../components/ui";
 export const About = () => {
   return (
     <>
-      <section className="hidden-section single-par2  " data-scrollax-parent="true">
+      <section
+        className="hidden-section single-par2  "
+        data-scrollax-parent="true">
         <div className="bg-wrap bg-parallax-wrap-gradien">
           <div
             className="bg par-elem "
             data-bg="./../assets/images/bg/12.jpg"
-            data-scrollax="properties: { translateY: '30%' }"
-          ></div>
+            data-scrollax="properties: { translateY: '30%' }"></div>
         </div>
         <div className="container">
           <div className="section-title center-align big-title">
             <h2>
-              <span>About Us</span>
+              <span>Về chúng tôi</span>
             </h2>
             <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet fermentum sem.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec
+              tincidunt arcu, sit amet fermentum sem.
             </h4>
           </div>
           <div className="scroll-down-wrap">
             <div className="mousey">
               <div className="scroller"></div>
             </div>
-            <span>Scroll Down To Discover</span>
+            <span>Cuộn xuống</span>
           </div>
         </div>
       </section>
 
-      <Breadcrumb currentPage="About" />
+      <Breadcrumb currentPage="Về chúng tôi" />
 
       <section className="gray-bg small-padding">
         <div className="container">
@@ -38,14 +40,14 @@ export const About = () => {
               <div className="services-item fl-wrap">
                 <i className="fal fa-headset"></i>
                 <h4>
-                  24 Hours Support <span>01</span>
+                  Hỗ trợ 24h <span>01</span>
                 </h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                  lobortis pulvinar.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.
                 </p>
                 <a href="#" className="serv-link">
-                  Read more
+                  Xem thêm
                 </a>
               </div>
             </div>
@@ -54,14 +56,14 @@ export const About = () => {
               <div className="services-item fl-wrap">
                 <i className="fal fa-users-cog"></i>
                 <h4>
-                  User Admin Panel <span>02</span>
+                  Bảng quản trị người dùng <span>02</span>
                 </h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                  lobortis pulvinar.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.
                 </p>
                 <a href="#" className="serv-link">
-                  Read more
+                  Xem thêm
                 </a>
               </div>
             </div>
@@ -70,14 +72,14 @@ export const About = () => {
               <div className="services-item fl-wrap">
                 <i className="fal fa-phone-laptop"></i>
                 <h4>
-                  Mobile Friendly <span>03</span>
+                  Thân thiện với điện thoại <span>03</span>
                 </h4>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                  lobortis pulvinar.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.
                 </p>
                 <a href="#" className="serv-link">
-                  Read more
+                  Xem thêm
                 </a>
               </div>
             </div>
@@ -91,24 +93,27 @@ export const About = () => {
             <div className="row">
               <div className="col-md-5">
                 <div className="about-title fl-wrap">
-                  <h2>
-                    Our Company <span>Story</span>
-                  </h2>
-                  <h4>Check video presentation to find out more about us .</h4>
+                  <h2>Về chúng tôi</h2>
+                  <h4>Xem thêm video để hiểu thêm về công ty chúng tôi.</h4>
                 </div>
                 <p>
-                  Ut euismod ultricies sollicitudin. Curabitur sed dapibus nulla. Nulla eget iaculis lectus. Mauris ac
-                  maximus neque. Nam in mauris quis libero sodales eleifend. Morbi varius, nulla sit amet rutrum
-                  elementum, est elit finibus tellus, ut tristique elit risus at metus.
+                  Ut euismod ultricies sollicitudin. Curabitur sed dapibus
+                  nulla. Nulla eget iaculis lectus. Mauris ac maximus neque. Nam
+                  in mauris quis libero sodales eleifend. Morbi varius, nulla
+                  sit amet rutrum elementum, est elit finibus tellus, ut
+                  tristique elit risus at metus.
                 </p>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                  lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar
-                  nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor
-                  iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.
+                  Donec a consectetur nulla. Nulla posuere sapien vitae lectus
+                  suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat.
+                  Curabitur convallis fringilla diam sed aliquam. Sed tempor
+                  iaculis massa faucibus feugiat. In fermentum facilisis massa,
+                  a consequat purus viverra.
                 </p>
                 <a href="#" className="btn small-btn float-btn color-bg">
-                  Read More
+                  Xem thêm
                 </a>
               </div>
               <div className="col-md-1"></div>
@@ -117,7 +122,8 @@ export const About = () => {
                   <img src="/images/all/18.jpg" className="respimg" alt="..." />
                   <div className="about-img-hotifer color-bg">
                     <p>
-                      Your website is fully responsive so visitors can view your content from their choice of device.
+                      Trang web của bạn hoàn toàn tương thích để khách truy cập
+                      có thể xem nội dung của bạn từ thiết bị họ chọn.
                     </p>
                     <h4>Mark Antony</h4>
                     <h5>Homeradar CEO</h5>
@@ -141,7 +147,7 @@ export const About = () => {
                     </div>
                   </div>
                 </div>
-                <h6>Agents and Agencys</h6>
+                <h6>Các đại lý và cơ quan</h6>
               </div>
             </div>
 
@@ -154,7 +160,7 @@ export const About = () => {
                     </div>
                   </div>
                 </div>
-                <h6>Happy Customers Every Year</h6>
+                <h6>Khách hàng hài lòng mỗi năm</h6>
               </div>
             </div>
 
@@ -167,7 +173,7 @@ export const About = () => {
                     </div>
                   </div>
                 </div>
-                <h6>Won Awards</h6>
+                <h6>Đã giành giải thưởng</h6>
               </div>
             </div>
 
@@ -180,7 +186,7 @@ export const About = () => {
                     </div>
                   </div>
                 </div>
-                <h6>New Listing Every Week</h6>
+                <h6>Danh sách mới mỗi tuần</h6>
               </div>
             </div>
           </div>
@@ -195,18 +201,20 @@ export const About = () => {
             width="100%"
             height="100%"
             viewBox="0 0 1600 900"
-            preserveAspectRatio="xMidYMax slice"
-          >
+            preserveAspectRatio="xMidYMax slice">
             <defs>
               <linearGradient id="bg">
                 <stop
                   offset="0%"
                   style={{
                     stopColor: "rgba(255, 255, 255, 0.6)",
-                  }}
-                ></stop>
-                <stop offset="50%" style={{ stopColor: "rgba(255, 255, 255, 0.1" }}></stop>
-                <stop offset="100%" style={{ stopColor: "rgba(255, 255, 255, 0.6" }}></stop>
+                  }}></stop>
+                <stop
+                  offset="50%"
+                  style={{ stopColor: "rgba(255, 255, 255, 0.1" }}></stop>
+                <stop
+                  offset="100%"
+                  style={{ stopColor: "rgba(255, 255, 255, 0.6" }}></stop>
               </linearGradient>
               <path
                 id="wave"
@@ -277,8 +285,8 @@ export const About = () => {
       <section>
         <div className="container">
           <div className="section-title st-center fl-wrap">
-            <h4>The Crew</h4>
-            <h2>Our Awesome team</h2>
+            <h4>Đội ngũ</h4>
+            <h2>Đội ngũ tuyệt vời của chúng tôi</h2>
           </div>
 
           <div className="clearfix"></div>
@@ -286,14 +294,19 @@ export const About = () => {
             <div className="col-md-4">
               <div className="team-item fl-wrap">
                 <div className="team-img fl-wrap">
-                  <img src="/images/agency/agent/1.jpg" className="respimg" alt="..." />
+                  <img
+                    src="/images/agency/agent/1.jpg"
+                    className="respimg"
+                    alt="..."
+                  />
                 </div>
                 <div className="team-content fl-wrap">
                   <h4>Alisa Gray</h4>
                   <h5>Business consultant</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
                   </p>
                 </div>
                 <div className="team-footer fl-wrap">
@@ -323,8 +336,7 @@ export const About = () => {
                     href="mailto:yourmail@email.com"
                     className="tolt tf-btn"
                     data-microtip-position="top-right"
-                    data-tooltip="Write Message"
-                  >
+                    data-tooltip="Write Message">
                     <i className="fal fa-envelope"></i>
                   </a>
                 </div>
@@ -334,14 +346,19 @@ export const About = () => {
             <div className="col-md-4">
               <div className="team-item fl-wrap">
                 <div className="team-img fl-wrap">
-                  <img src="/images/agency/agent/4.jpg" className="respimg" alt="..." />
+                  <img
+                    src="/images/agency/agent/4.jpg"
+                    className="respimg"
+                    alt="..."
+                  />
                 </div>
                 <div className="team-content fl-wrap">
                   <h4>Austin Evon</h4>
                   <h5>Developer / Designer</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
                   </p>
                 </div>
                 <div className="team-footer fl-wrap">
@@ -371,8 +388,7 @@ export const About = () => {
                     href="mailto:yourmail@email.com"
                     className="tolt tf-btn"
                     data-microtip-position="top-right"
-                    data-tooltip="Write Message"
-                  >
+                    data-tooltip="Write Message">
                     <i className="fal fa-envelope"></i>
                   </a>
                 </div>
@@ -382,14 +398,19 @@ export const About = () => {
             <div className="col-md-4">
               <div className="team-item fl-wrap">
                 <div className="team-img fl-wrap">
-                  <img src="/images/agency/agent/5.jpg" className="respimg" alt="..." />
+                  <img
+                    src="/images/agency/agent/5.jpg"
+                    className="respimg"
+                    alt="..."
+                  />
                 </div>
                 <div className="team-content fl-wrap">
                   <h4>Taylor Roberts</h4>
                   <h5>Software Engineer</h5>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
                   </p>
                 </div>
                 <div className="team-footer fl-wrap">
@@ -419,8 +440,7 @@ export const About = () => {
                     href="mailto:yourmail@email.com"
                     className="tolt tf-btn"
                     data-microtip-position="top-right"
-                    data-tooltip="Write Message"
-                  >
+                    data-tooltip="Write Message">
                     <i className="fal fa-envelope"></i>
                   </a>
                 </div>
@@ -430,25 +450,29 @@ export const About = () => {
         </div>
       </section>
 
-      <section className="parallax-section ps-bg video-section" data-scrollax-parent="true" id="sec2">
+      <section
+        className="parallax-section ps-bg video-section"
+        data-scrollax-parent="true"
+        id="sec2">
         <div className="bg-wrap">
           <div
             className="bg par-elem "
             data-bg="images/bg/5.jpg"
-            data-scrollax="properties: { translateY: '30%' }"
-          ></div>
+            data-scrollax="properties: { translateY: '30%' }"></div>
         </div>
         <div className="overlay"></div>
 
         <div className="container">
           <div className="video_section-title fl-wrap">
-            <h2>Our Story Video</h2>
+            <h2>Video Câu chuyện của chúng tôi</h2>
             <h4>
-              Get ready to start your exciting journey. <br /> Our agency will lead you through the amazing digital
-              world
+              Hãy sẵn sàng để bắt đầu hành trình thú vị của bạn. <br /> Cơ quan
+              của chúng tôi sẽ dẫn dắt bạn qua thế giới kỹ thuật số tuyệt vời
             </h4>
           </div>
-          <a href="https://vimeo.com/158059890" className="promo-link big_prom color-bg   image-popup">
+          <a
+            href="https://vimeo.com/158059890"
+            className="promo-link big_prom color-bg   image-popup">
             <i className="fas fa-play"></i>
           </a>
         </div>
@@ -457,8 +481,8 @@ export const About = () => {
       <section className="gray-bg ">
         <div className="container">
           <div className="section-title st-center fl-wrap">
-            <h4>Testimonilas</h4>
-            <h2>What Our Clients Say</h2>
+            <h4>Phản hồi khách hàng</h4>
+            <h2>Khách hàng nói gì về chúng tôi</h2>
           </div>
         </div>
         <div className="clearfix"></div>
@@ -471,19 +495,23 @@ export const About = () => {
                     <img src="/images/avatar/1.jpg" alt="..." />
                   </div>
                   <div className="review-owner fl-wrap">Jessie Wilcox</div>
-                  <div className="listing-rating card-popup-rainingvis" data-starrating2="5">
+                  <div
+                    className="listing-rating card-popup-rainingvis"
+                    data-starrating2="5">
                     {" "}
                   </div>
                 </div>
                 <div className="text-carousel-content fl-wrap">
                   <p>
                     {" "}
-                    "In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi
-                    magna. Etiam suscipit commodo gravida. Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit,
-                    sed diam nonu mmy nibh euismod tincidunt ut laoreet dolore luptatum."
+                    "In ut odio libero, at vulputate urna. Nulla tristique mi a
+                    massa convallis cursus. Nulla eu mi magna. Etiam suscipit
+                    commodo gravida. Lorem ipsum dolor sit amet, conse ctetuer
+                    adipiscing elit, sed diam nonu mmy nibh euismod tincidunt ut
+                    laoreet dolore luptatum."
                   </p>
                   <a href="#" className="testim-link color-bg">
-                    Via Facebook
+                    Từ Facebook
                   </a>
                 </div>
               </div>
@@ -496,19 +524,23 @@ export const About = () => {
                     <img src="/images/avatar/2.jpg" alt="..." />
                   </div>
                   <div className="review-owner fl-wrap">Austin Harisson</div>
-                  <div className="listing-rating card-popup-rainingvis" data-starrating2="4">
+                  <div
+                    className="listing-rating card-popup-rainingvis"
+                    data-starrating2="4">
                     {" "}
                   </div>
                 </div>
                 <div className="text-carousel-content fl-wrap">
                   <p>
                     {" "}
-                    "Feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-                    luptatum zzril delenit augue duis dolore te odio dignissim qui blandit praesent blandit praesent
-                    luptatum zzril.Vulputate urna. Nulla tristique mi a massa convallis."
+                    "Feugiat nulla facilisis at vero eros et accumsan et iusto
+                    odio dignissim qui blandit praesent luptatum zzril delenit
+                    augue duis dolore te odio dignissim qui blandit praesent
+                    blandit praesent luptatum zzril.Vulputate urna. Nulla
+                    tristique mi a massa convallis."
                   </p>
                   <a href="#" className="testim-link color-bg">
-                    Via Twitter
+                    Từ Twitter
                   </a>
                 </div>
               </div>
@@ -521,19 +553,23 @@ export const About = () => {
                     <img src="/images/avatar/3.jpg" alt="..." />
                   </div>
                   <div className="review-owner fl-wrap">Garry Colonsi</div>
-                  <div className="listing-rating card-popup-rainingvis" data-starrating2="4">
+                  <div
+                    className="listing-rating card-popup-rainingvis"
+                    data-starrating2="4">
                     {" "}
                   </div>
                 </div>
                 <div className="text-carousel-content fl-wrap">
                   <p>
                     {" "}
-                    "In ut odio libero, at vulputate urna. Nulla tristique mi a massa convallis cursus. Nulla eu mi
-                    magna. Etiam suscipit commodo gravida. Lorem ipsum dolor sit amet, conse ctetuer adipiscing elit,
-                    sed diam nonu mmy nibh euismod tincidunt ut laoreet dolore luptatum."
+                    "In ut odio libero, at vulputate urna. Nulla tristique mi a
+                    massa convallis cursus. Nulla eu mi magna. Etiam suscipit
+                    commodo gravida. Lorem ipsum dolor sit amet, conse ctetuer
+                    adipiscing elit, sed diam nonu mmy nibh euismod tincidunt ut
+                    laoreet dolore luptatum."
                   </p>
                   <a href="#" className="testim-link color-bg">
-                    Via Facebook
+                    Từ Facebook
                   </a>
                 </div>
               </div>
@@ -546,19 +582,23 @@ export const About = () => {
                     <img src="/images/avatar/4.jpg" alt="..." />
                   </div>
                   <div className="review-owner fl-wrap">Antony Moore</div>
-                  <div className="listing-rating card-popup-rainingvis" data-starrating2="5">
+                  <div
+                    className="listing-rating card-popup-rainingvis"
+                    data-starrating2="5">
                     {" "}
                   </div>
                 </div>
                 <div className="text-carousel-content fl-wrap">
                   <p>
                     {" "}
-                    "Feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-                    luptatum zzril delenit augue duis dolore te odio dignissim qui blandit praesent blandit praesent
-                    luptatum zzril.Vulputate urna. Nulla tristique mi a massa convallis."
+                    "Feugiat nulla facilisis at vero eros et accumsan et iusto
+                    odio dignissim qui blandit praesent luptatum zzril delenit
+                    augue duis dolore te odio dignissim qui blandit praesent
+                    blandit praesent luptatum zzril.Vulputate urna. Nulla
+                    tristique mi a massa convallis."
                   </p>
                   <a href="#" className="testim-link color-bg">
-                    Via Twitter
+                    Từ Twitter
                   </a>
                 </div>
               </div>

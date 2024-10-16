@@ -12,18 +12,15 @@ export const MainHead = () => {
       <div className="container">
         <div className="section-title center-align big-title">
           <h2>
-            <span>Listings Rooms</span>
+            <span>Danh sách phòng</span>
           </h2>
-          <h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec
-            tincidunt arcu, sit amet fermentum sem.
-          </h4>
+          <h4>Cùng trải nghiệm những căn phòng cao cấp</h4>
         </div>
         <div className="scroll-down-wrap">
           <div className="mousey">
             <div className="scroller"></div>
           </div>
-          <span>Scroll Down To Discover</span>
+          <span>Cuộn xuống</span>
         </div>
       </div>
     </section>

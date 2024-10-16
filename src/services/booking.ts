@@ -12,6 +12,7 @@ export const bookingServices = {
   register: (payload: BookingType) => {
     return api.post<HttpResponse<BookingType>>(`/dat-phong`, payload);
   },
-  editUser: (id: number, payload: BookingResponse) =>
-    api.put(`/users/${id}`, payload),
+  editBooking: (id: number, payload: BookingResponse) =>
+    api.put(`/dat-phong/${id}`, payload),
+  deleteBooking: (id: number) => api.delete(`/dat-phong/${id}`),
 };

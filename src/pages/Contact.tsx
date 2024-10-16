@@ -3,33 +3,35 @@ import { Breadcrumb } from "../components/ui";
 export const Contact = () => {
   return (
     <>
-      <section className="hidden-section single-par2  " data-scrollax-parent="true">
+      <section
+        className="hidden-section single-par2  "
+        data-scrollax-parent="true">
         <div className="bg-wrap bg-parallax-wrap-gradien">
           <div
             className="bg par-elem "
             data-bg="./../assets/images/bg/17.jpg"
-            data-scrollax="properties: { translateY: '30%' }"
-          ></div>
+            data-scrollax="properties: { translateY: '30%' }"></div>
         </div>
         <div className="container">
           <div className="section-title center-align big-title">
             <h2>
-              <span>Our Contacts</span>
+              <span>Liên hệ với chúng tôi</span>
             </h2>
             <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet fermentum sem.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec
+              tincidunt arcu, sit amet fermentum sem.
             </h4>
           </div>
           <div className="scroll-down-wrap">
             <div className="mousey">
               <div className="scroller"></div>
             </div>
-            <span>Scroll Down To Discover</span>
+            <span>Cuộn xuống</span>
           </div>
         </div>
       </section>
 
-      <Breadcrumb currentPage="Contact" />
+      <Breadcrumb currentPage="Liên hệ" />
 
       <section className="gray-bg small-padding">
         <div className="container">
@@ -38,7 +40,7 @@ export const Contact = () => {
               <div className="services-item fl-wrap">
                 <i className="fal fa-envelope"></i>
                 <h4>
-                  Our Mails <span>01</span>
+                  Email <span>01</span>
                 </h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                 <a href="#" className="serv-link sl-b">
@@ -51,7 +53,7 @@ export const Contact = () => {
               <div className="services-item fl-wrap">
                 <i className="fal fa-phone-rotary"></i>
                 <h4>
-                  Our Phones<span>02</span>
+                  Điện thoại<span>02</span>
                 </h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                 <a href="#" className="serv-link sl-b">
@@ -64,7 +66,7 @@ export const Contact = () => {
               <div className="services-item fl-wrap">
                 <i className="fal fa-map-marked"></i>
                 <h4>
-                  Our Adress <span>03</span>
+                  Địa chỉ <span>03</span>
                 </h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                 <a href="#" className="serv-link sl-b">
@@ -76,7 +78,7 @@ export const Contact = () => {
           <div className="clearfix"></div>
           <div className="contacts-opt fl-wrap">
             <div className="contact-social">
-              <span className="cs-title">Find us on: </span>
+              <span className="cs-title">Liên hệ: </span>
               <ul>
                 <li>
                   <a href="#" target="_blank">
@@ -101,18 +103,18 @@ export const Contact = () => {
               </ul>
             </div>
             <a href="#" className="btn small-btn float-btn color-bg cf_btn">
-              Write Mesagge
+              Gửi tin nhắn
             </a>
-            <div className="contact-notifer">
-              Or visit our <a href="help.html"> help page</a>
-            </div>
           </div>
 
           <div className="box-widget">
-            <div className="box-widget-title single_bwt fl-wrap   ">Office Location</div>
+            <div className="box-widget-title single_bwt fl-wrap   ">
+              Địa chỉ công ty
+            </div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-              lobortis pulvinar. Donec a consectetur nulla.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
+              in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a
+              consectetur nulla.
             </p>
           </div>
         </div>

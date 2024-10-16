@@ -5,9 +5,10 @@ import { BookingResponse } from "../@types";
 import { Paginate } from "../components/ui";
 import moment from "moment";
 import { ModalBookingAdmin } from "../components/ui/ModalBookingAdmin";
+import { Bounce, toast } from "react-toastify";
 
 export const DashboardBooking = () => {
-  const { data } = useQuery({
+  const { data, refetch } = useQuery({
     queryKey: ["listBooking"],
     queryFn: async () => await bookingServices.getListBooking(),
   });
@@ -36,39 +37,40 @@ export const DashboardBooking = () => {
     setIsShowModal(true);
     setTypeOfModal(event.target.name);
   };
-  // const handleDelete = async (booking: BookingResponse) => {
-  // try {
-  //   // Gọi API để xóa người dùng
-  //   await usersServices.deleteUser(user.id);
-  //   // Hiển thị thông báo thành công
-  //   toast(`Xoá người dùng id: ${user.id} thành công!`, {
-  //     position: "top-right",
-  //     autoClose: 2000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //     transition: Bounce,
-  //   });
-  //   // Làm mới dữ liệu
-  //   refetch();
-  // } catch (error) {
-  //   // Xử lý lỗi nếu có
-  //   toast(`lỗi xoá người dùng id: ${user.id}`, {
-  //     position: "top-right",
-  //     autoClose: 2000,
-  //     hideProgressBar: false,
-  //     closeOnClick: true,
-  //     pauseOnHover: true,
-  //     draggable: true,
-  //     progress: undefined,
-  //     theme: "light",
-  //     transition: Bounce,
-  //   });
-  // }
-  // };
+  const handleDelete = async (booking: BookingResponse) => {
+    console.log("booking: ", booking);
+    try {
+      // Gọi API để xóa người dùng
+      await bookingServices.deleteBooking(booking.id);
+      // Hiển thị thông báo thành công
+      toast(`Xoá đặt phòng id: ${booking.id} thành công!`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+      // Làm mới dữ liệu
+      refetch();
+    } catch (error) {
+      // Xử lý lỗi nếu có
+      toast(`lỗi xoá đặtphòng id: ${booking.id}`, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
+  };
 
   const [textSearch] = useState<BookingResponse[] | undefined>([]);
 
@@ -171,7 +173,7 @@ export const DashboardBooking = () => {
                       </button>
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
-                        // onClick={() => handleDelete(booking)}
+                        onClick={() => handleDelete(booking)}
                         name="delete">
                         Xoá
                       </button>
@@ -190,18 +192,18 @@ export const DashboardBooking = () => {
                     </th>
                     <td className="px-6 py-4">
                       {
-                        /* {moment(booking.ngayDi, "DD/MM/YYYY").format(
-                        "DD/MM/YYYY"
-                      )} */
-                        booking.ngayDen
+                        moment(booking.ngayDi, "DD/MM/YYYY").format(
+                          "DD/MM/YYYY"
+                        )
+                        // booking.ngayDen
                       }
                     </td>
                     <td className="px-6 py-4">
                       {
-                        /* {moment(booking.ngayDen, "DD/MM/YYYY").format(
-                        "DD/MM/YYYY"
-                      )} */
-                        booking.ngayDi
+                        moment(booking.ngayDen, "DD/MM/YYYY").format(
+                          "DD/MM/YYYY"
+                        )
+                        // booking.ngayDi
                       }
                     </td>
                     <td className="px-6 py-4">{booking.soLuongKhach}</td>
@@ -221,7 +223,7 @@ export const DashboardBooking = () => {
                       </button>
                       <button
                         className=" border rounded-md px-5 py-2 hover:bg-white hover:text-gray-800 transition-all"
-                        // onClick={() => handleDelete(booking)}
+                        onClick={() => handleDelete(booking)}
                         name="delete">
                         Xoá
                       </button>

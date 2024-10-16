@@ -6,17 +6,25 @@ export const Page404 = () => {
           <div className="hero-text-big">
             <h6>404</h6>
           </div>
-          <p>We're sorry, but the Page you were looking for, couldn't be found.</p>
+          <p>
+            We're sorry, but the Page you were looking for, couldn't be found.
+          </p>
           <div className="clearfix"></div>
           <form action="#">
-            <input name="se" id="se" type="text" className="search" placeholder="Search.." />
+            <input
+              name="se"
+              id="se"
+              type="text"
+              className="search"
+              placeholder="Search.."
+            />
             <button className="search-submit" id="submit_btn">
               <i className="fal fa-search"></i>{" "}
             </button>
           </form>
           <div className="clearfix"></div>
           <p>Or</p>
-          <a href="index.html" className="btn   color-bg">
+          <a href="index.html" className="btn color-bg">
             Back to Home Page
           </a>
         </div>

@@ -40,14 +40,12 @@ export const Header = () => {
                   onClick={() => {
                     localStorage.removeItem("USER");
                     location.href = "/";
-                  }}
-                >
+                  }}>
                   <span className="inline-block me-3">Đăng xuất</span>
                   <LogoutOutlined className="text-red-400" />
                 </NavLink>
               </div>
-            }
-          >
+            }>
             <Avatar size={40} icon={<UserOutlined />} />
           </Popover>
         </div>
@@ -64,16 +62,16 @@ export const Header = () => {
         <nav>
           <ul className="no-list-style">
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">Trang chủ</NavLink>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/about">Giới thiệu</NavLink>
             </li>
             <li>
-              <NavLink to="/pricing">Pricing</NavLink>
+              <NavLink to="/pricing">Giá</NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/contact">Liên hệ</NavLink>
             </li>
           </ul>
         </nav>

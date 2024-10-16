@@ -363,7 +363,7 @@ export const SingleRoom = () => {
                             <DatePicker
                               className="w-full noBG"
                               {...field}
-                              format="DD/MM/YYYY"
+                              // format="DD/MM/YYYY"
                               value={
                                 field.value
                                   ? moment(field.value, "DD/MM/YYYY")
@@ -392,15 +392,15 @@ export const SingleRoom = () => {
                             <DatePicker
                               className="w-full noBG"
                               {...field}
-                              format="DD/MM/YYYY"
+                              // format="DD/MM/YYYY"
                               value={
                                 field.value
-                                  ? moment(field.value, "DD/MM/YYYY")
-                                  : null
+                                // ? moment(field.value, "DD/MM/YYYY")
+                                // : null
                               }
                               onChange={(date) =>
                                 field.onChange(
-                                  date ? date.format("DD/MM/YYYY") : null
+                                  date /*? date.format("DD/MM/YYYY") : null*/
                                 )
                               }
                             />

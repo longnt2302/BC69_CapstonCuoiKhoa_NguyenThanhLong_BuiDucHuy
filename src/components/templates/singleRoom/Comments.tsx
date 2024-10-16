@@ -20,7 +20,7 @@ export const Comments = (props: Props) => {
     <div className="list-single-main-item fl-wrap" id="sec6">
       <div className="list-single-main-item-title">
         <h3>
-          Reviews <span>{data?.data?.content?.length}</span>
+          Bình luận <span>{data?.data?.content?.length}</span>
         </h3>
       </div>
       <div className="list-single-main-item_content fl-wrap">

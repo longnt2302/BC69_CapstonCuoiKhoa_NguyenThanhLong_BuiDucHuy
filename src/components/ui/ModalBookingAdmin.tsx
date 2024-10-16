@@ -17,11 +17,13 @@ type Props = {
 
 export const ModalBookingAdmin = (props: Props) => {
   const { isShowModal, setIsShowModal, typeOfModal, infoBooking } = props;
+  console.log("infoBooking: ", infoBooking);
 
   const formRef = useRef<FormInstance>(null);
 
   useEffect(() => {
     formRef.current?.setFieldsValue({
+      id: infoBooking?.id,
       maPhong: infoBooking?.maPhong,
       ngayDi: infoBooking?.ngayDi
         ? moment(infoBooking.ngayDi, "DD/MM/YYYY")
@@ -133,7 +135,7 @@ export const ModalBookingAdmin = (props: Props) => {
                 <label htmlFor="" className="font-medium">
                   Mã phòng
                 </label>
-                <Form.Item name="naPhong">
+                <Form.Item name="maPhong">
                   <Input disabled />
                 </Form.Item>
               </div>

@@ -11,15 +11,15 @@ export const Footer = () => {
                     <img src="/assets/images/logo.png" alt="..." />
                   </div>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                    lobortis pulvinar.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar.
                   </p>
                   <div className="fw_hours fl-wrap">
                     <span>
-                      Monday - Friday:<strong> 8am - 6pm</strong>
+                      Thứ 2 - Thứ 6:<strong> 8am - 6pm</strong>
                     </span>
                     <span>
-                      Saturday - Sunday:<strong> 9am - 3pm</strong>
+                      Thứ 7 - Chủ nhật:<strong> 9am - 3pm</strong>
                     </span>
                   </div>
                 </div>
@@ -87,7 +87,10 @@ export const Footer = () => {
                   <div className="footer-widget-title fl-wrap">
                     <h4>Tải API của chúng tôi</h4>
                   </div>
-                  <p>Start working with Homeradar that can provide everything you need </p>
+                  <p>
+                    Bắt đầu làm việc với Homeradar có thể cung cấp mọi thứ bạn
+                    cần{" "}
+                  </p>
                   <div className="api-links fl-wrap">
                     <a href="#" className="api-btn color-bg">
                       <i className="fab fa-apple"></i> App Store
@@ -104,7 +107,10 @@ export const Footer = () => {
 
         <div className="sub-footer gray-bg fl-wrap">
           <div className="container">
-            <div className="copyright"> &#169; Homeradar 2022 . All rights reserved.</div>
+            <div className="copyright">
+              {" "}
+              &#169; Homeradar 2022. Bảo lưu mọi quyền.
+            </div>
             <div className="subfooter-nav">
               <ul className="no-list-style">
                 <li>
