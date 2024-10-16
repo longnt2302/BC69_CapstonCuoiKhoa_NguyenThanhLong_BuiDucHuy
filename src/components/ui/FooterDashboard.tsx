@@ -5,19 +5,19 @@ export const FooterDashboard = () => {
         <span>Helpfull Links:</span>
         <ul>
           <li>
-            <a href="about.html">About </a>
+            <a href="about.html">Về chúng tối </a>
           </li>
           <li>
-            <a href="blog.html">Blog</a>
+            <a href="blog.html">Tin tức</a>
           </li>
           <li>
-            <a href="pricing.html">Pricing Plans</a>
+            <a href="pricing.html">Bảng giá</a>
           </li>
           <li>
-            <a href="contacts.html">Contacts</a>
+            <a href="contacts.html">Liên hệ</a>
           </li>
           <li>
-            <a href="help.html">Help Center</a>
+            <a href="help.html">Trung tâm hỗ trợ</a>
           </li>
         </ul>
       </div>
