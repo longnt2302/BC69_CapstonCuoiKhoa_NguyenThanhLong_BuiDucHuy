@@ -64,9 +64,10 @@ export const Header = () => {
         <nav>
           <ul className="no-list-style">
             <li>
-              <NavLink to="/" className="act-link">
-                Trang chủ
-              </NavLink>
+              <NavLink to="/">HOME</NavLink>
+            </li>
+            <li>
+              <NavLink to="/about">ABOUT</NavLink>
             </li>
           </ul>
         </nav>

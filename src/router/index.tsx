@@ -1,5 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import {
+  About,
   DashboardBooking,
   DashboardHome,
   DashboardListing,
@@ -33,6 +34,10 @@ export const routers = () =>
         {
           path: "/:cityName/:roomId",
           element: <SingleRoom />,
+        },
+        {
+          path: PATH.about,
+          element: <About />,
         },
       ],
     },

@@ -1,4 +1,12 @@
-import { LastestProperties, MainVisual } from "../components/templates/home";
+import {
+  Agents,
+  Explore,
+  LastestProperties,
+  MainVisual,
+  Meet,
+  OurProperties,
+  Testimonial,
+} from "../components/templates/home";
 import { Breadcrumb } from "../components/ui";
 
 export const Home = () => {
@@ -9,6 +17,16 @@ export const Home = () => {
       <Breadcrumb currentPage="Introducing" />
 
       <LastestProperties />
+
+      <OurProperties />
+
+      <Explore />
+
+      <Meet />
+
+      <Agents />
+
+      <Testimonial />
     </>
   );
 };

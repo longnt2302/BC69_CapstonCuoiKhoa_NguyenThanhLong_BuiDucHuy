@@ -7,7 +7,6 @@ const api = apiInstance.create({
 
 export const commentServices = {
   getCommentById: (maPhong: number | undefined) =>
-    api.get<HttpResponse<CommentResponse[]>>(
-      `/binh-luan/lay-binh-luan-theo-phong/${maPhong}`
-    ),
+    api.get<HttpResponse<CommentResponse[]>>(`/binh-luan/lay-binh-luan-theo-phong/${maPhong}`),
+  getComments: () => api.get<HttpResponse<CommentResponse[]>>("/binh-luan/"),
 };
