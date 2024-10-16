@@ -50,12 +50,14 @@ export const Header = () => {
                   onClick={() => {
                     localStorage.removeItem("USER");
                     location.href = "/";
-                  }}>
+                  }}
+                >
                   <span className="inline-block me-3">Đăng xuất</span>
                   <LogoutOutlined className="text-red-400" />
                 </NavLink>
               </div>
-            }>
+            }
+          >
             <Avatar size={40} icon={<UserOutlined />} />
           </Popover>
         </div>
@@ -84,9 +86,7 @@ export const Header = () => {
               <ul>
                 {dataViTri?.data?.content?.map((viTri) => (
                   <li key={viTri?.id}>
-                    <NavLink to={`/${viTri?.tenViTri}`}>
-                      {viTri?.tenViTri}
-                    </NavLink>
+                    <NavLink to={`/${viTri?.tenViTri}`}>{viTri?.tenViTri}</NavLink>
                   </li>
                 ))}
               </ul>
