@@ -14,4 +14,6 @@ export const viTriServices = {
   addViTri: (dataForm = {}) => api.post<HttpResponse<viTriAPIResponse>>("/vi-tri/", dataForm),
   uploadImageViTri: (maViTri: number, dataForm: FormData) =>
     api.post<HttpResponse<viTriAPIResponse>>(`/vi-tri/upload-hinh-vitri?maViTri=${maViTri}`, dataForm),
+  updateViTri: (maViTri: number, dataForm = {}) =>
+    api.put<HttpResponse<viTriAPIResponse>>(`/vi-tri/${maViTri}`, dataForm),
 };

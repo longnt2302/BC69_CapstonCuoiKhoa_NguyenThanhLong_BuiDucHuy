@@ -97,7 +97,6 @@ export const FormViTri = () => {
               <Controller
                 control={control}
                 name="tenViTri"
-                defaultValue="aa"
                 render={({ field }) => <Input {...field} placeholder="Nhập tên vị trí" />}
               />
               {errors?.tenViTri && <p className="text-red-500">{errors?.tenViTri?.message}</p>}
