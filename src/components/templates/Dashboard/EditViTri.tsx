@@ -9,7 +9,7 @@ import { sleep } from "../../../utils";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const convertUrlToUploadFile = (url: string | undefined): UploadFile => {
   return {
@@ -22,6 +22,8 @@ const convertUrlToUploadFile = (url: string | undefined): UploadFile => {
 
 export const EditViTri = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   console.log("fileList: ", fileList);
@@ -97,7 +99,7 @@ export const EditViTri = () => {
         autoClose: 3000,
       });
       setFileList([]);
-      reset();
+      navigate(-1);
     } catch (error) {
       console.log("error: ", error);
       toast.error("Update Failed !!!", {
