@@ -13,4 +13,5 @@ export const roomServices = {
   addRoom: (dataForm = {}) => api.post(`/phong-thue/`, dataForm),
   uploadImageRoom: (maPhong: number, dataForm: FormData) =>
     api.post<HttpResponse<RoomResponse>>(`/phong-thue/upload-hinh-phong?maPhong=${maPhong}`, dataForm),
+  editRoom: (maPhong: number, dataForm = {}) => api.put(`/phong-thue/${maPhong}`, dataForm),
 };

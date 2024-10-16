@@ -5,21 +5,27 @@ import { UploadOutlined } from "@ant-design/icons";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { roomSchema, roomSchemaType } from "../../../schema/addRoom";
 import { roomServices, viTriServices } from "../../../services";
-import { sleep } from "../../../utils";
-import { useState } from "react";
+import { convertUrlToUploadFile, sleep } from "../../../utils";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate, useParams } from "react-router-dom";
 type AnyObject = { [key: string]: string | number | boolean };
 
-export const FormRooms = () => {
-  const { data: dataViTri } = useQuery({
+export const EditRooms = () => {
+  const { id } = useParams();
+
+  const navigate = useNavigate();
+
+  const { data: dataViTri, refetch } = useQuery({
     queryKey: ["getViTri"],
     queryFn: async () => {
-      await sleep(1000);
-      return viTriServices.getViTri();
+      const dataViTri = await viTriServices.getViTri();
+      return dataViTri;
     },
   });
+  refetch();
 
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
@@ -42,18 +48,34 @@ export const FormRooms = () => {
     resolver: zodResolver(roomSchema),
   });
 
+  useEffect(() => {
+    roomServices
+      .getRoomById(id)
+      .then((res) => {
+        const dataRoom = res.data.content;
+        const fileUploadOld = convertUrlToUploadFile(dataRoom?.hinhAnh);
+        setFileList([fileUploadOld]);
+        reset({
+          ...dataRoom,
+          hinhAnh: undefined,
+        });
+      })
+      .catch((err) => {
+        console.log("err: ", err);
+      });
+  }, [id, reset]);
+
   const onSubmit: SubmitHandler<roomSchemaType> = async (data) => {
+    const { id } = data;
     const newData: AnyObject = { ...data, hinhAnh: "undefined" };
     Object.keys(newData).forEach((key) => {
       const value = newData[key];
       if (value === undefined) newData[key] = false;
     });
     try {
-      const responseData = await roomServices.addRoom(newData);
-      console.log("responseData: ", responseData);
+      const responseData = await roomServices.editRoom(id, newData);
       sleep(3000);
       const { id: maPhong } = responseData.data.content;
-      console.log("maPhong: ", maPhong);
 
       // handle upload image
       if (fileList.length === 0) return;
@@ -71,20 +93,18 @@ export const FormRooms = () => {
           console.log(err);
         });
 
-      toast("Success !!!", {
+      toast.success("Update successfully !!!", {
         position: "top-right",
         autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
       });
       setFileList([]);
-      reset();
+      navigate(-1);
     } catch (error) {
       console.log("error: ", error);
+      toast.error("Update Failed !!!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
     }
   };
   return (
