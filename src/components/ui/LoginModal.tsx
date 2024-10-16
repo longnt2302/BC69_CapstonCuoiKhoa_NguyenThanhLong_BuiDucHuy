@@ -73,7 +73,7 @@ export const LoginModal = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
         <div>
           <label>
-            Email Address *{" "}
+            Email *{" "}
             <span className="dec-icon">
               <i className="fal fa-user"></i>
             </span>
@@ -89,7 +89,7 @@ export const LoginModal = () => {
         </div>
         <div className="pass-input-wrap fl-wrap">
           <label>
-            Password *{" "}
+            Mật khẩu *{" "}
             <span className="dec-icon">
               <i className="fal fa-key"></i>
             </span>
@@ -111,10 +111,9 @@ export const LoginModal = () => {
       <Button
         htmlType="submit"
         className="log_btn color-bg"
-        loading={isLoading}
-      >
+        loading={isLoading}>
         {" "}
-        LogIn{" "}
+        Đăng nhập{" "}
       </Button>
     </form>
   );

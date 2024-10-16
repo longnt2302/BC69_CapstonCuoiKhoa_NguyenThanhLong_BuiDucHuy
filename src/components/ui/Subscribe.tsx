@@ -8,8 +8,10 @@ export const Subscribe = () => {
           <div className="row">
             <div className="col-md-6">
               <div className="subscribe-header">
-                <h4>newsletter</h4>
-                <h3>Sign up for newsletter and get latest news and update</h3>
+                <h4>Tin</h4>
+                <h3>
+                  Đăng ký nhận bản tin và nhận tin tức và cập nhật mới nhất
+                </h3>
               </div>
             </div>
             <div className="col-md-1"></div>
@@ -22,22 +24,20 @@ export const Subscribe = () => {
                         className="enteremail fl-wrap"
                         name="email"
                         id="subscribe-email"
-                        placeholder="Enter Your Email"
+                        placeholder="Nhập Email Của Bạn"
                         spellCheck="false"
                         type="text"
                       />
                       <button
                         type="submit"
                         id="subscribe-button"
-                        className="subscribe-button color-bg"
-                      >
+                        className="subscribe-button color-bg">
                         {" "}
-                        Subscribe
+                        Đăng ký
                       </button>
                       <label
                         htmlFor="subscribe-email"
-                        className="subscribe-message"
-                      ></label>
+                        className="subscribe-message"></label>
                     </form>
                   </div>
                 </div>

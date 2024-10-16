@@ -3,8 +3,8 @@ export const Meet = () => {
     <section>
       <div className="container">
         <div className="section-title st-center fl-wrap">
-          <h4>The Best Agents</h4>
-          <h2>Meet Our Agents</h2>
+          <h4>Những đại lý tốt nhất</h4>
+          <h2>Gặp gỡ những đại lý của chúng tôi</h2>
         </div>
 
         <div className="clearfix"></div>
@@ -14,7 +14,9 @@ export const Meet = () => {
               <div className="listing-item">
                 <article className="geodir-category-listing fl-wrap">
                   <div className="geodir-category-img fl-wrap  agent_card">
-                    <a href="agent-single.html" className="geodir-category-img_item">
+                    <a
+                      href="agent-single.html"
+                      className="geodir-category-img_item">
                       <img src="./assets/images/agency/agent/1.jpg" alt="..." />
                       <ul className="list-single-opt_header_cat">
                         <li>
@@ -41,12 +43,17 @@ export const Meet = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="listing-rating card-popup-rainingvis" data-starrating2="5">
+                    <div
+                      className="listing-rating card-popup-rainingvis"
+                      data-starrating2="5">
                       <span className="re_stars-title">Excellent</span>
                     </div>
                   </div>
                   <div className="geodir-category-content fl-wrap">
-                    <div className="card-verified tolt" data-microtip-position="left" data-tooltip="Verified">
+                    <div
+                      className="card-verified tolt"
+                      data-microtip-position="left"
+                      data-tooltip="Verified">
                       <i className="fal fa-user-check"></i>
                     </div>
                     <div className="agent_card-title fl-wrap">
@@ -54,31 +61,34 @@ export const Meet = () => {
                         <a href="agent-single.html">Anna Lips</a>
                       </h4>
                       <h5>
-                        <a href="agency-single.html">CondorHome RealEstate agency</a>
+                        <a href="agency-single.html">
+                          CondorHome RealEstate agency
+                        </a>
                       </h5>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                      lobortis pulvinar. Donec a consectetur nulla.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas in pulvinar neque. Nulla finibus lobortis
+                      pulvinar. Donec a consectetur nulla.
                     </p>
                     <div className="geodir-category-footer fl-wrap">
-                      <a href="agent-single.html" className="btn float-btn color-bg small-btn">
-                        View Profile
+                      <a
+                        href="agent-single.html"
+                        className="btn float-btn color-bg small-btn">
+                        Xem thông tin
                       </a>
                       <a
                         href="mailto:yourmail@email.com"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Write Message"
-                      >
+                        data-tooltip="Write Message">
                         <i className="fal fa-envelope"></i>
                       </a>
                       <a
                         href="tel:123-456-7890"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Call Now"
-                      >
+                        data-tooltip="Call Now">
                         <i className="fal fa-phone"></i>
                       </a>
                     </div>
@@ -91,7 +101,9 @@ export const Meet = () => {
               <div className="listing-item">
                 <article className="geodir-category-listing fl-wrap">
                   <div className="geodir-category-img fl-wrap  agent_card">
-                    <a href="agent-single.html" className="geodir-category-img_item">
+                    <a
+                      href="agent-single.html"
+                      className="geodir-category-img_item">
                       <img src="./assets/images/agency/agent/3.jpg" alt="..." />
                       <ul className="list-single-opt_header_cat">
                         <li>
@@ -123,7 +135,9 @@ export const Meet = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="listing-rating card-popup-rainingvis" data-starrating2="3">
+                    <div
+                      className="listing-rating card-popup-rainingvis"
+                      data-starrating2="3">
                       <span className="re_stars-title">Average</span>
                     </div>
                   </div>
@@ -131,8 +145,7 @@ export const Meet = () => {
                     <div
                       className="card-verified cv_not tolt"
                       data-microtip-position="left"
-                      data-tooltip="Not Verified"
-                    >
+                      data-tooltip="Not Verified">
                       <i className="fal fa-minus-octagon"></i>
                     </div>
                     <div className="agent_card-title fl-wrap">
@@ -140,31 +153,34 @@ export const Meet = () => {
                         <a href="agent-single.html">Jane Kobart</a>
                       </h4>
                       <h5>
-                        <a href="agency-single.html">Mavers RealEstate agency</a>
+                        <a href="agency-single.html">
+                          Mavers RealEstate agency
+                        </a>
                       </h5>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                      lobortis pulvinar. Donec a consectetur nulla.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas in pulvinar neque. Nulla finibus lobortis
+                      pulvinar. Donec a consectetur nulla.
                     </p>
                     <div className="geodir-category-footer fl-wrap">
-                      <a href="agent-single.html" className="btn float-btn color-bg small-btn">
-                        View Profile
+                      <a
+                        href="agent-single.html"
+                        className="btn float-btn color-bg small-btn">
+                        Xem thông tin
                       </a>
                       <a
                         href="mailto:yourmail@email.com"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Write Message"
-                      >
+                        data-tooltip="Write Message">
                         <i className="fal fa-envelope"></i>
                       </a>
                       <a
                         href="tel:123-456-7890"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Call Now"
-                      >
+                        data-tooltip="Call Now">
                         <i className="fal fa-phone"></i>
                       </a>
                     </div>
@@ -177,7 +193,9 @@ export const Meet = () => {
               <div className="listing-item">
                 <article className="geodir-category-listing fl-wrap">
                   <div className="geodir-category-img fl-wrap  agent_card">
-                    <a href="agent-single.html" className="geodir-category-img_item">
+                    <a
+                      href="agent-single.html"
+                      className="geodir-category-img_item">
                       <img src="./assets/images/agency/agent/5.jpg" alt="..." />
                       <ul className="list-single-opt_header_cat">
                         <li>
@@ -209,12 +227,17 @@ export const Meet = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="listing-rating card-popup-rainingvis" data-starrating2="5">
+                    <div
+                      className="listing-rating card-popup-rainingvis"
+                      data-starrating2="5">
                       <span className="re_stars-title">Excellent</span>
                     </div>
                   </div>
                   <div className="geodir-category-content fl-wrap">
-                    <div className="card-verified tolt" data-microtip-position="top-left" data-tooltip="Verified">
+                    <div
+                      className="card-verified tolt"
+                      data-microtip-position="top-left"
+                      data-tooltip="Verified">
                       <i className="fal fa-user-check"></i>
                     </div>
                     <div className="agent_card-title fl-wrap">
@@ -226,27 +249,28 @@ export const Meet = () => {
                       </h5>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                      lobortis pulvinar. Donec a consectetur nulla.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas in pulvinar neque. Nulla finibus lobortis
+                      pulvinar. Donec a consectetur nulla.
                     </p>
                     <div className="geodir-category-footer fl-wrap">
-                      <a href="agent-single.html" className="btn float-btn color-bg small-btn">
-                        View Profile
+                      <a
+                        href="agent-single.html"
+                        className="btn float-btn color-bg small-btn">
+                        Xem thông tin
                       </a>
                       <a
                         href="mailto:yourmail@email.com"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Write Message"
-                      >
+                        data-tooltip="Write Message">
                         <i className="fal fa-envelope"></i>
                       </a>
                       <a
                         href="tel:123-456-7890"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Call Now"
-                      >
+                        data-tooltip="Call Now">
                         <i className="fal fa-phone"></i>
                       </a>
                     </div>
@@ -259,7 +283,9 @@ export const Meet = () => {
               <div className="listing-item">
                 <article className="geodir-category-listing fl-wrap">
                   <div className="geodir-category-img fl-wrap  agent_card">
-                    <a href="agent-single.html" className="geodir-category-img_item">
+                    <a
+                      href="agent-single.html"
+                      className="geodir-category-img_item">
                       <img src="./assets/images/agency/agent/6.jpg" alt="..." />
                       <ul className="list-single-opt_header_cat">
                         <li>
@@ -286,12 +312,17 @@ export const Meet = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="listing-rating card-popup-rainingvis" data-starrating2="4">
+                    <div
+                      className="listing-rating card-popup-rainingvis"
+                      data-starrating2="4">
                       <span className="re_stars-title">Good</span>
                     </div>
                   </div>
                   <div className="geodir-category-content fl-wrap">
-                    <div className="card-verified tolt" data-microtip-position="left" data-tooltip="Verified">
+                    <div
+                      className="card-verified tolt"
+                      data-microtip-position="left"
+                      data-tooltip="Verified">
                       <i className="fal fa-user-check"></i>
                     </div>
                     <div className="agent_card-title fl-wrap">
@@ -299,31 +330,34 @@ export const Meet = () => {
                         <a href="agent-single.html">Martin Smith</a>
                       </h4>
                       <h5>
-                        <a href="agency-single.html">Mavers RealEstate agency</a>
+                        <a href="agency-single.html">
+                          Mavers RealEstate agency
+                        </a>
                       </h5>
                     </div>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus
-                      lobortis pulvinar. Donec a consectetur nulla.
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas in pulvinar neque. Nulla finibus lobortis
+                      pulvinar. Donec a consectetur nulla.
                     </p>
                     <div className="geodir-category-footer fl-wrap">
-                      <a href="agent-single.html" className="btn float-btn color-bg small-btn">
-                        View Profile
+                      <a
+                        href="agent-single.html"
+                        className="btn float-btn color-bg small-btn">
+                        Xem thông tin
                       </a>
                       <a
                         href="mailto:yourmail@email.com"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Write Message"
-                      >
+                        data-tooltip="Write Message">
                         <i className="fal fa-envelope"></i>
                       </a>
                       <a
                         href="tel:123-456-7890"
                         className="tolt ftr-btn"
                         data-microtip-position="left"
-                        data-tooltip="Call Now"
-                      >
+                        data-tooltip="Call Now">
                         <i className="fal fa-phone"></i>
                       </a>
                     </div>

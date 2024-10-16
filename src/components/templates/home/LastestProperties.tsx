@@ -17,8 +17,8 @@ export const LastestProperties = () => {
         <div className="block">
           <div className="md:w-1/3 w-full">
             <div className="section-title fl-wrap">
-              <h4>Browse Hot Offers</h4>
-              <h2>Latest Properties</h2>
+              <h4>Ưu đãi hấp dẫn</h4>
+              <h2>Mới nhất</h2>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@ export const LastestProperties = () => {
         </div>
 
         <a href="listing.html" className="btn float-btn small-btn color-bg">
-          View All Properties
+          Xem thêm
         </a>
       </div>
     </section>

@@ -28,23 +28,23 @@ export const Footer = () => {
               <div className="col-md-3">
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-title fl-wrap">
-                    <h4>Helpful links</h4>
+                    <h4>Liên kết</h4>
                   </div>
                   <ul className="footer-list fl-wrap">
                     <li>
-                      <a href="about.html">About Our Company</a>
+                      <a href="about.html">Về chúng tôi</a>
                     </li>
                     <li>
-                      <a href="blog.html">Our last News</a>
+                      <a href="blog.html">Tin tức mới nhất</a>
                     </li>
                     <li>
-                      <a href="pricing.html">Pricing Plans</a>
+                      <a href="pricing.html">Giá bất động sản</a>
                     </li>
                     <li>
-                      <a href="contacts.html">Contacts</a>
+                      <a href="contacts.html">Liên hệ</a>
                     </li>
                     <li>
-                      <a href="help.html">Help Center</a>
+                      <a href="help.html">Trung tâm hỗ trợ</a>
                     </li>
                   </ul>
                 </div>
@@ -53,12 +53,12 @@ export const Footer = () => {
               <div className="col-md-3">
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-title fl-wrap">
-                    <h4>Contacts Info</h4>
+                    <h4>Thông tin liên hệ</h4>
                   </div>
                   <ul className="footer-contacts fl-wrap">
                     <li>
                       <span>
-                        <i className="fal fa-envelope"></i> Mail :
+                        <i className="fal fa-envelope"></i> Email :
                       </span>
                       <a href="#" target="_blank">
                         yourmail@domain.com
@@ -67,7 +67,7 @@ export const Footer = () => {
                     <li>
                       {" "}
                       <span>
-                        <i className="fal fa-map-marker"></i> Adress :
+                        <i className="fal fa-map-marker"></i> Địa chỉ :
                       </span>
                       <a href="#" target="_blank">
                         USA 27TH Brooklyn NY
@@ -75,7 +75,7 @@ export const Footer = () => {
                     </li>
                     <li>
                       <span>
-                        <i className="fal fa-phone"></i> Phone :
+                        <i className="fal fa-phone"></i> Số điện thoại :
                       </span>
                       <a href="#">+7(111)123456789</a>
                     </li>
@@ -110,11 +110,11 @@ export const Footer = () => {
               <div className="col-md-3">
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-title fl-wrap">
-                    <h4>Download our API</h4>
+                    <h4>Tải API của chúng tôi</h4>
                   </div>
                   <p>
-                    Start working with Homeradar that can provide everything you
-                    need{" "}
+                    Bắt đầu làm việc với Homeradar có thể cung cấp mọi thứ bạn
+                    cần{" "}
                   </p>
                   <div className="api-links fl-wrap">
                     <a href="#" className="api-btn color-bg">
@@ -134,18 +134,18 @@ export const Footer = () => {
           <div className="container">
             <div className="copyright">
               {" "}
-              &#169; Homeradar 2022 . All rights reserved.
+              &#169; Homeradar 2022. Bảo lưu mọi quyền.
             </div>
             <div className="subfooter-nav">
               <ul className="no-list-style">
                 <li>
-                  <a href="#">Terms of use</a>
+                  <a href="#">Điều khoản sử dụng</a>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="#">Chính sách bảo mật</a>
                 </li>
                 <li>
-                  <a href="#">Blog</a>
+                  <a href="#">Tin tức</a>
                 </li>
               </ul>
             </div>

@@ -10,13 +10,13 @@ export const Breadcrumb = (props: Props<string | undefined>) => {
       <div className="container">
         <div className="flex justify-between items-center">
           <div className="breadcrumbs-list">
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">Trang chủ</NavLink>
             {currentPage && <span>{currentPage}</span>}
           </div>
           <div className="share-holder hid-share min-w-[90px]">
             <NavLink to="#" className="share-btn showshare sfcs inline-block">
               {" "}
-              <i className="fas fa-share-alt"></i> Share{" "}
+              <i className="fas fa-share-alt"></i> Chia sẽ{" "}
             </NavLink>
             <div className="share-container  isShare"></div>
           </div>

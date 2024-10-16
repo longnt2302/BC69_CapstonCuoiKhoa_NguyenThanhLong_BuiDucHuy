@@ -77,12 +77,12 @@ export const RegisterModal = () => {
             <ul className="tabs-menu fl-wrap no-list-style">
               <li className="current">
                 <a href="#tab-1">
-                  <i className="fal fa-sign-in-alt"></i> Login
+                  <i className="fal fa-sign-in-alt"></i> Đăng nhập
                 </a>
               </li>
               <li>
                 <a href="#tab-2">
-                  <i className="fal fa-user-plus"></i> Register
+                  <i className="fal fa-user-plus"></i> Đăng ký
                 </a>
               </li>
             </ul>
@@ -106,7 +106,7 @@ export const RegisterModal = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                           <div>
                             <label>
-                              ID *{" "}
+                              Mã *{" "}
                               <span className="dec-icon">
                                 <i className="fal fa-id-badge"></i>
                               </span>
@@ -126,7 +126,7 @@ export const RegisterModal = () => {
                           </div>
                           <div>
                             <label>
-                              Name *{" "}
+                              Tên *{" "}
                               <span className="dec-icon">
                                 <i className="fal fa-user"></i>
                               </span>
@@ -146,7 +146,7 @@ export const RegisterModal = () => {
                           </div>
                           <div>
                             <label>
-                              Email Address *{" "}
+                              Email *{" "}
                               <span className="dec-icon">
                                 <i className="fal fa-envelope"></i>
                               </span>
@@ -166,7 +166,7 @@ export const RegisterModal = () => {
                           </div>
                           <div className="pass-input-wrap fl-wrap">
                             <label>
-                              Password *{" "}
+                              Mật khẩu *{" "}
                               <span className="dec-icon">
                                 <i className="fal fa-key"></i>
                               </span>
@@ -189,7 +189,7 @@ export const RegisterModal = () => {
                           </div>
                           <div>
                             <label>
-                              Phone Number *{" "}
+                              Số điện thoại *{" "}
                               <span className="dec-icon">
                                 <i className="fal fa-phone"></i>
                               </span>
@@ -209,7 +209,7 @@ export const RegisterModal = () => {
                           </div>
                           <div>
                             <label>
-                              BirthDay *{" "}
+                              Ngày sinh *{" "}
                               <span className="dec-icon">
                                 <i className="fal fa-birthday-cake"></i>
                               </span>
@@ -243,7 +243,7 @@ export const RegisterModal = () => {
                           </div>
                           <div>
                             <label>
-                              Role *{" "}
+                              Quyền *{" "}
                               <span className="dec-icon">
                                 <i className="fal fa-user"></i>
                               </span>
@@ -262,12 +262,7 @@ export const RegisterModal = () => {
                             )}
                           </div>
                           <div>
-                            <label>
-                              Male *{" "}
-                              {/* <span className="dec-icon">
-                                <i className="fal fa-user"></i>
-                              </span> */}
-                            </label>
+                            <label>Nam * </label>
                             <Controller
                               control={control}
                               name="gender"
@@ -298,7 +293,7 @@ export const RegisterModal = () => {
                           htmlType="submit"
                           className="log_btn color-bg">
                           {" "}
-                          Register{" "}
+                          Đăng ký{" "}
                         </Button>
                       </form>
                     </div>
