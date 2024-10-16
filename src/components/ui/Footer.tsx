@@ -25,36 +25,7 @@ export const Footer = () => {
                 </div>
               </div>
 
-<<<<<<< HEAD
-              <div className="col-md-3">
-                <div className="footer-widget fl-wrap">
-                  <div className="footer-widget-title fl-wrap">
-                    <h4>Liên kết</h4>
-                  </div>
-                  <ul className="footer-list fl-wrap">
-                    <li>
-                      <a href="about.html">Về chúng tôi</a>
-                    </li>
-                    <li>
-                      <a href="blog.html">Tin tức mới nhất</a>
-                    </li>
-                    <li>
-                      <a href="pricing.html">Giá bất động sản</a>
-                    </li>
-                    <li>
-                      <a href="contacts.html">Liên hệ</a>
-                    </li>
-                    <li>
-                      <a href="help.html">Trung tâm hỗ trợ</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="col-md-3">
-=======
               <div className="col-md-4">
->>>>>>> devlong
                 <div className="footer-widget fl-wrap">
                   <div className="footer-widget-title fl-wrap">
                     <h4>Thông tin liên hệ</h4>
@@ -116,14 +87,7 @@ export const Footer = () => {
                   <div className="footer-widget-title fl-wrap">
                     <h4>Tải API của chúng tôi</h4>
                   </div>
-<<<<<<< HEAD
-                  <p>
-                    Bắt đầu làm việc với Homeradar có thể cung cấp mọi thứ bạn
-                    cần{" "}
-                  </p>
-=======
                   <p>Start working with Homeradar that can provide everything you need </p>
->>>>>>> devlong
                   <div className="api-links fl-wrap">
                     <a href="#" className="api-btn color-bg">
                       <i className="fab fa-apple"></i> App Store
@@ -140,14 +104,7 @@ export const Footer = () => {
 
         <div className="sub-footer gray-bg fl-wrap">
           <div className="container">
-<<<<<<< HEAD
-            <div className="copyright">
-              {" "}
-              &#169; Homeradar 2022. Bảo lưu mọi quyền.
-            </div>
-=======
             <div className="copyright"> &#169; Homeradar 2022 . All rights reserved.</div>
->>>>>>> devlong
             <div className="subfooter-nav">
               <ul className="no-list-style">
                 <li>
