@@ -11,7 +11,7 @@ import {
 } from "../pages";
 import { DashboardLayout, MainLayout } from "../components/layouts";
 import { PATH } from "../constants";
-import { EditViTri, FormRooms, FormViTri } from "../components/templates/Dashboard";
+import { EditRooms, EditViTri, FormRooms, FormViTri } from "../components/templates/Dashboard";
 
 export const routers = () =>
   useRoutes([
@@ -66,6 +66,10 @@ export const routers = () =>
         {
           path: `${PATH.dashboard}/editvitri/:id`,
           element: <EditViTri />,
+        },
+        {
+          path: `${PATH.dashboard}/editroom/:id`,
+          element: <EditRooms />,
         },
         {
           path: `${PATH.dashboard}/${PATH.addrooms}`,

@@ -5,20 +5,11 @@ import { UploadOutlined } from "@ant-design/icons";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { viTriSchema, viTriSchemaType } from "../../../schema/addViTri";
 import { viTriServices } from "../../../services";
-import { sleep } from "../../../utils";
+import { convertUrlToUploadFile, sleep } from "../../../utils";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
-
-const convertUrlToUploadFile = (url: string | undefined): UploadFile => {
-  return {
-    uid: "-1",
-    name: url?.split("/").pop() || "image",
-    status: "done",
-    url,
-  };
-};
 
 export const EditViTri = () => {
   const { id } = useParams();
@@ -51,14 +42,11 @@ export const EditViTri = () => {
       .getViTriById(id)
       .then((res) => {
         const dataViTri = res.data.content;
-        const fileUploadOld = convertUrlToUploadFile(dataViTri.hinhAnh);
-        console.log("fileUploadOld: ", fileUploadOld);
+        const fileUploadOld = convertUrlToUploadFile(dataViTri?.hinhAnh);
         setFileList([fileUploadOld]);
         reset({
-          id: dataViTri.id,
-          tenViTri: dataViTri.tenViTri,
-          tinhThanh: dataViTri.tinhThanh,
-          quocGia: dataViTri.quocGia,
+          ...dataViTri,
+          hinhAnh: undefined,
         });
       })
       .catch((err) => {
@@ -67,7 +55,6 @@ export const EditViTri = () => {
   }, [id, reset]);
 
   const onSubmit: SubmitHandler<viTriSchemaType> = async (data) => {
-    console.log("data: ", data);
     const { id } = data;
     const unDataImage = {
       ...data,
@@ -94,7 +81,7 @@ export const EditViTri = () => {
           console.log(err);
         });
 
-      toast.success("Success !!!", {
+      toast.success("Update successfully !!!", {
         position: "top-right",
         autoClose: 3000,
       });
@@ -114,11 +101,7 @@ export const EditViTri = () => {
       <div className="custom-form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
-            <Controller
-              control={control}
-              name="id"
-              render={({ field }) => <Input {...field} type="hidden" value={id} />}
-            />
+            <Controller control={control} name="id" render={({ field }) => <Input {...field} type="hidden" />} />
 
             <div className="col-sm-6">
               <label className="uppercase">

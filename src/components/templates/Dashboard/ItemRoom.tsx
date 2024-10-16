@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { RoomResponse } from "../../../@types";
 import { roomServices } from "../../../services";
 
@@ -6,7 +7,9 @@ type Props = {
   refetch: () => void;
 };
 export const ItemRoom = (props: Props) => {
+  const navigate = useNavigate();
   const { room, refetch } = props;
+  refetch();
   return (
     <div className="col-md-6">
       <div className="dashboard-listings-item fl-wrap">
@@ -36,10 +39,14 @@ export const ItemRoom = (props: Props) => {
             <ul>
               <li>
                 <a
-                  href="#"
+                  href={`/dashboard/editroom/${room?.id}`}
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Edit"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/dashboard/editroom/${room?.id}`);
+                  }}
                 >
                   <i className="far fa-edit"></i>
                 </a>
