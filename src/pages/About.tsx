@@ -1,3 +1,5 @@
+import { Breadcrumb } from "../components/ui";
+
 export const About = () => {
   return (
     <>
@@ -5,7 +7,7 @@ export const About = () => {
         <div className="bg-wrap bg-parallax-wrap-gradien">
           <div
             className="bg par-elem "
-            data-bg="images/bg/11.jpg"
+            data-bg="./../assets/images/bg/12.jpg"
             data-scrollax="properties: { translateY: '30%' }"
           ></div>
         </div>
@@ -27,20 +29,7 @@ export const About = () => {
         </div>
       </section>
 
-      <div className="breadcrumbs fw-breadcrumbs sp-brd fl-wrap">
-        <div className="container">
-          <div className="breadcrumbs-list">
-            <a href="#">Home</a> <span>About</span>
-          </div>
-          <div className="share-holder hid-share">
-            <a href="#" className="share-btn showshare sfcs">
-              {" "}
-              <i className="fas fa-share-alt"></i> Share{" "}
-            </a>
-            <div className="share-container  isShare"></div>
-          </div>
-        </div>
-      </div>
+      <Breadcrumb currentPage="About" />
 
       <section className="gray-bg small-padding">
         <div className="container">

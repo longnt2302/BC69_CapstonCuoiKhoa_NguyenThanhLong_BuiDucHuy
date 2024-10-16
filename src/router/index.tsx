@@ -1,6 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import {
   About,
+  Contact,
   DashboardBooking,
   DashboardHome,
   DashboardListing,
@@ -8,6 +9,7 @@ import {
   DashboardUser,
   Home,
   ListRoom,
+  Pricing,
   SingleRoom,
 } from "../pages";
 import { DashboardLayout, MainLayout } from "../components/layouts";
@@ -38,6 +40,14 @@ export const routers = () =>
         {
           path: PATH.about,
           element: <About />,
+        },
+        {
+          path: PATH.pricing,
+          element: <Pricing />,
+        },
+        {
+          path: PATH.contact,
+          element: <Contact />,
         },
       ],
     },

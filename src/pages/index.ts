@@ -1,5 +1,7 @@
 export * from "./Home";
 export * from "./About";
+export * from "./Pricing";
+export * from "./Contact";
 export * from "./ListRoom";
 export * from "./SingleRoom";
 export * from "./DashboardHome";

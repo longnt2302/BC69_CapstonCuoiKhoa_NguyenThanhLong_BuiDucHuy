@@ -7,4 +7,6 @@ export const PATH = {
   addvitri: "addvitri",
   addrooms: "addrooms",
   about: "about",
+  pricing: "pricing",
+  contact: "contact",
 };

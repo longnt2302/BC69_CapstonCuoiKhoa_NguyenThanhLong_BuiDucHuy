@@ -64,10 +64,16 @@ export const Header = () => {
         <nav>
           <ul className="no-list-style">
             <li>
-              <NavLink to="/">HOME</NavLink>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink to="/about">ABOUT</NavLink>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/pricing">Pricing</NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
             </li>
           </ul>
         </nav>
