@@ -2,19 +2,8 @@ import { Avatar, Popover } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
 import { NavLink } from "react-router-dom";
 import { dataUser } from "../../utils";
-import { useQuery } from "@tanstack/react-query";
-import { viTriServices } from "../../services";
 
 export const Header = () => {
-  const { data: dataViTri, refetch } = useQuery({
-    queryKey: ["getViTri"],
-    queryFn: async () => {
-      const resViTri = await viTriServices.getViTri();
-      return resViTri;
-    },
-  });
-  refetch();
-
   const currentLoging = dataUser();
 
   return (
@@ -53,7 +42,7 @@ export const Header = () => {
                     location.href = "/";
                   }}
                 >
-                  <span className="inline-block me-3">LogOut</span>
+                  <span className="inline-block me-3">Đăng xuất</span>
                   <LogoutOutlined className="text-red-400" />
                 </NavLink>
               </div>
@@ -66,7 +55,7 @@ export const Header = () => {
         <div className="show-reg-form">
           <div className="modal-open">
             <i className="fas fa-user"></i>
-            <span>Sign In</span>
+            <span>Đăng nhập</span>
           </div>
         </div>
       )}
@@ -78,19 +67,6 @@ export const Header = () => {
               <NavLink to="/" className="act-link">
                 Trang chủ
               </NavLink>
-            </li>
-            <li>
-              <NavLink to="#">
-                Khu vực <i className="fa fa-caret-down"></i>
-              </NavLink>
-
-              <ul>
-                {dataViTri?.data?.content?.map((viTri) => (
-                  <li key={viTri?.id}>
-                    <NavLink to={`/${viTri?.tenViTri}`}>{viTri?.tenViTri}</NavLink>
-                  </li>
-                ))}
-              </ul>
             </li>
           </ul>
         </nav>

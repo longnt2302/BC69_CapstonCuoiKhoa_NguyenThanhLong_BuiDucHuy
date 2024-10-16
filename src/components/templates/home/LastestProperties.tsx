@@ -29,10 +29,6 @@ export const LastestProperties = () => {
             <ListItem key={item.id} tenViTri={item.tenViTri} />
           ))}
         </div>
-
-        <a href="listing.html" className="btn float-btn small-btn color-bg">
-          View All Properties
-        </a>
       </div>
     </section>
   );

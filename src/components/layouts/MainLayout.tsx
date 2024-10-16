@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { Footer, Header, MapModal, RegisterModal, SecondaryNav, Subscribe } from "../ui";
+import { Footer, Header, RegisterModal, Subscribe } from "../ui";
 
 export const MainLayout = () => {
   return (
@@ -15,8 +15,6 @@ export const MainLayout = () => {
           <Footer />
         </div>
         <RegisterModal />
-        <SecondaryNav />
-        <MapModal />
       </div>
     </>
   );
