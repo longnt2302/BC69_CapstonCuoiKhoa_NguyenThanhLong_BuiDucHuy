@@ -15,7 +15,6 @@ export const Comments = (props: Props) => {
       return data;
     },
   });
-  console.log(data);
   return (
     <div className="list-single-main-item fl-wrap" id="sec6">
       <div className="list-single-main-item-title">

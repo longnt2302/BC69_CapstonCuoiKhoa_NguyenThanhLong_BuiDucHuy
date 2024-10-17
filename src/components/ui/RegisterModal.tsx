@@ -30,7 +30,6 @@ export const RegisterModal = () => {
   const { mutate } = useRegister();
 
   const onSubmit = (data: registerSchemaType) => {
-    console.log("data: ", data);
     // useRegister(data);
     mutate(data);
     setTimeout(() => {

@@ -23,7 +23,6 @@ export const SingleRoom = () => {
     },
     enabled: !!roomId,
   });
-  console.log("🚀 ~ SingleRoom ~ data:", data);
 
   const {
     control,

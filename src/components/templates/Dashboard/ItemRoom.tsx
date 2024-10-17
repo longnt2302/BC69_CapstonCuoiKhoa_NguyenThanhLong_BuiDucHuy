@@ -30,8 +30,7 @@ export const ItemRoom = (props: Props) => {
             className="listing-rating card-popup-rainingvis tolt"
             data-microtip-position="right"
             data-tooltip="Excellent"
-            data-starrating2="5"
-          ></div>
+            data-starrating2="5"></div>
           <div className="dashboard-listings-item_opt">
             <span className="viewed-counter">
               <i className="fas fa-eye"></i> Viewed
@@ -46,8 +45,7 @@ export const ItemRoom = (props: Props) => {
                   onClick={(e) => {
                     e.preventDefault();
                     navigate(`/dashboard/editroom/${room?.id}`);
-                  }}
-                >
+                  }}>
                   <i className="far fa-edit"></i>
                 </a>
               </li>
@@ -62,13 +60,11 @@ export const ItemRoom = (props: Props) => {
                     try {
                       e.preventDefault();
                       await roomServices.deleteRoom(room?.id);
-                      console.log("delete success");
                       refetch();
                     } catch (error) {
                       console.log("🚀 ~ onClick={ ~ error:", error);
                     }
-                  }}
-                >
+                  }}>
                   <i className="far fa-trash-alt"></i>
                 </a>
               </li>

@@ -5,7 +5,6 @@ import { reloadScripts } from "./utils";
 function App() {
   const location = useLocation();
   useEffect(() => {
-    console.log("Navigated to:", location.pathname);
     const scriptUrls = [
       "/assets/js/plugins.js",
       "/assets/js/scripts.js",
