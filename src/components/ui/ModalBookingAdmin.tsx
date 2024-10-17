@@ -49,6 +49,7 @@ export const ModalBookingAdmin = (props: Props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const { mutate } = useBooking();
+
   const onSubmit = (data: bookingSchemaType) => {
     mutate(data);
     setTimeout(() => {
@@ -96,7 +97,7 @@ export const ModalBookingAdmin = (props: Props) => {
 
   const { mutate: mutateEdit } = bookingEdit();
   const onFinish = (data: BookingResponse) => {
-    mutateEdit({ id: data.id, payload: data });
+    mutateEdit({ id: Number(data.id), payload: data });
     setTimeout(() => {
       setTimeout(() => {
         setIsLoading(false);
@@ -291,7 +292,7 @@ export const ModalBookingAdmin = (props: Props) => {
                 <Controller
                   control={control}
                   name="maPhong"
-                  render={({ field }) => <Input {...field} type="number" />}
+                  render={({ field }) => <Input {...field} type="text" />}
                 />
                 {errors.maPhong && (
                   <p className="text-red-500">{errors.maPhong.message}</p>
@@ -306,7 +307,7 @@ export const ModalBookingAdmin = (props: Props) => {
                     <DatePicker
                       className="w-full noBG"
                       {...field}
-                      format="DD/MM/YYYY"
+                      // format="DD/MM/YYYY"
                       value={
                         field.value ? moment(field.value, "DD/MM/YYYY") : null
                       }
@@ -329,7 +330,7 @@ export const ModalBookingAdmin = (props: Props) => {
                     <DatePicker
                       className="w-full noBG"
                       {...field}
-                      format="DD/MM/YYYY"
+                      // format="DD/MM/YYYY"
                       value={
                         field.value ? moment(field.value, "DD/MM/YYYY") : null
                       }
@@ -362,7 +363,7 @@ export const ModalBookingAdmin = (props: Props) => {
                   render={({ field }) => (
                     <Input
                       {...field}
-                      type="number"
+                      type="text"
                       // value={currentUser.user.id}
                     />
                   )}

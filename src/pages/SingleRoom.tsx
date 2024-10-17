@@ -39,10 +39,10 @@ export const SingleRoom = () => {
 
   useEffect(() => {
     if (data) {
-      setValue("maPhong", data?.data?.content?.id);
+      setValue("maPhong", String(data?.data?.content?.id));
     }
     if (currentUser) {
-      setValue("maNguoiDung", currentUser.user.id);
+      setValue("maNguoiDung", String(currentUser.user.id));
     }
   }, [data, currentUser, setValue]);
 
@@ -394,12 +394,12 @@ export const SingleRoom = () => {
                               // format="DD/MM/YYYY"
                               value={
                                 field.value
-                                // ? moment(field.value, "DD/MM/YYYY")
-                                // : null
+                                  ? moment(field.value, "DD/MM/YYYY")
+                                  : null
                               }
                               onChange={(date) =>
                                 field.onChange(
-                                  date /*? date.format("DD/MM/YYYY") : null*/
+                                  date ? date.format("DD/MM/YYYY") : null
                                 )
                               }
                             />

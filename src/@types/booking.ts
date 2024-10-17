@@ -1,23 +1,23 @@
 export interface BookingType {
-  maPhong?: number;
+  maPhong: string;
   ngayDen: string;
   ngayDi: string;
   soLuongKhach: string;
-  maNguoiDung?: number;
+  maNguoiDung: string;
 }
 export interface BookingResponse {
-  id: number;
-  maPhong: number;
+  id: string;
+  maPhong: string;
   ngayDen: string;
   ngayDi: string;
-  soLuongKhach: number;
-  maNguoiDung: number;
+  soLuongKhach: string;
+  maNguoiDung: string;
 }
 export interface BookingRegister {
-  id: number;
-  maPhong: number;
+  id: string;
+  maPhong: string;
   ngayDen: string;
   ngayDi: string;
-  soLuongKhach: number;
-  maNguoiDung: number;
+  soLuongKhach: string;
+  maNguoiDung: string;
 }

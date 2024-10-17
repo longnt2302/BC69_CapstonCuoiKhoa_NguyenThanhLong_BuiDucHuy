@@ -39,7 +39,7 @@ export const DashboardBooking = () => {
   const handleDelete = async (booking: BookingResponse) => {
     try {
       // Gọi API để xóa người dùng
-      await bookingServices.deleteBooking(booking.id);
+      await bookingServices.deleteBooking(Number(booking.id));
       // Hiển thị thông báo thành công
       toast(`Xoá đặt phòng id: ${booking.id} thành công!`, {
         position: "top-right",
@@ -85,7 +85,7 @@ export const DashboardBooking = () => {
     const listSearch = data?.data.content.filter(
       (item) =>
         // item.maPhong.toLowerCase().trim().includes(value.toLowerCase().trim())
-        item.maPhong === Number(value)
+        Number(item.maPhong) === Number(value)
     );
     setTextSearch(listSearch);
   };
