@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { bookingServices } from "../services";
-import { useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { BookingResponse } from "../@types";
 import { Paginate } from "../components/ui";
 import moment from "moment";
@@ -70,21 +70,25 @@ export const DashboardBooking = () => {
     }
   };
 
-  const [textSearch] = useState<BookingResponse[] | undefined>([]);
+  const [textSearch, setTextSearch] = useState<BookingResponse[] | undefined>(
+    []
+  );
 
   const inputSearchRef = useRef<HTMLInputElement | null>(null);
 
-  // const handleSearchAdmin = (e: ChangeEvent<HTMLInputElement>) => {
-  // const { value } = e.target;
-  // if (value.length === 0) {
-  //   setTextSearch([]);
-  //   return;
-  // }
-  // const listSearch = data?.data.content.filter((item) =>
-  //   item.name.toLowerCase().trim().includes(value.toLowerCase().trim())
-  // );
-  // setTextSearch(listSearch);
-  // };
+  const handleSearchAdmin = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    if (value.length === 0) {
+      setTextSearch([]);
+      return;
+    }
+    const listSearch = data?.data.content.filter(
+      (item) =>
+        // item.maPhong.toLowerCase().trim().includes(value.toLowerCase().trim())
+        item.maPhong === Number(value)
+    );
+    setTextSearch(listSearch);
+  };
 
   const handleAddUser = (event: any) => {
     setIsShowModal(true);
@@ -107,7 +111,7 @@ export const DashboardBooking = () => {
             type="text"
             placeholder="Tìm kiếm đặt phòng..."
             className="w-full adminInputSearch p-2"
-            // onChange={(e) => handleSearchAdmin(e)}
+            onChange={(e) => handleSearchAdmin(e)}
           />
         </div>
         <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
