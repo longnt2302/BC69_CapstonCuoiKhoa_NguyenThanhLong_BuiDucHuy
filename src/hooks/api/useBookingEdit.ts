@@ -10,7 +10,7 @@ export const bookingEdit = () => {
   const mutation = useMutation({
     mutationKey: ["bookingEdit"],
     mutationFn: async ({ id, payload }: EditBookingArgs) =>
-      await bookingServices.editUser(id, payload),
+      await bookingServices.editBooking(id, payload),
   });
   return mutation;
 };

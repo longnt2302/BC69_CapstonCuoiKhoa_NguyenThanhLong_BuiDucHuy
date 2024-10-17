@@ -48,9 +48,9 @@ export const ModalBookingAdmin = (props: Props) => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const { mutate: Editmutate } = useBooking();
+  const { mutate } = useBooking();
   const onSubmit = (data: bookingSchemaType) => {
-    Editmutate(data);
+    mutate(data);
     setTimeout(() => {
       setTimeout(() => {
         setIsLoading(false);
@@ -72,6 +72,17 @@ export const ModalBookingAdmin = (props: Props) => {
     setIsShowModal(false);
     reset();
   };
+
+  // const currentUser = dataUser();
+
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     setValue("maPhong", currentUser?.user.id);
+  //   }
+  //   if (currentUser) {
+  //     setValue("maNguoiDung", currentUser?.user.id);
+  //   }
+  // }, [currentUser, currentUser, setValue]);
 
   const handleCanelAdd = () => {
     setIsShowModal(false);
@@ -128,7 +139,7 @@ export const ModalBookingAdmin = (props: Props) => {
                   Mã
                 </label>
                 <Form.Item name="id">
-                  <Input disabled />
+                  <Input disabled value={infoBooking?.id} />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
@@ -136,7 +147,7 @@ export const ModalBookingAdmin = (props: Props) => {
                   Mã phòng
                 </label>
                 <Form.Item name="maPhong">
-                  <Input disabled />
+                  <Input disabled value={infoBooking?.maPhong} />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
@@ -146,8 +157,13 @@ export const ModalBookingAdmin = (props: Props) => {
                 <Form.Item name="ngayDi">
                   <DatePicker
                     className="w-full noBG"
-                    format={"DD/MM/YYYY"}
+                    // format={"DD/MM/YYYY"}
                     disabled
+                    value={
+                      infoBooking?.ngayDi
+                        ? moment(infoBooking.ngayDi, "DD/MM/YYYY")
+                        : null
+                    }
                   />
                 </Form.Item>
               </div>
@@ -158,8 +174,13 @@ export const ModalBookingAdmin = (props: Props) => {
                 <Form.Item name="ngayDen">
                   <DatePicker
                     className="w-full noBG"
-                    format={"DD/MM/YYYY"}
+                    // format={"DD/MM/YYYY"}
                     disabled
+                    value={
+                      infoBooking?.ngayDen
+                        ? moment(infoBooking.ngayDen, "DD/MM/YYYY")
+                        : null
+                    }
                   />
                 </Form.Item>
               </div>
@@ -168,7 +189,7 @@ export const ModalBookingAdmin = (props: Props) => {
                   Số lượng khách
                 </label>
                 <Form.Item name="soLuongKhach">
-                  <Input disabled />
+                  <Input disabled value={infoBooking?.soLuongKhach} />
                 </Form.Item>
               </div>
               <div className="mb-2 text-left">
@@ -176,7 +197,7 @@ export const ModalBookingAdmin = (props: Props) => {
                   Mã người dùng
                 </label>
                 <Form.Item name="maNguoiDung">
-                  <Input disabled />
+                  <Input disabled value={infoBooking?.maNguoiDung} />
                 </Form.Item>
               </div>
             </div>
@@ -265,41 +286,18 @@ export const ModalBookingAdmin = (props: Props) => {
             id="main-register-form2"
             onSubmit={handleSubmit(onSubmit)}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-              <div className="text-white text-left mb-2">
-                <label className="font-semibold">Mã phòng </label>
+              <div className="text-left mb-2">
+                <label className="font-semibold">Mã phòng * </label>
                 <Controller
                   control={control}
                   name="maPhong"
-                  render={({ field }) => (
-                    <Input
-                      {...field}
-                      type="number"
-                      // value={data?.data.content.id}
-                    />
-                  )}
+                  render={({ field }) => <Input {...field} type="number" />}
                 />
                 {errors.maPhong && (
                   <p className="text-red-500">{errors.maPhong.message}</p>
                 )}
               </div>
-              <div className="text-white text-left mb-2">
-                <label className="font-semibold">Mã phòng </label>
-                <Controller
-                  control={control}
-                  name="maPhong"
-                  render={({ field }) => (
-                    <Input
-                      {...field}
-                      type="number"
-                      // value={data?.data.content.id}
-                    />
-                  )}
-                />
-                {errors.maPhong && (
-                  <p className="text-red-500">{errors.maPhong.message}</p>
-                )}
-              </div>
-              <div className="text-white text-left mb-2">
+              <div className="text-left mb-2">
                 <label className="font-semibold">Ngày đến * </label>
                 <Controller
                   control={control}
@@ -322,7 +320,7 @@ export const ModalBookingAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.ngayDen.message}</p>
                 )}
               </div>
-              <div className="text-white text-left mb-2">
+              <div className="text-left mb-2">
                 <label className="font-semibold">Ngày đi * </label>
                 <Controller
                   control={control}
@@ -345,7 +343,7 @@ export const ModalBookingAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.ngayDi.message}</p>
                 )}
               </div>
-              <div className="text-white text-left mb-2">
+              <div className="text-left mb-2">
                 <label className="font-semibold">Số khách </label>
                 <Controller
                   control={control}
@@ -356,8 +354,8 @@ export const ModalBookingAdmin = (props: Props) => {
                   <p className="text-red-500">{errors.soLuongKhach.message}</p>
                 )}
               </div>
-              <div className="text-white text-left mb-2">
-                <label className="font-semibold">Mã người dùng </label>
+              <div className="text-left mb-2">
+                <label className="font-semibold">Mã người dùng * </label>
                 <Controller
                   control={control}
                   name="maNguoiDung"

@@ -13,7 +13,6 @@ export const DashboardBooking = () => {
     queryFn: async () => await bookingServices.getListBooking(),
   });
 
-  console.log("databooking: ", data?.data.content);
   // paginate
   const totalPost = data?.data.content.length;
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,7 +37,6 @@ export const DashboardBooking = () => {
     setTypeOfModal(event.target.name);
   };
   const handleDelete = async (booking: BookingResponse) => {
-    console.log("booking: ", booking);
     try {
       // Gọi API để xóa người dùng
       await bookingServices.deleteBooking(booking.id);
@@ -192,18 +190,18 @@ export const DashboardBooking = () => {
                     </th>
                     <td className="px-6 py-4">
                       {
-                        moment(booking.ngayDi, "DD/MM/YYYY").format(
-                          "DD/MM/YYYY"
-                        )
-                        // booking.ngayDen
+                        // moment(booking.ngayDi, "DD/MM/YYYY").format(
+                        //   "DD/MM/YYYY"
+                        // )
+                        booking.ngayDen
                       }
                     </td>
                     <td className="px-6 py-4">
                       {
-                        moment(booking.ngayDen, "DD/MM/YYYY").format(
-                          "DD/MM/YYYY"
-                        )
-                        // booking.ngayDi
+                        // moment(booking.ngayDen, "DD/MM/YYYY").format(
+                        //   "DD/MM/YYYY"
+                        // )
+                        booking.ngayDi
                       }
                     </td>
                     <td className="px-6 py-4">{booking.soLuongKhach}</td>
