@@ -56,8 +56,11 @@ export const LoginModal = () => {
             handleCloseModal();
 
             dispatch(quanLyNguoiDungActions.setUser(data?.data?.content));
-
-            location.href = "/dashboard";
+            const dataUser = data?.data?.content;
+            const { user } = dataUser;
+            const { role } = user;
+            if (role !== "ADMIN") location.href = "/";
+            else location.href = "/dashboard";
           }, 1500);
           setIsLoading(true);
         }, 100);
@@ -111,7 +114,8 @@ export const LoginModal = () => {
       <Button
         htmlType="submit"
         className="log_btn color-bg"
-        loading={isLoading}>
+        loading={isLoading}
+      >
         {" "}
         Đăng nhập{" "}
       </Button>
