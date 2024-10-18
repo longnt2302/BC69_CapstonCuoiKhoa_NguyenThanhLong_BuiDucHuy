@@ -1,11 +1,22 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { FooterDashboard, Header, SidebarDashboard } from "../ui";
 import { DashboardHeader } from "../templates/Dashboard";
 import { dataUser } from "../../utils";
 
 export const DashboardLayout = () => {
   const currentLoging = dataUser();
-  if (!currentLoging) location.href = "/";
+  if (!currentLoging) {
+    alert("Vui lòng đăng nhập tài khoản ADMIN");
+    location.href = "/";
+    return;
+  } else {
+    const { user } = currentLoging;
+    if (user.role !== "ADMIN") {
+      alert("Bạn không có quyền truy cập");
+      location.href = "/";
+      return;
+    }
+  }
   return (
     <>
       <div id="main">
