@@ -2,7 +2,6 @@ import { Outlet } from "react-router-dom";
 import { FooterDashboard, Header, SidebarDashboard } from "../ui";
 import { DashboardHeader } from "../templates/Dashboard";
 import { dataUser } from "../../utils";
-import { useQuery } from "@tanstack/react-query";
 import { usersServices } from "../../services";
 
 export const DashboardLayout = () => {
