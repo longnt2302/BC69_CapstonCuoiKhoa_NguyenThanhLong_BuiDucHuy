@@ -1,7 +1,9 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { FooterDashboard, Header, SidebarDashboard } from "../ui";
 import { DashboardHeader } from "../templates/Dashboard";
 import { dataUser } from "../../utils";
+import { useQuery } from "@tanstack/react-query";
+import { usersServices } from "../../services";
 
 export const DashboardLayout = () => {
   const currentLoging = dataUser();
@@ -11,11 +13,20 @@ export const DashboardLayout = () => {
     return;
   } else {
     const { user } = currentLoging;
-    if (user.role !== "ADMIN") {
-      alert("Bạn không có quyền truy cập");
-      location.href = "/";
-      return;
-    }
+    usersServices
+      .getUserById(user.id)
+      .then((result) => {
+        const role = result?.data?.content?.role;
+        if (role !== "ADMIN") {
+          alert("Bạn không có quyền truy cập");
+          location.href = "/";
+          return;
+        }
+        return result;
+      })
+      .catch((err) => {
+        console.log("🚀 ~ DashboardLayout ~ err:", err);
+      });
   }
   return (
     <>

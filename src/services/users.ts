@@ -10,4 +10,6 @@ export const usersServices = {
   deleteUser: (id: number) => api.delete(`/users?id=${id}`),
   editUser: (id: number, payload: userEditType) =>
     api.put(`/users/${id}`, payload),
+  getUserById: async (id: number) =>
+    api.get<HttpResponse<User>>(`/users/${id}`),
 };
