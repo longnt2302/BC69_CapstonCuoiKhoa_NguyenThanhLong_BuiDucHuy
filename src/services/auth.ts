@@ -1,4 +1,4 @@
-import { DataTypeLogin, DataTypeRegister } from "../@types";
+import { DataTypeLogin, DataTypeRegister, UserResponse } from "../@types";
 import { apiInstance } from "../constants";
 
 const api = apiInstance.create({
@@ -10,6 +10,6 @@ export const authServices = {
     return api.post<HttpResponse<DataTypeRegister>>(`/auth/signup`, payload);
   },
   login: (payload: DataTypeLogin) => {
-    return api.post<HttpResponse<DataTypeLogin>>(`/auth/signin`, payload);
+    return api.post<HttpResponse<UserResponse>>(`/auth/signin`, payload);
   },
 };
