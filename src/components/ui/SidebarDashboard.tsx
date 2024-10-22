@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 export const SidebarDashboard = () => {
-  const navigate = useNavigate();
   return (
     <div className="dashbard-menu-wrap">
       <div className="dashbard-menu-close">
@@ -18,23 +16,24 @@ export const SidebarDashboard = () => {
               </NavLink>
             </li>
             <li>
-              <a
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/dashboard/listing");
-                }}>
-                <i className="fal fa-calendar-check"></i> Quản lý thông tin vị
-                trí
-              </a>
+              <NavLink to="/dashboard/listing">
+                <i className="fal fa-th-list"></i> Danh sách thông tin vị trí
+              </NavLink>
             </li>
             <li>
-              <a
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/dashboard/rooms");
-                }}>
-                <i className="fal fa-comments-alt"></i>Quản lý thông tin phòng
-              </a>
+              <NavLink to="/dashboard/addvitri">
+                <i className="fal fa-file-plus"></i>Thêm vị trí
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/rooms">
+                <i className="fal fa-th-list"></i> Danh sách thông tin phòng
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/addrooms">
+                <i className="fal fa-file-plus"></i>Thêm mới phòng
+              </NavLink>
             </li>
             <li>
               <NavLink to="/dashboard/bookings">
@@ -44,9 +43,7 @@ export const SidebarDashboard = () => {
           </ul>
         </div>
       </div>
-      <div className="dashbard-menu-footer">
-        &#169; Homeradar 2022 . All rights reserved.
-      </div>
+      <div className="dashbard-menu-footer">&#169; Homeradar 2022 . All rights reserved.</div>
     </div>
   );
 };

@@ -1,13 +1,39 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { viTriAPIResponse } from "../../../@types";
 import { viTriServices } from "../../../services";
+import { toast } from "react-toastify";
+import { AxiosError } from "axios";
+import { useState } from "react";
+import { Modal } from "antd";
 
 type Props = {
   viTri: viTriAPIResponse;
   refetch: () => void;
 };
+
 export const ItemViTri = (props: Props) => {
-  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = async () => {
+    try {
+      await viTriServices.deleteViTri(viTri.id);
+      toast.success("Xoá thành công");
+      refetch();
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        toast.error(error?.response?.data?.content);
+      }
+    }
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const { viTri, refetch } = props;
 
   return (
@@ -20,15 +46,7 @@ export const ItemViTri = (props: Props) => {
         </div>
         <div className="dashboard-listings-item_content">
           <h4>
-            <a
-              href={`/${viTri?.tenViTri}`}
-              onClick={(e) => {
-                e.preventDefault();
-                navigate(`/${viTri?.tenViTri}`);
-              }}
-            >
-              {viTri?.tenViTri}
-            </a>
+            <NavLink to={`/${viTri?.tenViTri}`}>{viTri?.tenViTri}</NavLink>
           </h4>
           <div className="geodir-category-location">
             <a href="#">
@@ -48,18 +66,14 @@ export const ItemViTri = (props: Props) => {
             </span>
             <ul>
               <li>
-                <a
-                  href={`/dashboard/editvitri/${viTri?.id}`}
+                <NavLink
+                  to={`/dashboard/editvitri/${viTri?.id}`}
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Edit"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(`/dashboard/editvitri/${viTri?.id}`);
-                  }}
                 >
                   <i className="far fa-edit"></i>
-                </a>
+                </NavLink>
               </li>
 
               <li>
@@ -68,19 +82,16 @@ export const ItemViTri = (props: Props) => {
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Delete"
-                  onClick={async (e) => {
+                  onClick={(e) => {
                     e.preventDefault();
-                    try {
-                      await viTriServices.deleteViTri(viTri.id);
-                      console.log("delete vi tri success");
-                      refetch();
-                    } catch (error) {
-                      console.log("🚀 ~ onClick={ ~ error:", error);
-                    }
+                    showModal();
                   }}
                 >
                   <i className="far fa-trash-alt"></i>
                 </a>
+                <Modal title="Xác nhận" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                  <h4>Bạn có chắc xoá vị trí này không ?</h4>
+                </Modal>
               </li>
             </ul>
           </div>
