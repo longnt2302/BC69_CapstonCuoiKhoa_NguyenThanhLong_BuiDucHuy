@@ -53,7 +53,8 @@ export const ItemRoom = (props: Props) => {
             className="listing-rating card-popup-rainingvis tolt"
             data-microtip-position="right"
             data-tooltip="Excellent"
-            data-starrating2="5"></div>
+            data-starrating2="5"
+          ></div>
           <div className="dashboard-listings-item_opt">
             <span className="viewed-counter">
               <i className="fas fa-eye"></i> Viewed
@@ -65,14 +66,7 @@ export const ItemRoom = (props: Props) => {
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Edit"
-<<<<<<< HEAD
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(`/dashboard/editroom/${room?.id}`);
-                  }}>
-=======
                 >
->>>>>>> 707498232b97071280a75b282ff0c333ee7f3fcc
                   <i className="far fa-edit"></i>
                 </NavLink>
               </li>
@@ -83,23 +77,11 @@ export const ItemRoom = (props: Props) => {
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Delete"
-<<<<<<< HEAD
-                  onClick={async (e) => {
-                    try {
-                      e.preventDefault();
-                      await roomServices.deleteRoom(room?.id);
-                      refetch();
-                    } catch (error) {
-                      console.log("🚀 ~ onClick={ ~ error:", error);
-                    }
-                  }}>
-=======
                   onClick={(e) => {
                     e.preventDefault();
                     showModal();
                   }}
                 >
->>>>>>> 707498232b97071280a75b282ff0c333ee7f3fcc
                   <i className="far fa-trash-alt"></i>
                 </a>
                 <Modal
