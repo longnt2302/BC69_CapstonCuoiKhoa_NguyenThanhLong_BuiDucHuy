@@ -10,12 +10,13 @@ export const DashboardRooms = () => {
       return dataRooms;
     },
   });
+  refetch();
   return (
     <div className="dasboard-listing-box fl-wrap">
       <div className="dashboard-listings-wrap fl-wrap">
         <div className="row">
           {data?.data?.content?.map((room) => (
-            <ItemRoom key={room?.id} room={room} refetch={refetch} />
+            <ItemRoom key={room?.id} room={room} />
           ))}
         </div>
       </div>

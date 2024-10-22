@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 
 type Props = {
   room: RoomResponse;
-  refetch: () => void;
 };
 export const ItemRoom = (props: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +20,6 @@ export const ItemRoom = (props: Props) => {
     try {
       await roomServices.deleteRoom(room?.id);
       toast.success("Xoá thành công");
-      refetch();
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(error?.response?.data?.content);
@@ -33,8 +31,8 @@ export const ItemRoom = (props: Props) => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const { room, refetch } = props;
-  refetch();
+  const { room } = props;
+
   return (
     <div className="col-md-6">
       <div className="dashboard-listings-item fl-wrap">
@@ -104,7 +102,12 @@ export const ItemRoom = (props: Props) => {
 >>>>>>> 707498232b97071280a75b282ff0c333ee7f3fcc
                   <i className="far fa-trash-alt"></i>
                 </a>
-                <Modal title="Xác nhận" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <Modal
+                  title="Xác nhận"
+                  open={isModalOpen}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                >
                   <h4>Bạn có chắc xoá phòng này không ?</h4>
                 </Modal>
               </li>

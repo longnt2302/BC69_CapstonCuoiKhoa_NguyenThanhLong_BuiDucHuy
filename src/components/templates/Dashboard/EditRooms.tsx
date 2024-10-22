@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
-type AnyObject = { [key: string]: string | number | boolean };
 
 export const EditRooms = () => {
   const { id } = useParams();
@@ -67,11 +66,10 @@ export const EditRooms = () => {
 
   const onSubmit: SubmitHandler<roomSchemaType> = async (data) => {
     const { id } = data;
-    const newData: AnyObject = { ...data, hinhAnh: "undefined" };
-    Object.keys(newData).forEach((key) => {
-      const value = newData[key];
-      if (value === undefined) newData[key] = false;
-    });
+    const newData = {
+      ...data,
+      hinhAnh: undefined,
+    };
     try {
       const responseData = await roomServices.editRoom(id, newData);
       sleep(3000);
@@ -129,9 +127,13 @@ export const EditRooms = () => {
               <Controller
                 control={control}
                 name="tenPhong"
-                render={({ field }) => <Input {...field} placeholder="Nhập tên phòng" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập tên phòng" />
+                )}
               />
-              {errors?.tenPhong && <p className="text-red-500">{errors?.tenPhong?.message}</p>}
+              {errors?.tenPhong && (
+                <p className="text-red-500">{errors?.tenPhong?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -143,9 +145,13 @@ export const EditRooms = () => {
               <Controller
                 control={control}
                 name="khach"
-                render={({ field }) => <Input {...field} placeholder="Nhập số lượng khách" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập số lượng khách" />
+                )}
               />
-              {errors?.khach && <p className="text-red-500">{errors?.khach?.message}</p>}
+              {errors?.khach && (
+                <p className="text-red-500">{errors?.khach?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -157,9 +163,13 @@ export const EditRooms = () => {
               <Controller
                 control={control}
                 name="phongNgu"
-                render={({ field }) => <Input {...field} placeholder="Nhập số phòng ngủ" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập số phòng ngủ" />
+                )}
               />
-              {errors?.phongNgu && <p className="text-red-500">{errors?.phongNgu?.message}</p>}
+              {errors?.phongNgu && (
+                <p className="text-red-500">{errors?.phongNgu?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -171,9 +181,13 @@ export const EditRooms = () => {
               <Controller
                 control={control}
                 name="giuong"
-                render={({ field }) => <Input {...field} placeholder="Nhập số giường" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập số giường" />
+                )}
               />
-              {errors?.giuong && <p className="text-red-500">{errors?.giuong?.message}</p>}
+              {errors?.giuong && (
+                <p className="text-red-500">{errors?.giuong?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -185,9 +199,13 @@ export const EditRooms = () => {
               <Controller
                 control={control}
                 name="phongTam"
-                render={({ field }) => <Input {...field} placeholder="Nhập số phòng tắm" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập số phòng tắm" />
+                )}
               />
-              {errors?.phongTam && <p className="text-red-500">{errors?.phongTam?.message}</p>}
+              {errors?.phongTam && (
+                <p className="text-red-500">{errors?.phongTam?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -199,9 +217,13 @@ export const EditRooms = () => {
               <Controller
                 control={control}
                 name="moTa"
-                render={({ field }) => <Input {...field} placeholder="Nhập mô tả" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập mô tả" />
+                )}
               />
-              {errors?.moTa && <p className="text-red-500">{errors?.moTa?.message}</p>}
+              {errors?.moTa && (
+                <p className="text-red-500">{errors?.moTa?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -213,9 +235,13 @@ export const EditRooms = () => {
               <Controller
                 control={control}
                 name="giaTien"
-                render={({ field }) => <Input {...field} placeholder="Nhập giá tiền" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập giá tiền" />
+                )}
               />
-              {errors?.giaTien && <p className="text-red-500">{errors?.giaTien?.message}</p>}
+              {errors?.giaTien && (
+                <p className="text-red-500">{errors?.giaTien?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">Hình ảnh</label>
@@ -268,7 +294,9 @@ export const EditRooms = () => {
                     />
                   )}
                 />
-                {errors?.maViTri && <p className="text-red-500">{errors?.maViTri?.message}</p>}
+                {errors?.maViTri && (
+                  <p className="text-red-500">{errors?.maViTri?.message}</p>
+                )}
               </div>
             </div>
           </div>
@@ -276,37 +304,61 @@ export const EditRooms = () => {
             <div className="col-sm-2">
               <label className="uppercase">Máy giặt</label>
               <div className="text-start">
-                <Controller control={control} name="mayGiat" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="mayGiat"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
             <div className="col-sm-2">
               <label className="uppercase">Bàn là</label>
               <div className="text-start">
-                <Controller control={control} name="banLa" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="banLa"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
             <div className="col-sm-2">
               <label className="uppercase">Tivi</label>
               <div className="text-start">
-                <Controller control={control} name="tivi" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="tivi"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
             <div className="col-sm-2">
               <label className="uppercase">Điều hoà</label>
               <div className="text-start">
-                <Controller control={control} name="dieuHoa" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="dieuHoa"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
             <div className="col-sm-2">
               <label className="uppercase">Wifi</label>
               <div className="text-start">
-                <Controller control={control} name="wifi" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="wifi"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
             <div className="col-sm-2">
               <label className="uppercase">Bếp</label>
               <div className="text-start">
-                <Controller control={control} name="bep" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="bep"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
           </div>
@@ -314,25 +366,41 @@ export const EditRooms = () => {
             <div className="col-sm-2">
               <label className="uppercase">Đỗ xe</label>
               <div className="text-start">
-                <Controller control={control} name="doXe" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="doXe"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
             <div className="col-sm-2">
               <label className="uppercase">Hồ bơi</label>
               <div className="text-start">
-                <Controller control={control} name="hoBoi" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="hoBoi"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
             <div className="col-sm-2">
               <label className="uppercase">Bản ủi</label>
               <div className="text-start">
-                <Controller control={control} name="banUi" render={({ field }) => <Switch {...field} />} />
+                <Controller
+                  control={control}
+                  name="banUi"
+                  render={({ field }) => <Switch {...field} />}
+                />
               </div>
             </div>
           </div>
           <div className="row mt-10">
             <div className="col-sm-12">
-              <Button htmlType="submit" type="primary" className="btn color-bg float-btn">
+              <Button
+                htmlType="submit"
+                type="primary"
+                className="btn color-bg float-btn"
+              >
                 SUBMIT
               </Button>
             </div>
