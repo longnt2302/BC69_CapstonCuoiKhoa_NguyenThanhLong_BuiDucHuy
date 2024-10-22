@@ -8,7 +8,6 @@ import { Modal } from "antd";
 
 type Props = {
   viTri: viTriAPIResponse;
-  refetch: () => void;
 };
 
 export const ItemViTri = (props: Props) => {
@@ -22,7 +21,6 @@ export const ItemViTri = (props: Props) => {
     try {
       await viTriServices.deleteViTri(viTri.id);
       toast.success("Xoá thành công");
-      refetch();
     } catch (error) {
       if (error instanceof AxiosError) {
         toast.error(error?.response?.data?.content);
@@ -34,7 +32,7 @@ export const ItemViTri = (props: Props) => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-  const { viTri, refetch } = props;
+  const { viTri } = props;
 
   return (
     <div className="col-md-6">
@@ -50,7 +48,8 @@ export const ItemViTri = (props: Props) => {
           </h4>
           <div className="geodir-category-location">
             <a href="#">
-              <i className="fas fa-map-marker-alt"></i> <span>{viTri?.tinhThanh}</span>
+              <i className="fas fa-map-marker-alt"></i>{" "}
+              <span>{viTri?.tinhThanh}</span>
             </a>
           </div>
           <div className="clearfix"></div>
@@ -89,7 +88,12 @@ export const ItemViTri = (props: Props) => {
                 >
                   <i className="far fa-trash-alt"></i>
                 </a>
-                <Modal title="Xác nhận" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                <Modal
+                  title="Xác nhận"
+                  open={isModalOpen}
+                  onOk={handleOk}
+                  onCancel={handleCancel}
+                >
                   <h4>Bạn có chắc xoá vị trí này không ?</h4>
                 </Modal>
               </li>

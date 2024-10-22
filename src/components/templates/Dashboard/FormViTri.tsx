@@ -97,9 +97,13 @@ export const FormViTri = () => {
               <Controller
                 control={control}
                 name="tenViTri"
-                render={({ field }) => <Input {...field} placeholder="Nhập tên vị trí" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập tên vị trí" />
+                )}
               />
-              {errors?.tenViTri && <p className="text-red-500">{errors?.tenViTri?.message}</p>}
+              {errors?.tenViTri && (
+                <p className="text-red-500">{errors?.tenViTri?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -111,9 +115,13 @@ export const FormViTri = () => {
               <Controller
                 control={control}
                 name="tinhThanh"
-                render={({ field }) => <Input {...field} placeholder="Nhập tên tỉnh thành" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập tên tỉnh thành" />
+                )}
               />
-              {errors?.tinhThanh && <p className="text-red-500">{errors?.tinhThanh?.message}</p>}
+              {errors?.tinhThanh && (
+                <p className="text-red-500">{errors?.tinhThanh?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -125,9 +133,13 @@ export const FormViTri = () => {
               <Controller
                 control={control}
                 name="quocGia"
-                render={({ field }) => <Input {...field} placeholder="Nhập tên quốc gia" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập tên quốc gia" />
+                )}
               />
-              {errors?.quocGia && <p className="text-red-500">{errors?.quocGia?.message}</p>}
+              {errors?.quocGia && (
+                <p className="text-red-500">{errors?.quocGia?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">Hình ảnh</label>
@@ -153,10 +165,17 @@ export const FormViTri = () => {
                     </Upload>
                   )}
                 />
+                {errors?.hinhAnh && (
+                  <p className="text-red-500">{errors?.hinhAnh?.message}</p>
+                )}
               </div>
             </div>
             <div className="col-sm-12">
-              <Button htmlType="submit" type="primary" className="btn color-bg float-btn">
+              <Button
+                htmlType="submit"
+                type="primary"
+                className="btn color-bg float-btn"
+              >
                 SUBMIT
               </Button>
             </div>
