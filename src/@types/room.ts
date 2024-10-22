@@ -17,5 +17,5 @@ export type RoomResponse = {
   hoBoi: boolean;
   banUi: boolean;
   maViTri: number;
-  hinhAnh: string;
+  hinhAnh: string | undefined;
 };

@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import { viTriAPIResponse } from "../../../@types";
 
 export const EditViTri = () => {
   const { id } = useParams();
@@ -17,6 +18,8 @@ export const EditViTri = () => {
   const navigate = useNavigate();
 
   const [fileList, setFileList] = useState<UploadFile[]>([]);
+
+  const [oldData, setOldData] = useState<viTriAPIResponse>();
 
   const handleOnChangeUpload = (info: UploadChangeParam) => {
     let newFileList = [...info.fileList];
@@ -43,6 +46,7 @@ export const EditViTri = () => {
         const dataViTri = res.data.content;
         const fileUploadOld = convertUrlToUploadFile(dataViTri?.hinhAnh);
         setFileList([fileUploadOld]);
+        setOldData({ ...dataViTri, hinhAnh: undefined });
         reset({
           ...dataViTri,
           hinhAnh: undefined,
@@ -59,6 +63,11 @@ export const EditViTri = () => {
       ...data,
       hinhAnh: undefined,
     };
+
+    if (JSON.stringify(data) === JSON.stringify(oldData)) {
+      toast.warning("Data chưa được sửa");
+      return;
+    }
     try {
       const responseData = await viTriServices.updateViTri(id, unDataImage);
       sleep(3000);
@@ -176,7 +185,8 @@ export const EditViTri = () => {
                         handleOnChangeUpload(info); // Cập nhật fileList trong state
                         onChange(info.fileList); // Cập nhật giá trị trong React Hook Form
                       }}
-                      beforeUpload={() => false}>
+                      beforeUpload={() => false}
+                    >
                       <Button type="primary" icon={<UploadOutlined />}>
                         Upload
                       </Button>
@@ -189,7 +199,8 @@ export const EditViTri = () => {
               <Button
                 htmlType="submit"
                 type="primary"
-                className="btn color-bg float-btn">
+                className="btn color-bg float-btn"
+              >
                 SUBMIT
               </Button>
             </div>

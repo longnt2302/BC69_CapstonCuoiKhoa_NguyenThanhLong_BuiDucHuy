@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useParams } from "react-router-dom";
+import { RoomResponse } from "../../../@types";
 
 export const EditRooms = () => {
   const { id } = useParams();
@@ -27,6 +28,8 @@ export const EditRooms = () => {
   refetch();
 
   const [fileList, setFileList] = useState<UploadFile[]>([]);
+
+  const [oldData, setOldData] = useState<RoomResponse>();
 
   const handleOnChangeUpload = (info: UploadChangeParam) => {
     let newFileList = [...info.fileList];
@@ -54,6 +57,7 @@ export const EditRooms = () => {
         const dataRoom = res.data.content;
         const fileUploadOld = convertUrlToUploadFile(dataRoom?.hinhAnh);
         setFileList([fileUploadOld]);
+        setOldData({ ...dataRoom, hinhAnh: undefined });
         reset({
           ...dataRoom,
           hinhAnh: undefined,
@@ -70,6 +74,12 @@ export const EditRooms = () => {
       ...data,
       hinhAnh: undefined,
     };
+
+    if (JSON.stringify(data) === JSON.stringify(oldData)) {
+      toast.warning("Data chưa được sửa");
+      return;
+    }
+
     try {
       const responseData = await roomServices.editRoom(id, newData);
       sleep(3000);
