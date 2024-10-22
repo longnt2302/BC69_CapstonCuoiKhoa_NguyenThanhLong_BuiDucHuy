@@ -8,9 +8,12 @@ import { Bounce, toast } from "react-toastify";
 import { fadeOut } from "../../utils/fadeOut";
 import { useDispatch } from "react-redux";
 import { quanLyNguoiDungActions } from "../../store/quanLyNguoiDung";
+import { useNavigate } from "react-router-dom";
 
 export const LoginModal = () => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -59,8 +62,8 @@ export const LoginModal = () => {
             const dataUser = data?.data?.content;
             const { user } = dataUser;
             const { role } = user;
-            if (role !== "ADMIN") location.href = "/";
-            else location.href = "/dashboard";
+            if (role !== "ADMIN") navigate("/");
+            else navigate("/dashboard");
           }, 1500);
           setIsLoading(true);
         }, 100);
@@ -81,14 +84,8 @@ export const LoginModal = () => {
               <i className="fal fa-user"></i>
             </span>
           </label>
-          <Controller
-            control={control}
-            name="email"
-            render={({ field }) => <Input {...field} type="email" />}
-          />
-          {errors.email && (
-            <p className="text-red-500">{errors.email.message}</p>
-          )}
+          <Controller control={control} name="email" render={({ field }) => <Input {...field} type="email" />} />
+          {errors.email && <p className="text-red-500">{errors.email.message}</p>}
         </div>
         <div className="pass-input-wrap fl-wrap">
           <label>
@@ -97,25 +94,15 @@ export const LoginModal = () => {
               <i className="fal fa-key"></i>
             </span>
           </label>
-          <Controller
-            control={control}
-            name="password"
-            render={({ field }) => <Input {...field} type="password" />}
-          />
-          {errors.password && (
-            <p className="text-red-500">{errors.password.message}</p>
-          )}
+          <Controller control={control} name="password" render={({ field }) => <Input {...field} type="password" />} />
+          {errors.password && <p className="text-red-500">{errors.password.message}</p>}
           <span className="eye z-10">
             <i className="fal fa-eye"></i>{" "}
           </span>
         </div>
       </div>
       <div className="clearfix"></div>
-      <Button
-        htmlType="submit"
-        className="log_btn color-bg"
-        loading={isLoading}
-      >
+      <Button htmlType="submit" className="log_btn color-bg" loading={isLoading}>
         {" "}
         Đăng nhập{" "}
       </Button>

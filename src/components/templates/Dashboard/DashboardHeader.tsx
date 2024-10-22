@@ -20,7 +20,8 @@ export const DashboardHeader = () => {
           e.preventDefault();
           localStorage.removeItem("USER");
           location.href = "/";
-        }}>
+        }}
+      >
         <i className="far fa-power-off"></i>
       </a>
     </div>

@@ -1,10 +1,12 @@
 import { Avatar, Popover } from "antd";
 import { LogoutOutlined, UserOutlined } from "@ant-design/icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { dataUser } from "../../utils";
 
 export const Header = () => {
   const currentLoging = dataUser();
+
+  const navigate = useNavigate();
 
   return (
     <header className="main-header">
@@ -39,7 +41,7 @@ export const Header = () => {
                   className="flex text-[13px] cursor-pointer"
                   onClick={() => {
                     localStorage.removeItem("USER");
-                    location.href = "/";
+                    navigate("/");
                   }}
                 >
                   <span className="inline-block me-3">Đăng xuất</span>

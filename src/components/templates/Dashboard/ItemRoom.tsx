@@ -1,13 +1,38 @@
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { RoomResponse } from "../../../@types";
 import { roomServices } from "../../../services";
+import { useState } from "react";
+import { Modal } from "antd";
+import { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 type Props = {
   room: RoomResponse;
   refetch: () => void;
 };
 export const ItemRoom = (props: Props) => {
-  const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = async () => {
+    try {
+      await roomServices.deleteRoom(room?.id);
+      toast.success("Xoá thành công");
+      refetch();
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        toast.error(error?.response?.data?.content);
+      }
+    }
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const { room, refetch } = props;
   refetch();
   return (
@@ -38,18 +63,14 @@ export const ItemRoom = (props: Props) => {
             </span>
             <ul>
               <li>
-                <a
-                  href={`/dashboard/editroom/${room?.id}`}
+                <NavLink
+                  to={`/dashboard/editroom/${room?.id}`}
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Edit"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(`/dashboard/editroom/${room?.id}`);
-                  }}
                 >
                   <i className="far fa-edit"></i>
-                </a>
+                </NavLink>
               </li>
 
               <li>
@@ -58,19 +79,16 @@ export const ItemRoom = (props: Props) => {
                   className="tolt"
                   data-microtip-position="top-left"
                   data-tooltip="Delete"
-                  onClick={async (e) => {
-                    try {
-                      e.preventDefault();
-                      await roomServices.deleteRoom(room?.id);
-                      console.log("delete success");
-                      refetch();
-                    } catch (error) {
-                      console.log("🚀 ~ onClick={ ~ error:", error);
-                    }
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showModal();
                   }}
                 >
                   <i className="far fa-trash-alt"></i>
                 </a>
+                <Modal title="Xác nhận" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                  <h4>Bạn có chắc xoá phòng này không ?</h4>
+                </Modal>
               </li>
             </ul>
           </div>
