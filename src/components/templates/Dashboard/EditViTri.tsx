@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import type { UploadFile } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
+import { viTriAPIResponse } from "../../../@types";
 
 export const EditViTri = () => {
   const { id } = useParams();
@@ -18,6 +19,8 @@ export const EditViTri = () => {
 
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   console.log("fileList: ", fileList);
+
+  const [oldData, setOldData] = useState<viTriAPIResponse>();
 
   const handleOnChangeUpload = (info: UploadChangeParam) => {
     let newFileList = [...info.fileList];
@@ -44,6 +47,7 @@ export const EditViTri = () => {
         const dataViTri = res.data.content;
         const fileUploadOld = convertUrlToUploadFile(dataViTri?.hinhAnh);
         setFileList([fileUploadOld]);
+        setOldData({ ...dataViTri, hinhAnh: undefined });
         reset({
           ...dataViTri,
           hinhAnh: undefined,
@@ -60,6 +64,11 @@ export const EditViTri = () => {
       ...data,
       hinhAnh: undefined,
     };
+
+    if (JSON.stringify(data) === JSON.stringify(oldData)) {
+      toast.warning("Data chưa được sửa");
+      return;
+    }
     try {
       const responseData = await viTriServices.updateViTri(id, unDataImage);
       sleep(3000);
@@ -101,7 +110,11 @@ export const EditViTri = () => {
       <div className="custom-form">
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="row">
-            <Controller control={control} name="id" render={({ field }) => <Input {...field} type="hidden" />} />
+            <Controller
+              control={control}
+              name="id"
+              render={({ field }) => <Input {...field} type="hidden" />}
+            />
 
             <div className="col-sm-6">
               <label className="uppercase">
@@ -113,9 +126,13 @@ export const EditViTri = () => {
               <Controller
                 control={control}
                 name="tenViTri"
-                render={({ field }) => <Input {...field} placeholder="Nhập tên vị trí" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập tên vị trí" />
+                )}
               />
-              {errors?.tenViTri && <p className="text-red-500">{errors?.tenViTri?.message}</p>}
+              {errors?.tenViTri && (
+                <p className="text-red-500">{errors?.tenViTri?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -127,9 +144,13 @@ export const EditViTri = () => {
               <Controller
                 control={control}
                 name="tinhThanh"
-                render={({ field }) => <Input {...field} placeholder="Nhập tên tỉnh thành" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập tên tỉnh thành" />
+                )}
               />
-              {errors?.tinhThanh && <p className="text-red-500">{errors?.tinhThanh?.message}</p>}
+              {errors?.tinhThanh && (
+                <p className="text-red-500">{errors?.tinhThanh?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">
@@ -141,9 +162,13 @@ export const EditViTri = () => {
               <Controller
                 control={control}
                 name="quocGia"
-                render={({ field }) => <Input {...field} placeholder="Nhập tên quốc gia" />}
+                render={({ field }) => (
+                  <Input {...field} placeholder="Nhập tên quốc gia" />
+                )}
               />
-              {errors?.quocGia && <p className="text-red-500">{errors?.quocGia?.message}</p>}
+              {errors?.quocGia && (
+                <p className="text-red-500">{errors?.quocGia?.message}</p>
+              )}
             </div>
             <div className="col-sm-6">
               <label className="uppercase">Hình ảnh</label>
@@ -172,7 +197,11 @@ export const EditViTri = () => {
               </div>
             </div>
             <div className="col-sm-12">
-              <Button htmlType="submit" type="primary" className="btn color-bg float-btn">
+              <Button
+                htmlType="submit"
+                type="primary"
+                className="btn color-bg float-btn"
+              >
                 SUBMIT
               </Button>
             </div>
