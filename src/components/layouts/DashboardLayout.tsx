@@ -27,6 +27,7 @@ export const DashboardLayout = () => {
         console.log("🚀 ~ DashboardLayout ~ err:", err);
       });
   }
+
   return (
     <>
       <div id="main">
