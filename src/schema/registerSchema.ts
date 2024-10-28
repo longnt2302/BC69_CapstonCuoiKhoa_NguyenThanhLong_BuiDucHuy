@@ -1,9 +1,9 @@
 import z from "zod";
 
 export const registerSchema = z.object({
-  id: z
-    .string({ message: "Please not empty!" })
-    .regex(new RegExp(".*[0-9].*"), { message: "ID is number" }),
+  // id: z
+  //   .string({ message: "Please not empty!" })
+  //   .regex(new RegExp(".*[0-9].*"), { message: "ID is number" }),
   name: z.string({ message: "Please not empty!" }),
   email: z
     .string({ message: "Please not empty!" })

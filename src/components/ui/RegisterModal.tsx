@@ -102,8 +102,8 @@ export const RegisterModal = () => {
                         className="main-register-form"
                         id="main-register-form2"
                         onSubmit={handleSubmit(onSubmit)}>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                          <div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3">
+                          {/* <div>
                             <label>
                               Mã *{" "}
                               <span className="dec-icon">
@@ -122,7 +122,7 @@ export const RegisterModal = () => {
                                 {errors.id.message}
                               </p>
                             )}
-                          </div>
+                          </div> */}
                           <div>
                             <label>
                               Tên *{" "}

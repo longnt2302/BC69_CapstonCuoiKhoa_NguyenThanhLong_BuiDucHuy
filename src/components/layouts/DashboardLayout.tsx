@@ -15,8 +15,8 @@ export const DashboardLayout = () => {
     usersServices
       .getUserById(user.id)
       .then((result) => {
-        const role = result?.data?.content?.role;
-        if (role !== "ADMIN") {
+        const role = result?.data?.content?.role.toLowerCase();
+        if (role !== "admin") {
           alert("Bạn không có quyền truy cập");
           location.href = "/";
           return;

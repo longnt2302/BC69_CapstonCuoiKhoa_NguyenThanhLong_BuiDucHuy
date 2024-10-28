@@ -6,7 +6,7 @@ export const Home = () => {
     <>
       <MainVisual />
 
-      <Breadcrumb currentPage="Introducing" />
+      <Breadcrumb currentPage="Giới thiệu" />
 
       <LastestProperties />
     </>

@@ -24,11 +24,15 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="add-list_wrap">
-        <NavLink to="/dashboard" className="add-list color-bg">
-          <i className="fal fa-plus"></i> <span>Quản trị</span>
-        </NavLink>
-      </div>
+      {currentLoging && currentLoging.user.role.toLowerCase() === "admin" ? (
+        <div className="add-list_wrap">
+          <NavLink to="/dashboard" className="add-list color-bg">
+            <i className="fal fa-plus"></i> <span>Quản trị</span>
+          </NavLink>
+        </div>
+      ) : (
+        ""
+      )}
 
       {currentLoging ? (
         <div className="h-full inline-flex items-center float-right md:px-5 px-2 md:border-l border-solid border-opacity-[0.1] border-white">
@@ -42,14 +46,12 @@ export const Header = () => {
                   onClick={() => {
                     localStorage.removeItem("USER");
                     navigate("/");
-                  }}
-                >
+                  }}>
                   <span className="inline-block me-3">Đăng xuất</span>
                   <LogoutOutlined className="text-red-400" />
                 </NavLink>
               </div>
-            }
-          >
+            }>
             <Avatar size={40} icon={<UserOutlined />} />
           </Popover>
         </div>
