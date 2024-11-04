@@ -214,12 +214,16 @@ export const DashboardUser = () => {
         infoUser={infoUser}
       />
       <div className="mb-5 mt-9">
-        <Paginate
-          total={totalPost}
-          current={currentPage}
-          setCurrent={setCurrentPage}
-          numberPost={postPerPage}
-        />
+        {textSearch?.length === 0 ? (
+          <Paginate
+            total={totalPost}
+            current={currentPage}
+            setCurrent={setCurrentPage}
+            numberPost={postPerPage}
+          />
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

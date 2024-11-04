@@ -242,14 +242,16 @@ export const DashboardBooking = () => {
         infoBooking={infoBooking}
       />
       <div className="mb-5 mt-9">
-        {
+        {textSearch?.length === 0 ? (
           <Paginate
             total={totalPost}
             current={currentPage}
             setCurrent={setCurrentPage}
             numberPost={postPerPage}
           />
-        }
+        ) : (
+          ""
+        )}
       </div>
     </>
   );
